@@ -68,12 +68,19 @@ open import IO
 open import Data.Fin
 open import Data.Nat
 open import Data.Vec
+  hiding (
+    _++_;
+    drop
+  )
 open import Function
 open import Data.Bool
 open import Data.List
   using (
     List;
+    _++_;
     [];
+    upTo;
+    drop;
     _∷_
   )
 open import Data.Float
@@ -203,9 +210,13 @@ ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \Sym, \B y) .zoi.
 to .i li renoreci pi'e pa pi'e pare cu detri le nu le mu'oi glibau.\ parsing expression .glibau.\ gerna cu na mapti di'u\ldots noi ke'a drani  .i lo skami cu mabla .u'e nai toi
 
 \begin{code}
-plicu'a : ∀ {a} {A : Set a} → ℕ → A → List $ ℕ × A → A
-plicu'a q x ((a , b) ∷ xs) = if q <ᵇ a then b else plicu'a q x xs
+plicu'a : ∀ {a} {A : Set a} → ℕ → A → List $ List ℕ × A → A
 plicu'a _ d [] = d
+plicu'a q x ((a , b) ∷ xs) = if q elem a then b else plicu'a q x xs
+  where
+  _elem_ : ℕ → List ℕ → Bool
+  _elem_ _ [] = false
+  _elem_ x (y ∷ ys) = (x ≡ᵇ y) ∨ (x elem ys)
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
@@ -216,13 +227,10 @@ toBnam q = plicu'a q' q' ns
   where
   q' : ℕ
   q' = toℕ q
-  ns : List $ ℕ × ℕ
-  ns = (51 , q') ∷ (42 , 40) ∷
-       (91 , q') ∷ (92 , 40) ∷
-       (93 , q') ∷ (94 , 40) ∷
-       (97 , q') ∷ (123 , q' ∸ 32) ∷
-       (124 , 40) ∷ (125 , q') ∷
-       (126 , 40) ∷ []
+  du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []
+  barda = drop 97 $ upTo 123
+  ns : List $ List ℕ × ℕ
+  ns = (du40 , 40) ∷ (barda , q' ∸ 32) ∷ []
 \end{code}
 
 \section{la'oi .\F{toCase}.}
@@ -236,37 +244,34 @@ toCase q = plicu'a (toℕ q) Snile'u ns
   where
   f : ℕ → Case → Case → Case
   f a b c = if (toℕ q) <ᵇ a then b else c
-  ns : List $ ℕ × Case
-  ns = (40 , Snile'u) ∷ (42 , Cukla) ∷
-       (48 , Snile'u) ∷ (58 , Namcu) ∷
-       (60 , Snile'u) ∷ (61 , Jganu) ∷
-       (62 , Snile'u) ∷ (63 , Jganu) ∷
-       (65 , Snile'u) ∷ (91 , Barda) ∷
-       (92 , Kurfa) ∷ (93 , Snile'u) ∷
-       (94 , Kurfa) ∷ (97 , Snile'u) ∷
-       (123 , Cmalu) ∷ (124 , Curly) ∷
-       (125 , Snile'u) ∷ (126 , Curly) ∷ []
+  namcu = drop 48 $ upTo 58
+  barda = drop 65 $ upTo 91
+  cmalu = drop 97 $ upTo 123
+  cukla = 40 ∷ 41 ∷ []
+  jganu = 60 ∷ 62 ∷ []
+  kurfa = 91 ∷ 93 ∷ []
+  curly = 123 ∷ 125 ∷ []
+  ns : List $ List ℕ × Case
+  ns = (cukla , Cukla) ∷ (namcu , Namcu) ∷
+       (jganu , Jganu) ∷ (barda , Barda) ∷
+       (kurfa , Kurfa) ∷ (curly , Curly) ∷ []
 \end{code}
 
 \section{la'oi .\F{toLtyp}.}
 
 \begin{code}
 toLtyp : Fin 128 → LTyp
-toLtyp q = g ganlo Ganlo $ g kalri Kalri $ plicu'a q' Vrici ns
+toLtyp q = plicu'a q' Vrici ns
   where
   q' : ℕ
   q' = toℕ q
-  _elem_ : ℕ → List ℕ → Bool
-  _elem_ _ [] = false
-  _elem_ x (y ∷ ys) = (x ≡ᵇ y) ∨ (x elem ys)
-  g : List ℕ → LTyp → LTyp → LTyp
-  g a b c = if q' elem a then b else c
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []
-  ns : List $ ℕ × LTyp
-  ns = (48 , Vrici) ∷ (58 , Xrabo) ∷
-       (65 , Vrici) ∷ (91 , Latmo) ∷
-       (97 , Vrici) ∷ (123 , Latmo) ∷ []
+  latmo = (drop 65 $ upTo 91) ++ (drop 97 $ upTo 123)
+  xrabo = drop 48 $ upTo 58
+  ns : List $ List ℕ × LTyp
+  ns = (kalri , Kalri) ∷ (ganlo , Ganlo) ∷
+       (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []
 \end{code}
 
 \section{la'oi .\F{toLerfu}.}
