@@ -66,7 +66,11 @@
 
 open import IO
   renaming (
-    lift to liftᵢₒ
+    lift to liftᵢₒ;
+    _>>=_ to _>>=ᵢₒ_
+  )
+  hiding (
+    _<$>_
   )
 open import Data.Fin
 open import Data.Nat
@@ -77,6 +81,10 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
+open import Data.Char
+  renaming (
+    toℕ to C2N
+  )
 open import Data.List
   using (
     List;
@@ -97,7 +105,8 @@ open import Data.Maybe
   )
 open import Data.String
   renaming (
-    _++_ to _++ₛ_
+    _++_ to _++ₛ_;
+    toList to toListₗ
   )
   using (
     String
@@ -113,6 +122,7 @@ open import IO.Primitive
     _>>=_ to _>>=ₚᵢₒ_;
     return to returnₚᵢₒ
   )
+open import Category.Monad
 open import Agda.Builtin.Unit
   renaming (
     ⊤ to Unit
@@ -122,6 +132,14 @@ open import Category.Applicative
 open import Data.Maybe.Instances
 open import Data.Unit.Polymorphic
 open import Relation.Binary.PropositionalEquality
+open import Data.Nat.Show
+  using (
+    show
+  )
+open import Data.Fin.Show
+  using (
+    readMaybe
+  )
 
 postulate selsniduXiPa : Float
 \end{code}
@@ -377,5 +395,46 @@ spk l = vecMapM′ doit $ intersperse denpuXipa $ spks l
   denpuXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
   spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
+\end{code}
+
+\section{la'oi .\F{genturfa'i}.}
+ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa'i} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke';a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
+
+\begin{code}
+genturfa'i : String → Maybe $ List Lerfu
+genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
+  where
+  _<$>ₘ_ = RawMonad._<$>_ maybeMonad
+  sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
+  sikh (just x ∷ xs) = (_∷_ x) <$>ₘ sikh xs
+  sikh (nothing ∷ _) = nothing
+  sikh [] = just []
+  c2l? : Char → Maybe Lerfu
+  c2l? = gtf ◈ clip ∘ C2N
+    where
+    clip : ℕ → Maybe $ Fin 128
+    clip = readMaybe 10 ∘ Data.Nat.Show.show
+    gtf : Fin 128 → Lerfu
+    gtf x = record {
+      ctyp = toLtyp x;
+      case = toCase x;
+      bnam = toBnam x
+      }
+\end{code}
+
+\section{la'oi .\F{main}.}
+
+\begin{code}
+main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
+  where
+  spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
+  spojaPe'aRu'e = liftx $ erroy $ jbo ++ₛ "\n\n" ++ₛ eng
+    where
+    jbo = "ni'o pruce fi lo lerfu poi ke'a na srana la .asycy'i'is."
+    eng = "Inputs a non-ASCII character."
+    postulate erroy : String → PIO Unit
+    {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
+  bacru : ∀ {a} → List Lerfu → IO {a} ⊤
+  bacru = ignore ∘ IO.List.sequence ∘ Data.List.map spk
 \end{code}
 \end{document}
