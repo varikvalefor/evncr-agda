@@ -228,9 +228,9 @@ toBnam q = plicu'a q' q' ns
   q' : ℕ
   q' = toℕ q
   du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []
-  barda = drop 97 $ upTo 123
+  cmalu = drop 97 $ upTo 123
   ns : List $ List ℕ × ℕ
-  ns = (du40 , 40) ∷ (barda , q' ∸ 32) ∷ []
+  ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []
 \end{code}
 
 \section{la'oi .\F{toCase}.}
