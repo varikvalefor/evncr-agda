@@ -1,7 +1,6 @@
 \documentclass{article}
 
 \usepackage{ar}
-\usepackage{stix}
 \usepackage[bw]{agda}
 \usepackage{ifsym}
 \usepackage{amsmath}
