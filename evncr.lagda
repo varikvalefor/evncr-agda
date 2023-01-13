@@ -53,6 +53,10 @@
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lBrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rBrace}}}
+\newunicodechar{ᵢ}{\ensuremath{\mathnormal{_i}}}
+\newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
+\newunicodechar{ₒ}{\ensuremath{\mathnormal{_o}}}
+\newunicodechar{ₚ}{\ensuremath{\mathnormal{_p}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
