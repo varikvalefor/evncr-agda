@@ -296,7 +296,8 @@ toCase q = plicu'a (toℕ q) Snile'u ns
   ns : List $ List ℕ × Case
   ns = (cukla , Cukla) ∷ (namcu , Namcu) ∷
        (jganu , Jganu) ∷ (barda , Barda) ∷
-       (kurfa , Kurfa) ∷ (curly , Curly) ∷ []
+       (kurfa , Kurfa) ∷ (curly , Curly) ∷
+       (cmalu , Cmalu) ∷ []
 \end{code}
 
 \section{la'oi .\F{toLtyp}.}
