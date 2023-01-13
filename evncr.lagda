@@ -217,6 +217,14 @@ _◈_ : ∀ {a} → {A B C : Set a}
 _◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
 \end{code}
 
+\section{la'oi .\F{liftx}.}
+ni'o cadga fa lo nu le se ctaipe cu banzu lo nu jimpe
+
+\begin{code}
+liftx : ∀ {a} → PIO Unit → IO {a} ⊤
+liftx q = liftᵢₒ (q >>=ₚᵢₒ λ _ → returnₚᵢₒ _)
+\end{code}
+
 \chapter{le skicu fancu}
 ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \Sym, \B y) .zoi.\ gi la'oi .\B q.\ mleca la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B y.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \Sym\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
 
@@ -347,13 +355,11 @@ postulate spkCF : Lerfu → Midnoi
 doit : ∀ {a} → String → IO {a} ⊤
 doit = liftx ∘ doit'
   where
-  liftx : ∀ {a} → PIO Unit → IO {a} ⊤
-  liftx q = liftᵢₒ (q >>=ₚᵢₒ λ _ → returnₚᵢₒ _)
   postulate doit' : String → PIO Unit
+  {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
   {-# FOREIGN GHC import Control.Monad #-}
   {-# FOREIGN GHC import System.Process #-}
-  {-# FOREIGN GHC import System.IO.Unsafe #-}
   {-# COMPILE GHC doit' = \_ -> void . runCommand . unpack #-}
 \end{code}
 
