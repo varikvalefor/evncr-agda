@@ -65,6 +65,9 @@
 {-# OPTIONS --guardedness #-}
 
 open import IO
+  renaming (
+    lift to liftᵢₒ
+  )
 open import Data.Fin
 open import Data.Nat
 open import Data.Vec
@@ -103,6 +106,16 @@ open import Data.Product
   using (
     _×_;
     _,_
+  )
+open import IO.Primitive
+  renaming (
+    IO to PIO;
+    _>>=_ to _>>=ₚᵢₒ_;
+    return to returnₚᵢₒ
+  )
+open import Agda.Builtin.Unit
+  renaming (
+    ⊤ to Unit
   )
 open import Data.List.NonEmpty
 open import Category.Applicative
@@ -332,14 +345,16 @@ postulate spkCF : Lerfu → Midnoi
 
 \begin{code}
 doit : ∀ {a} → String → IO {a} ⊤
-doit = pure ∘ doit'
+doit = liftx ∘ doit'
   where
-  postulate doit' : String → ⊤
+  liftx : ∀ {a} → PIO Unit → IO {a} ⊤
+  liftx q = liftᵢₒ (q >>=ₚᵢₒ λ _ → returnₚᵢₒ _)
+  postulate doit' : String → PIO Unit
+  {-# FOREIGN GHC import Data.Text #-}
   {-# FOREIGN GHC import Control.Monad #-}
   {-# FOREIGN GHC import System.Process #-}
   {-# FOREIGN GHC import System.IO.Unsafe #-}
-  {-# COMPILE GHC doit' =
-      \_ -> unsafePerformIO . void . runProcess #-}
+  {-# COMPILE GHC doit' = \_ -> void . runCommand . unpack #-}
 \end{code}
 
 \section{la'oi .\F{spk}.}
