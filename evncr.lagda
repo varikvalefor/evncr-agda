@@ -434,7 +434,7 @@ main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
   spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
   spojaPe'aRu'e = liftx $ erroy $ jbo ++ₛ "\n\n" ++ₛ eng
     where
-    jbo = "ni'o pruce fi lo lerfu poi ke'a na srana la .asycy'i'is."
+    jbo = "ni'o pruce fe lo lerfu poi ke'a na srana la .asycy'i'is."
     eng = "Inputs a non-ASCII character."
     postulate erroy : String → PIO Unit
     {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
