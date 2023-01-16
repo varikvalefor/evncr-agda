@@ -44,7 +44,6 @@
 \newunicodechar{σ}{\ensuremath{\sigma}}
 \newunicodechar{₁}{\ensuremath{_1}}
 \newunicodechar{₂}{\ensuremath{_2}}
-% \newunicodechar{′}{\ensuremath{\mathnormal{'}}}
 \newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{ₛ}{\ensuremath{_\mathsf{s}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
@@ -175,8 +174,6 @@ data Case : Set
 \subsection{la'oi .\F{LTyp}.}
 
 \subsubsection{le ctaipe}
-% ni'o gonai ge la'oi .\B t.\ sinxa lo me'oi .digit.\ gi ko'a goi la'o zoi.\ \F{LTyp} \B t .zoi.\ du la'oi .\F{Xrabo}.\ gi gonai ge la'oi .\B t.\ sinxa lo selvau be le latmo ke glibau se lu'erfu gi ko'a du la'oi .\F{Latmo}.\ gi ko'a du la'oi .\F{Vrici}. la'oi la'oi .\F{Latmo}.\ srana lo lerfu poi na jj
-% ni'o gonai ge sinxa lo me'oi .digit.\ gi la'oi .\F{Xrabo}.\ mapti gi gonai ge sinxa lo selvau be le latmo ke glibau se lu'erfu gi la'oi .\F{Latmo}.\ mapti gi la'oi .\F{Vrici}. mapti
 
 \begin{code}
 data LTyp : Set
