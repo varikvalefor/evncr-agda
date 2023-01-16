@@ -259,6 +259,14 @@ plicu'a q x ((a , b) ∷ xs) = if q elem a then b else plicu'a q x xs
   _elem_ x (y ∷ ys) = (x ≡ᵇ y) ∨ (x elem ys)
 \end{code}
 
+\section{la'oi .\F{intdMm}.}
+ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ vasru lo ro kacna'u poi ke'a dubjavmau la'oi .\B a.\ je cu mleca la'oi .\B b.
+
+\begin{code}
+intdMm : ℕ → ℕ → List ℕ
+intdMm a b = drop a $ upTo b
+\end{code}
+
 \section{la'oi .\F{toBnam}.}
 
 \begin{code}
@@ -268,7 +276,7 @@ toBnam q = plicu'a q' q' ns
   q' : ℕ
   q' = toℕ q
   du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []
-  cmalu = drop 97 $ upTo 123
+  cmalu = intdMm 97 123
   ns : List $ List ℕ × ℕ
   ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []
 \end{code}
@@ -284,9 +292,9 @@ toCase q = plicu'a (toℕ q) Snile'u ns
   where
   f : ℕ → Case → Case → Case
   f a b c = if (toℕ q) <ᵇ a then b else c
-  namcu = drop 48 $ upTo 58
-  barda = drop 65 $ upTo 91
-  cmalu = drop 97 $ upTo 123
+  namcu = intdMm 48 58
+  barda = intdMm 65 91
+  cmalu = intdMm 97 123
   cukla = 40 ∷ 41 ∷ []
   jganu = 60 ∷ 62 ∷ []
   kurfa = 91 ∷ 93 ∷ []
@@ -308,8 +316,8 @@ toLtyp q = plicu'a q' Vrici ns
   q' = toℕ q
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []
-  latmo = (drop 65 $ upTo 91) ++ (drop 97 $ upTo 123)
-  xrabo = drop 48 $ upTo 58
+  latmo = intdMm 65 91 ++ intdMm 97 123
+  xrabo = intdMm 48 58
   ns : List $ List ℕ × LTyp
   ns = (kalri , Kalri) ∷ (ganlo , Ganlo) ∷
        (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []
