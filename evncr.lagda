@@ -392,7 +392,7 @@ doit = liftx ∘ doit'
 \end{code}
 
 \section{la'oi .\F{spk}.}
-ni'o gonai co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e la'oi .\B q.
+ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e la'oi .\B q.
 
 \begin{code}
 spk : ∀ {a} → Lerfu → IO {a} ⊤
