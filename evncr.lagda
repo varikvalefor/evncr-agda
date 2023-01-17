@@ -96,6 +96,10 @@ open import Data.List
     drop;
     _∷_
   )
+  renaming (
+    intersperse to intersperseₗ;
+    length to lengthₗ
+  )
 open import Data.Float
   using (
     Float;
@@ -129,7 +133,6 @@ open import Agda.Builtin.Unit
   renaming (
     ⊤ to Unit
   )
-open import Data.List.NonEmpty
 open import Category.Applicative
 open import Data.Maybe.Instances
 open import Data.Unit.Polymorphic
@@ -348,10 +351,18 @@ toLerfu = finToLerfu ◈ toFin
 
 \section{le vrici je fancu}
 
+\subsection{la'oi .\F{intersperse}.}
+ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
+
+.i la .varik.\ cu milxe le ka ce'u sorpa'a lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
+
+.i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \Sym\$ \F{lengthₗ} \Sym\$ \F{intersperseₗ} \B t \Sym\$ \F{toList} \B q) \Sym ≡ (\B n \Sym * 2 \Sym ∸ 1) .zoi.
+
 \begin{code}
-postulate
-  intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
-              → A → Vec A n → Vec A $ n * 2 ∸ 1
+intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
+            → (t : A) → (q : Vec A n)
+            → Vec A $ lengthₗ $ intersperseₗ t $ toList q
+intersperse q = fromList ∘ intersperseₗ q ∘ Data.Vec.toList
 \end{code}
 
 \section{le fancu be fi lo .uniks.\ midnoi}
@@ -403,7 +414,7 @@ spk l = vecMapM′ doit $ intersperse denpuXipa $ spks l
   vecMapM′ f = IO.List.mapM′ f ∘ Data.Vec.toList
   denpuXipa : Midnoi
   denpuXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
-  spks : Lerfu → Vec Midnoi 3
+  spks : Lerfu → Vec Midnoi _
   spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
 \end{code}
 
