@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \usepackage{ar}
 \usepackage[bw]{agda}
@@ -149,9 +149,9 @@ open import Data.Fin.Show
 postulate selsniduXiPa : Float
 \end{code}
 
-\section{le me'oi .\AgdaKeyword{data}.}
+\chapter{le me'oi .\AgdaKeyword{data}.}
 
-\subsection{la'oi .\D{Midnoi}.}
+\section{la'oi .\D{Midnoi}.}
 ni'o ro da poi me'oi .\D{Midnoi}.\ zo'u da sinxa lo .uniks.\ midnoi
 
 \begin{code}
@@ -159,7 +159,7 @@ Midnoi : Set
 Midnoi = String
 \end{code}
 
-\subsection{la'oi .\D{Case}.}
+\section{la'oi .\D{Case}.}
 
 \begin{code}
 data Case : Set
@@ -174,9 +174,9 @@ data Case : Set
   Snile'u : Case
 \end{code}
 
-\subsection{la'oi .\F{LTyp}.}
+\section{la'oi .\F{LTyp}.}
 
-\subsubsection{le ctaipe}
+\subsection{le ctaipe}
 
 \begin{code}
 data LTyp : Set
@@ -191,7 +191,7 @@ data LTyp : Set
 \begin{code}
 \end{code}
 
-\subsection{la'oi .\D{Lerfu}.}
+\section{la'oi .\D{Lerfu}.}
 ni'o ro da poi me'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi .ASCII.
 
 .i go fo'a goi la'oi .\B x.\ toldra gi\ldots
@@ -363,30 +363,55 @@ toLerfu = finToLerfu ◈ toFin
     bn = toBnam a
 \end{code}
 
-\section{le fancu be fi lo .uniks.\ midnoi}
+\section{la'oi .\F{genturfa'i}.}
+ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa'i} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke';a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
 
-\subsection{la'oi .\F{spkCL}.}
+\begin{code}
+genturfa'i : String → Maybe $ List Lerfu
+genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
+  where
+  _<$>ₘ_ = RawMonad._<$>_ maybeMonad
+  sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
+  sikh (just x ∷ xs) = (_∷_ x) <$>ₘ sikh xs
+  sikh (nothing ∷ _) = nothing
+  sikh [] = just []
+  c2l? : Char → Maybe Lerfu
+  c2l? = gtf ◈ clip ∘ C2N
+    where
+    clip : ℕ → Maybe $ Fin 128
+    clip = readMaybe 10 ∘ Data.Nat.Show.show
+    gtf : Fin 128 → Lerfu
+    gtf x = record {
+      ctyp = toLtyp x;
+      case = toCase x;
+      bnam = toBnam x
+      }
+\end{code}
+
+\chapter{le fancu be fi lo .uniks.\ midnoi}
+
+\section{la'oi .\F{spkCL}.}
 ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
 
 \begin{code}
 postulate spkCL : Lerfu → Midnoi
 \end{code}
 
-\subsection{la'oi .\F{spkCC}.}
+\section{la'oi .\F{spkCC}.}
 ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .case.\ be la'oi .\B x.
 
 \begin{code}
 postulate spkCC : Lerfu → Midnoi
 \end{code}
 
-\subsection{la'oi .\F{spkCF}.}
+\section{la'oi .\F{spkCF}.}
 ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
 
 \begin{code}
 postulate spkCF : Lerfu → Midnoi
 \end{code}
 
-\subsection{la'oi .\F{doit}.}
+\section{la'oi .\F{doit}.}
 
 \begin{code}
 doit : ∀ {a} → String → IO {a} ⊤
@@ -414,31 +439,6 @@ spk l = vecMapM′ doit $ intersperse denpuXipa $ spks l
   denpuXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
   spks : Lerfu → Vec Midnoi _
   spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
-\end{code}
-
-\section{la'oi .\F{genturfa'i}.}
-ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa'i} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke';a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
-
-\begin{code}
-genturfa'i : String → Maybe $ List Lerfu
-genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
-  where
-  _<$>ₘ_ = RawMonad._<$>_ maybeMonad
-  sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
-  sikh (just x ∷ xs) = (_∷_ x) <$>ₘ sikh xs
-  sikh (nothing ∷ _) = nothing
-  sikh [] = just []
-  c2l? : Char → Maybe Lerfu
-  c2l? = gtf ◈ clip ∘ C2N
-    where
-    clip : ℕ → Maybe $ Fin 128
-    clip = readMaybe 10 ∘ Data.Nat.Show.show
-    gtf : Fin 128 → Lerfu
-    gtf x = record {
-      ctyp = toLtyp x;
-      case = toCase x;
-      bnam = toBnam x
-      }
 \end{code}
 
 \section{la'oi .\F{main}.}
