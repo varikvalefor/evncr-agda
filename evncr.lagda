@@ -396,21 +396,30 @@ genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
 ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
 
 \begin{code}
-postulate spkCL : Lerfu → Midnoi
+spkCL : Lerfu → Midnoi
+spkCL q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.ctyp q)
+  where
+  postulate f : LTyp → String
 \end{code}
 
 \section{la'oi .\F{spkCC}.}
 ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .case.\ be la'oi .\B x.
 
 \begin{code}
-postulate spkCC : Lerfu → Midnoi
+spkCC : Lerfu → Midnoi
+spkCC q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.case q)
+  where
+  postulate f : Case → String
 \end{code}
 
 \section{la'oi .\F{spkCF}.}
-ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
+ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{bnam}.\ be la'oi .\B x.
 
 \begin{code}
-postulate spkCF : Lerfu → Midnoi
+spkCF : Lerfu → Midnoi
+spkCF q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.bnam q)
+  where
+  postulate f : ℕ → String
 \end{code}
 
 \section{la'oi .\F{doit}.}
