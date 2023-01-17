@@ -239,7 +239,7 @@ record Lerfu : Set
   field
     ctyp : LTyp
     case : Case
-    bnam : ℕ
+    bnam : Fin 128
 \end{code}
 
 \chapter{le vrici je fancu}
@@ -364,14 +364,12 @@ toLerfu : ℕ → Maybe Lerfu
 toLerfu = finToLerfu ◈ readMaybe 10 ∘ Data.Nat.Show.show
   where
   finToLerfu : Fin 128 → Lerfu
-  finToLerfu a = record {ctyp = lt; case = cs; bnam = bn}
+  finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
     where
     lt : LTyp
     lt = toLtyp a
     cs : Case
     cs = toCase a
-    bn : ℕ
-    bn = toBnam a
 \end{code}
 
 \section{la'oi .\F{genturfa'i}.}
@@ -419,7 +417,7 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo n
 spkCF : Lerfu → Midnoi
 spkCF q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.bnam q)
   where
-  postulate f : ℕ → String
+  postulate f : Fin 128 → String
 \end{code}
 
 \section{la'oi .\F{doit}.}
