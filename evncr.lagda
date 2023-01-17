@@ -246,6 +246,20 @@ liftx : ∀ {a} → PIO Unit → IO {a} ⊤
 liftx q = liftᵢₒ (q >>=ₚᵢₒ λ _ → returnₚᵢₒ _)
 \end{code}
 
+\section{la'oi .\F{intersperse}.}
+ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
+
+.i la .varik.\ cu milxe le ka ce'u sorpa'a lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
+
+.i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \Sym\$ \F{lengthₗ} \Sym\$ \F{intersperseₗ} \B t \Sym\$ \F{toList} \B q) \Sym ≡ (\B n \Sym * 2 \Sym ∸ 1) .zoi.
+
+\begin{code}
+intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
+            → (t : A) → (q : Vec A n)
+            → Vec A $ lengthₗ $ intersperseₗ t $ toList q
+intersperse q = fromList ∘ intersperseₗ q ∘ Data.Vec.toList
+\end{code}
+
 \chapter{le skicu fancu}
 \section{la'oi .\F{plicu'a}.}
 ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \Sym, \B y) .zoi.\ gi la'oi .\B q.\ mleca la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B y.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \Sym\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
@@ -347,22 +361,6 @@ toLerfu = finToLerfu ◈ toFin
     cs = toCase a
     bn : ℕ
     bn = toBnam a
-\end{code}
-
-\section{le vrici je fancu}
-
-\subsection{la'oi .\F{intersperse}.}
-ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
-
-.i la .varik.\ cu milxe le ka ce'u sorpa'a lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
-
-.i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \Sym\$ \F{lengthₗ} \Sym\$ \F{intersperseₗ} \B t \Sym\$ \F{toList} \B q) \Sym ≡ (\B n \Sym * 2 \Sym ∸ 1) .zoi.
-
-\begin{code}
-intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
-            → (t : A) → (q : Vec A n)
-            → Vec A $ lengthₗ $ intersperseₗ t $ toList q
-intersperse q = fromList ∘ intersperseₗ q ∘ Data.Vec.toList
 \end{code}
 
 \section{le fancu be fi lo .uniks.\ midnoi}
