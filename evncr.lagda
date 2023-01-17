@@ -416,13 +416,13 @@ ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e l
 
 \begin{code}
 spk : ∀ {a} → Lerfu → IO {a} ⊤
-spk l = vecMapM′ doit $ intersperse denpuXipa $ spks l
+spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
   where
   vecMapM′ : ∀ {a b} → {n : ℕ} → {A : Set a}
            → (A → IO {b} ⊤) → Vec A n → IO {b} ⊤
   vecMapM′ f = IO.List.mapM′ f ∘ Data.Vec.toList
-  denpuXipa : Midnoi
-  denpuXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
+  denpaXipa : Midnoi
+  denpaXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
   spks : Lerfu → Vec Midnoi _
   spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
 \end{code}
