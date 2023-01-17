@@ -145,8 +145,24 @@ open import Data.Fin.Show
   using (
     readMaybe
   )
+\end{code}
 
+\chapter{le srana be lo nu tcimi'e}
+
+\section{la'oi .\F{selsniduXipa}.}
+ni'o la'oi .\F{selsniduXipa}.\ bitmu fo lo me'oi .Lerfu.
+
+\begin{code}
 postulate selsniduXiPa : Float
+\end{code}
+
+\section{la'oi .\F{ddvs}.}
+ni'o la'oi .\F{ddvs}.\ me'oi .path. lo datnyveiste poi ke'a vasru lo sance datnyvei pe la'oi .EVANNOUNCER.
+
+.i zo'oi .ddvs.\ cmavlaka'i lu datni datnyveiste li'u
+
+\begin{code}
+postulate ddvs : String
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{data}.}
