@@ -345,13 +345,8 @@ ni'o gonai ge la'oi .\B n.\ mleca li panobi gi ko'a goi la'o zoi.\ \F{toLerfu} \
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu = finToLerfu ◈ toFin
+toLerfu = finToLerfu ◈ readMaybe 10 ∘ Data.Nat.Show.show
   where
-  postulate
-    -- | ni'o gonai ge la'oi .n. mleca li parebi gi la'o
-    -- zoi. toFin n .zoi. me'oi .just. lo sinxa be la'oi
-    -- .n. gi la'o zoi. toFin n .zoi. me'oi .nothing.
-    toFin : ℕ → Maybe $ Fin 128
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = bn}
     where
@@ -376,16 +371,7 @@ genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
   sikh (nothing ∷ _) = nothing
   sikh [] = just []
   c2l? : Char → Maybe Lerfu
-  c2l? = gtf ◈ clip ∘ C2N
-    where
-    clip : ℕ → Maybe $ Fin 128
-    clip = readMaybe 10 ∘ Data.Nat.Show.show
-    gtf : Fin 128 → Lerfu
-    gtf x = record {
-      ctyp = toLtyp x;
-      case = toCase x;
-      bnam = toBnam x
-      }
+  c2l? = toLerfu ∘ C2N
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
