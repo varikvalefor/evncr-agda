@@ -417,7 +417,8 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo n
 spkCF : Lerfu → Midnoi
 spkCF q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.bnam q)
   where
-  postulate f : Fin 128 → String
+  f : Fin 128 → String
+  f = Data.Nat.Show.show ∘ toℕ
 \end{code}
 
 \section{la'oi .\F{doit}.}
