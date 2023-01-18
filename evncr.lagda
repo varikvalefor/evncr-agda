@@ -84,6 +84,9 @@ open import Data.Vec
 open import Function
 open import Data.Bool
 open import Data.Char
+  using (
+    Char
+  )
   renaming (
     toℕ to C2N
   )
@@ -102,8 +105,7 @@ open import Data.List
   )
 open import Data.Float
   using (
-    Float;
-    show
+    Float
   )
 open import Data.Maybe
   renaming (
@@ -138,9 +140,7 @@ open import Data.Maybe.Instances
 open import Data.Unit.Polymorphic
 open import Relation.Binary.PropositionalEquality
 open import Data.Nat.Show
-  using (
-    show
-  )
+  using ()
 open import Data.Fin.Show
   using (
     readMaybe
@@ -163,6 +163,28 @@ ni'o la'oi .\F{ddvs}.\ me'oi .path. lo datnyveiste poi ke'a vasru lo sance datny
 
 \begin{code}
 postulate ddvs : String
+\end{code}
+
+\chapter{le me'oi .\AgdaKeyword{record}.\ je le me'oi .\AgdaKeyword{instance}.\ je zo'e}
+
+\section{la'oi .\F{Showable}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu jmina lo velcki\ldots kei kei je cu na djuno lo du'u ma kau zabna velcki la'oi .\F{Showable}.
+
+\begin{code}
+record Showable {a} (A : Set a) : Set a
+  where
+  field
+    show : A → String
+\end{code}
+
+\subsection{le me'oi .instance\ldots ja co'e}
+
+\begin{code}
+instance
+  showableℕ : Showable ℕ
+  showableℕ = record {show = Data.Nat.Show.show}
+  showableFloat : Showable Float
+  showableFloat = record {show = Data.Float.show}
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{data}.}
@@ -243,6 +265,15 @@ record Lerfu : Set
 \end{code}
 
 \chapter{le vrici je fancu}
+
+\section{la'oi .\F{show}.}
+ni'o la'o zoi.\ \F{show} \B q .zoi.\ me'oi .String.\ je cu sinxa la'oi .\B q.
+
+\begin{code}
+show : ∀ {a} → {A : Set a} → ⦃ _ : Showable A ⦄
+     → A → String
+show ⦃ Q ⦄ = Showable.show Q
+\end{code}
 
 \section{la'oi .\Sym{◈}.}
 ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
@@ -361,7 +392,7 @@ ni'o gonai ge la'oi .\B n.\ mleca li panobi gi ko'a goi la'o zoi.\ \F{toLerfu} \
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu = finToLerfu ◈ readMaybe 10 ∘ Data.Nat.Show.show
+toLerfu = finToLerfu ◈ readMaybe 10 ∘ show
   where
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
