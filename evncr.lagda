@@ -62,7 +62,13 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+\title{le me'oi .Agda.\ me'oi .implementation.\ be la'oi .EVANNOUNCER.}
+\author{la .varik.\ .VALefor.}
+
 \begin{document}
+\maketitle
+
+\chapter{le me'oi .preamble.}
 \begin{code}
 {-# OPTIONS --guardedness #-}
 
