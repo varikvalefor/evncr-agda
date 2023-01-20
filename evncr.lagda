@@ -455,7 +455,7 @@ spkCF : Lerfu → Midnoi
 spkCF q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.bnam q)
   where
   f : Fin 128 → String
-  f = Data.Nat.Show.show ∘ toℕ
+  f = show ∘ toℕ
 \end{code}
 
 \section{la'oi .\F{doit}.}
@@ -483,7 +483,7 @@ spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
            → (A → IO {b} ⊤) → Vec A n → IO {b} ⊤
   vecMapM′ f = IO.List.mapM′ f ∘ Data.Vec.toList
   denpaXipa : Midnoi
-  denpaXipa = "sleep " ++ₛ Data.Float.show selsniduXiPa
+  denpaXipa = "sleep " ++ₛ show selsniduXiPa
   spks : Lerfu → Vec Midnoi _
   spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
 \end{code}
