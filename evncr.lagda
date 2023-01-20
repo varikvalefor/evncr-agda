@@ -418,7 +418,7 @@ genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
   where
   _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
-  sikh (just x ∷ xs) = (_∷_ x) <$>ₘ sikh xs
+  sikh (just x ∷ xs) = _∷_ x <$>ₘ sikh xs
   sikh (nothing ∷ _) = nothing
   sikh [] = just []
   c2l? : Char → Maybe Lerfu
