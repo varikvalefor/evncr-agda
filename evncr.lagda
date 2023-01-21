@@ -91,6 +91,7 @@ open import Data.Nat
   )
 open import Data.Vec
   hiding (
+    map;
     drop
   )
   renaming (
@@ -195,7 +196,7 @@ record Showable {a} (A : Set a) : Set a
     show : A → String
 \end{code}
 
-\subsection{le me'oi .instance\ldots ja co'e}
+\subsection{le me'oi .\AgdaKeyword{instance}.\ pe zo'e poi la'oi .EVANNOUNCER.\ cu na vasru lo vlavelcki be ke'a}
 
 \begin{code}
 instance
@@ -236,7 +237,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     etsil : (q : List e) → olen $ Data.List.length q
 \end{code}
 
-\subsection{le me'oi .\AgdaKeyword{instance}.}
+\subsection{le me'oi .\AgdaKeyword{instance}.\ pe zo'e poi la'oi .EVANNOUNCER.\ cu na vasru lo vlavelcki be ke'a}
 
 \begin{code}
 instance
@@ -300,9 +301,25 @@ data Case : Set
   Snile'u : Case
 \end{code}
 
-\section{la'oi .\F{LTyp}.}
+\subsection{le me'oi .\AgdaKeyword{instance}.}
 
-\subsection{le ctaipe}
+\begin{code}
+instance
+  shockAndAwe : Showable Case
+  shockAndAwe = record {show = f}
+    where
+    f : Case → String
+    f Barda = "Barda"
+    f Cmalu = "Cmalu"
+    f Namcu = "Namcu"
+    f Cukla = "Cukla"
+    f Curly = "Curly"
+    f Kurfa = "Kurfa"
+    f Jganu = "Jganu"
+    f Snile'u = "Snile'u"
+\end{code}
+
+\section{la'oi .\F{LTyp}.}
 
 \begin{code}
 data LTyp : Set
@@ -314,7 +331,19 @@ data LTyp : Set
   Ganlo : LTyp
 \end{code}
 
+\subsection{le me'oi .\AgdaKeyword{instance}.}
+
 \begin{code}
+instance
+  showUsYourBoobs : Showable LTyp
+  showUsYourBoobs = record {show = f}
+    where
+    f : LTyp → String
+    f Latmo = "Latmo"
+    f Xrabo = "Xrabo"
+    f Vrici = "Vrici"
+    f Kalri = "Kalri"
+    f Ganlo = "Ganlo"
 \end{code}
 
 \section{la'oi .\D{Lerfu}.}
@@ -395,6 +424,26 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
    → ⦃ Q : LL A ⦄
    → LL.olen Q 0
 [] ⦃ Q ⦄ = LL.[] Q
+\end{code}
+
+\section{la'oi .\F{map}.}
+ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+
+.i cadga fa lo nu le se ctaipe be le te pruce cu du la'oi .\B A.  .i ku'i na lojysra le du'u la'o zoi.\ LL.olen Q $ lengthₗ $ LL.liste Q x .zoi.\ du la'oi .\B A.
+
+ni'o la .varik.\ cu na mutce ka ce'u nelci la'oi .\F{map}.\ kei je cu tolnei le su'u le sumti cu ctaipe la'o zoi.\ \F{LL.e} \B Q \Sym → \F{LL.e} \B Q .zoi.\ je cu djica lo nu xagzengau la'oi .\F{map}.\ le ka ce'u mapti lo so'i co'e
+
+.i le su'u xagzengau cu selvau le .aiste
+
+\begin{code}
+map : ∀ {a} → {A : Set a}
+    → ⦃ Q  : LL A ⦄
+    → (LL.e Q → LL.e Q) → (x : A)
+    → LL.olen Q $ lengthₗ $ LL.liste Q x
+map ⦃ Q ⦄ f = etsil ∘ liste
+  where
+  liste = LL.liste Q
+  etsil = LL.etsil Q
 \end{code}
 
 \section{la'oi .\Sym{◈}.}
@@ -550,7 +599,8 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo n
 spkCL : Lerfu → Midnoi
 spkCL q = "mplayer " ++ ddvs ++ f (Lerfu.ctyp q)
   where
-  postulate f : LTyp → String
+  f : LTyp → String
+  f = map Data.Char.toLower ∘ show
 \end{code}
 
 \section{la'oi .\F{spkCC}.}
@@ -560,7 +610,8 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo n
 spkCC : Lerfu → Midnoi
 spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
   where
-  postulate f : Case → String
+  f : Case → String
+  f = map Data.Char.toLower ∘ show
 \end{code}
 
 \section{la'oi .\F{spkCF}.}
