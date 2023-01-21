@@ -666,6 +666,6 @@ main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
     postulate erroy : String → PIO Unit
     {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
   bacru : ∀ {a} → List Lerfu → IO {a} ⊤
-  bacru = ignore ∘ IO.List.sequence ∘ map spk
+  bacru = ignore ∘ IO.List.mapM spk
 \end{code}
 \end{document}
