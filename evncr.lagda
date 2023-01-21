@@ -56,6 +56,8 @@
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₒ}{\ensuremath{\mathnormal{_o}}}
 \newunicodechar{ₚ}{\ensuremath{\mathnormal{_p}}}
+\newunicodechar{ₙ}{\ensuremath{\mathnormal{_n}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -80,12 +82,21 @@ open import IO
   hiding (
     _<$>_
   )
+open import Level
 open import Data.Fin
 open import Data.Nat
+  renaming (
+    suc to sucₙ;
+    _+_ to _+ₙ_
+  )
 open import Data.Vec
   hiding (
-    _++_;
     drop
+  )
+  renaming (
+    [] to []ᵥ;
+    _++_ to _++ᵥ_;
+    _∷_ to _∷ᵥ_
   )
 open import Function
 open import Data.Bool
@@ -99,13 +110,13 @@ open import Data.Char
 open import Data.List
   using (
     List;
-    _++_;
-    [];
     upTo;
-    drop;
-    _∷_
+    drop
   )
   renaming (
+    [] to []ₗ;
+    _∷_ to _∷ₗ_;
+    _++_ to _++ₗ_;
     intersperse to intersperseₗ;
     length to lengthₗ
   )
@@ -120,6 +131,7 @@ open import Data.Maybe
 open import Data.String
   renaming (
     _++_ to _++ₛ_;
+    fromList to fromListₗ;
     toList to toListₗ
   )
   using (
@@ -191,6 +203,76 @@ instance
   showableℕ = record {show = Data.Nat.Show.show}
   showableFloat : Showable Float
   showableFloat = record {show = Data.Float.show}
+\end{code}
+
+\section{la'oi .\F{LL}.}
+ni'o ga go zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
+
+.i ga go la'oi .\B q.\ zasti je cu ctaipe la'o zoi.\ \F{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
+\begin{itemize}
+  \item ga je la'o zoi.\ \F{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
+  \item ga je ga jo la'oi .\B n.\ selvau la'oi .\D{ℕ}.\ gi la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
+  \item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
+  \item ga je ga jonai ga je cumki fa lo nu lo nilzilcmi be ko'a goi lo ctaipe be la'oi .\B t.\ cu na du lo nilzilcmi be lo ctaipe be la'oi .\B t.\ be'o poi ke'a na du ko'a gi la'o zoi.\ \F{LL.l} \B q .zoi.\ je la'o zoi.\ \F{LL.n} \B q.\ cu du li no gi ga je la'o zoi.\ \F{LL.l} \B q .zoi.\ nilzilcmi lo ctaipe be la'oi .\B t.\ gi la'o zoi.\ \F{LL.n} \B q .zoi.\ nilzilcmi lo remoi be lo'i ro sumti be la'oi .\F{\_++\_}.\ gi
+  \item ga je la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.\ gi
+  \item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
+  \item la'o zoi.\ \F{LL.etsil} \Sym∘ \F{LL.liste} .zoi.\ dunli la'oi .\F{id}.
+\end{itemize}
+
+\begin{code}
+record LL {a} (A : Set a) : Set (Level.suc a)
+  where
+  field
+    e : Set a
+    olen : ℕ → Set a
+    [] : olen 0
+    l n : ℕ
+  olenn = olen n
+  olenl+n = olen $ l +ₙ n
+  field
+    _++_ : A → olen n → olen $ l +ₙ n
+    _∷_ : e → A → olen $ sucₙ l
+    liste : A → List e
+    etsil : (q : List e) → olen $ Data.List.length q
+\end{code}
+
+\subsection{le me'oi .\AgdaKeyword{instance}.}
+
+\begin{code}
+instance
+  liliList : ∀ {a} → {A : Set a} → LL $ List A
+  liliList {_} {A} = record {
+    e = A;
+    olen = const $ List A;
+    [] = []ₗ;
+    l = 0;
+    n = 0;
+    _++_ = _++ₗ_;
+    _∷_ = _∷ₗ_;
+    liste = id;
+    etsil = id}
+  liliString : LL String
+  liliString = record {
+    e = Char;
+    olen = const String;
+    [] = "";
+    l = 0;
+    n = 0;
+    _++_ = _++ₛ_;
+    _∷_ = λ a → fromListₗ ∘ _∷ₗ_ a ∘ toListₗ;
+    liste = Data.String.toList;
+    etsil = Data.String.fromList}
+  liliVec : ∀ {a} → {A : Set a} → {n m : ℕ} → LL $ Vec A n
+  liliVec {_} {A} {n'} {m'} = record {
+    [] = []ᵥ;
+    olen = Vec A;
+    e = A;
+    l = n';
+    n = m';
+    _++_ = _++ᵥ_;
+    _∷_ = _∷ᵥ_;
+    liste = Data.Vec.toList;
+    etsil = Data.Vec.fromList}
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{data}.}
@@ -281,6 +363,40 @@ show : ∀ {a} → {A : Set a} → ⦃ _ : Showable A ⦄
 show ⦃ Q ⦄ = Showable.show Q
 \end{code}
 
+\section{la'oi .\F{\_++\_}.}
+ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+
+\begin{code}
+infixr 5 _++_
+
+_++_ : ∀ {a} → {A : Set a}
+     → ⦃ T : LL A ⦄
+     → A → LL.olenn T → LL.olenl+n T
+_++_ ⦃ Q ⦄ = LL._++_ Q
+\end{code}
+
+\section{la'oi .\F{\_∷\_}.}
+ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+
+\begin{code}
+infixr 5 _∷_
+
+_∷_ : ∀ {a} → {A : Set a}
+     → ⦃ ALL : LL A ⦄
+     → LL.e ALL → A → LL.olen ALL $ sucₙ $ LL.l ALL
+_∷_ ⦃ Q ⦄ = LL._∷_ Q
+\end{code}
+
+\section{la'oi .\F{[]}.}
+ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+
+\begin{code}
+[] : ∀ {a} → {A : Set a}
+   → ⦃ Q : LL A ⦄
+   → LL.olen Q 0
+[] ⦃ Q ⦄ = LL.[] Q
+\end{code}
+
 \section{la'oi .\Sym{◈}.}
 ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
 
@@ -321,12 +437,12 @@ to .i li renoreci pi'e pa pi'e pare cu detri le nu le mu'oi glibau.\ parsing exp
 
 \begin{code}
 plicu'a : ∀ {a} {A : Set a} → ℕ → A → List $ List ℕ × A → A
-plicu'a _ d [] = d
-plicu'a q x ((a , b) ∷ xs) = if q elem a then b else plicu'a q x xs
+plicu'a _ d []ₗ = d
+plicu'a q x ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q x xs
   where
   _elem_ : ℕ → List ℕ → Bool
-  _elem_ _ [] = false
-  _elem_ x (y ∷ ys) = (x ≡ᵇ y) ∨ (x elem ys)
+  _elem_ _ []ₗ = false
+  _elem_ x (y ∷ₗ ys) = (x ≡ᵇ y) ∨ (x elem ys)
 \end{code}
 
 \section{la'oi .\F{intdMm}.}
@@ -345,10 +461,10 @@ toBnam q = plicu'a q' q' ns
   where
   q' : ℕ
   q' = toℕ q
-  du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []
+  du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
   cmalu = intdMm 97 123
   ns : List $ List ℕ × ℕ
-  ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []
+  ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []ₗ
 \end{code}
 
 \section{la'oi .\F{toCase}.}
@@ -365,15 +481,15 @@ toCase q = plicu'a (toℕ q) Snile'u ns
   namcu = intdMm 48 58
   barda = intdMm 65 91
   cmalu = intdMm 97 123
-  cukla = 40 ∷ 41 ∷ []
-  jganu = 60 ∷ 62 ∷ []
-  kurfa = 91 ∷ 93 ∷ []
-  curly = 123 ∷ 125 ∷ []
+  cukla = 40 ∷ 41 ∷ []ₗ
+  jganu = 60 ∷ 62 ∷ []ₗ
+  kurfa = 91 ∷ 93 ∷ []ₗ
+  curly = 123 ∷ 125 ∷ []ₗ
   ns : List $ List ℕ × Case
   ns = (cukla , Cukla) ∷ (namcu , Namcu) ∷
        (jganu , Jganu) ∷ (barda , Barda) ∷
        (kurfa , Kurfa) ∷ (curly , Curly) ∷
-       (cmalu , Cmalu) ∷ []
+       (cmalu , Cmalu) ∷ []ₗ
 \end{code}
 
 \section{la'oi .\F{toLtyp}.}
@@ -384,13 +500,13 @@ toLtyp q = plicu'a q' Vrici ns
   where
   q' : ℕ
   q' = toℕ q
-  kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []
-  ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []
+  kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
+  ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
   latmo = intdMm 65 91 ++ intdMm 97 123
   xrabo = intdMm 48 58
   ns : List $ List ℕ × LTyp
   ns = (kalri , Kalri) ∷ (ganlo , Ganlo) ∷
-       (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []
+       (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []ₗ
 \end{code}
 
 \section{la'oi .\F{toLerfu}.}
@@ -418,9 +534,9 @@ genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
   where
   _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
-  sikh (just x ∷ xs) = _∷_ x <$>ₘ sikh xs
-  sikh (nothing ∷ _) = nothing
-  sikh [] = just []
+  sikh (just x ∷ₗ xs) = _∷_ x <$>ₘ sikh xs
+  sikh (nothing ∷ₗ _) = nothing
+  sikh []ₗ = just []ₗ
   c2l? : Char → Maybe Lerfu
   c2l? = toLerfu ∘ C2N
 \end{code}
@@ -432,7 +548,7 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo n
 
 \begin{code}
 spkCL : Lerfu → Midnoi
-spkCL q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.ctyp q)
+spkCL q = "mplayer " ++ ddvs ++ f (Lerfu.ctyp q)
   where
   postulate f : LTyp → String
 \end{code}
@@ -442,7 +558,7 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo n
 
 \begin{code}
 spkCC : Lerfu → Midnoi
-spkCC q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.case q)
+spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
   where
   postulate f : Case → String
 \end{code}
@@ -452,7 +568,7 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo n
 
 \begin{code}
 spkCF : Lerfu → Midnoi
-spkCF q = "mplayer " ++ₛ ddvs ++ₛ f (Lerfu.bnam q)
+spkCF q = "mplayer " ++ ddvs ++ f (Lerfu.bnam q)
   where
   f : Fin 128 → String
   f = show ∘ toℕ
@@ -481,11 +597,11 @@ spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
   where
   vecMapM′ : ∀ {a b} → {n : ℕ} → {A : Set a}
            → (A → IO {b} ⊤) → Vec A n → IO {b} ⊤
-  vecMapM′ f = IO.List.mapM′ f ∘ Data.Vec.toList
+  vecMapM′ f = IO.List.mapM′ f ∘ toList
   denpaXipa : Midnoi
   denpaXipa = "sleep " ++ₛ show selsniduXiPa
-  spks : Lerfu → Vec Midnoi _
-  spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []
+  spks : Lerfu → Vec Midnoi 3
+  spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
 \end{code}
 
 \section{la'oi .\F{main}.}
@@ -494,7 +610,7 @@ spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
 main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
   where
   spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
-  spojaPe'aRu'e = liftx $ erroy $ jbo ++ₛ "\n\n" ++ₛ eng
+  spojaPe'aRu'e = liftx $ erroy $ jbo ++ "\n\n" ++ eng
     where
     jbo = "ni'o pruce lo lerfu poi \
           \ke'a na srana la .asycy'i'is."
