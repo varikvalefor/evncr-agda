@@ -556,7 +556,7 @@ toLtyp q = plicu'a q' Vrici ns
 \end{code}
 
 \section{la'oi .\F{toLerfu}.}
-ni'o gonai ge la'oi .\B n.\ mleca li panobi gi ko'a goi la'o zoi.\ \F{toLerfu} \B n .zoi.\ me'oi .\F{just}.\ be lo sinxa lo .asycy'i'is.\ lerfu poi meirmoi la'oi .\B n.\ fo le'i ro .asyci'is.\ lerfu gi ko'a me'oi .\F{nothing}.
+ni'o ga jonai ga je la'oi .\B n.\ mleca li panobi gi ko'a goi la'o zoi.\ \F{toLerfu} \B n .zoi.\ me'oi .\F{just}.\ be lo sinxa lo .asycy'i'is.\ lerfu poi meirmoi la'oi .\B n.\ fo le'i ro .asyci'is.\ lerfu gi ko'a me'oi .\F{nothing}.
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
