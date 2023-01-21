@@ -427,23 +427,19 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 \end{code}
 
 \section{la'oi .\F{map}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
 
 .i cadga fa lo nu le se ctaipe be le te pruce cu du la'oi .\B A.  .i ku'i na lojysra le du'u la'o zoi.\ LL.olen Q $ lengthₗ $ LL.liste Q x .zoi.\ du la'oi .\B A.
 
-ni'o la .varik.\ cu na mutce ka ce'u nelci la'oi .\F{map}.\ kei je cu tolnei le su'u le sumti cu ctaipe la'o zoi.\ \F{LL.e} \B Q \Sym → \F{LL.e} \B Q .zoi.\ je cu djica lo nu xagzengau la'oi .\F{map}.\ le ka ce'u mapti lo so'i co'e
-
-.i le su'u xagzengau cu selvau le .aiste
-
 \begin{code}
-map : ∀ {a} → {A : Set a}
-    → ⦃ Q : LL A ⦄
-    → (f : LL.e Q → LL.e Q) → (x : A)
-    → LL.olen Q $ lengthₗ $ Data.List.map f $ LL.liste Q x
-map ⦃ Q ⦄ f = etsil ∘ Data.List.map f ∘ liste
+map : ∀ {a b} → {A : Set a} → {B : Set b}
+    → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
+    → (f : LL.e Q → LL.e R) → (x : A)
+    → LL.olen R $ lengthₗ $ Data.List.map f $ LL.liste Q x
+map ⦃ Q ⦄ ⦃ R ⦄ f = etsil ∘ Data.List.map f ∘ liste
   where
   liste = LL.liste Q
-  etsil = LL.etsil Q
+  etsil = LL.etsil R
 \end{code}
 
 \section{la'oi .\Sym{◈}.}
@@ -579,7 +575,7 @@ ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa
 
 \begin{code}
 genturfa'i : String → Maybe $ List Lerfu
-genturfa'i = sikh ∘ Data.List.map c2l? ∘ toListₗ
+genturfa'i = sikh ∘ map c2l? ∘ toListₗ
   where
   _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
@@ -669,6 +665,6 @@ main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
     postulate erroy : String → PIO Unit
     {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
   bacru : ∀ {a} → List Lerfu → IO {a} ⊤
-  bacru = ignore ∘ IO.List.sequence ∘ Data.List.map spk
+  bacru = ignore ∘ IO.List.sequence ∘ map spk
 \end{code}
 \end{document}
