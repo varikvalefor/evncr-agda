@@ -181,7 +181,8 @@ ni'o la'oi .\F{ddvs}.\ me'oi .path. lo datnyveiste poi ke'a vasru lo sance datny
 .i zo'oi .ddvs.\ cmavlaka'i lu datni datnyveiste li'u
 
 \begin{code}
-postulate ddvs : String
+ddvs : String
+ddvs = "/usr/local/share/evannouncer/"
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{record}.\ je le me'oi .\AgdaKeyword{instance}.\ je zo'e}
