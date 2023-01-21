@@ -437,7 +437,7 @@ ni'o la .varik.\ cu na mutce ka ce'u nelci la'oi .\F{map}.\ kei je cu tolnei le 
 
 \begin{code}
 map : ∀ {a} → {A : Set a}
-    → ⦃ Q  : LL A ⦄
+    → ⦃ Q : LL A ⦄
     → (LL.e Q → LL.e Q) → (x : A)
     → LL.olen Q $ lengthₗ $ LL.liste Q x
 map ⦃ Q ⦄ f = etsil ∘ liste
