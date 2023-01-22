@@ -522,8 +522,6 @@ ni'o ga jonai ga je \B q .asycy'i'is.\ sinxa lo latmo glibau lerfu gi \toCase\ d
 toCase : Fin 128 → Case
 toCase q = plicu'a (toℕ q) Snile'u ns
   where
-  f : ℕ → Case → Case → Case
-  f a b c = if (toℕ q) <ᵇ a then b else c
   namcu = intdMm 48 58
   barda = intdMm 65 91
   cmalu = intdMm 97 123
