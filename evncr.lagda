@@ -430,8 +430,6 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 \section{la'oi .\F{map}.}
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
 
-.i cadga fa lo nu le se ctaipe be le te pruce cu du la'oi .\B A.  .i ku'i na lojysra le du'u la'o zoi.\ LL.olen Q $ lengthₗ $ LL.liste Q x .zoi.\ du la'oi .\B A.
-
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
