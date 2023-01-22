@@ -399,9 +399,9 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 \begin{code}
 infixr 5 _++_
 
-_++_ : ∀ {a} → {A : Set a}
-     → ⦃ T : LL A ⦄
-     → A → LL.olenn T → LL.olenl+n T
+_++_ : ∀ {a} → {Bean : Set a}
+     → ⦃ T : LL Bean ⦄
+     → Bean → LL.olenn T → LL.olenl+n T
 _++_ ⦃ Q ⦄ = LL._++_ Q
 \end{code}
 
