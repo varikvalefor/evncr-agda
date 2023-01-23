@@ -50,14 +50,15 @@
 \newunicodechar{◈}{\ensuremath{\diamond\hspace{-0.39em}\cdot}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
-\newunicodechar{⦃}{\ensuremath{\mathnormal{\lBrace}}}
-\newunicodechar{⦄}{\ensuremath{\mathnormal{\rBrace}}}
+\newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
+\newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{ᵢ}{\ensuremath{\mathnormal{_i}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₒ}{\ensuremath{\mathnormal{_o}}}
 \newunicodechar{ₚ}{\ensuremath{\mathnormal{_p}}}
 \newunicodechar{ₙ}{\ensuremath{\mathnormal{_n}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
+\newunicodechar{′}{\ensuremath{\mathnormal{'}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
