@@ -389,7 +389,7 @@ record Lerfu : Set
 ni'o la'o zoi.\ \F{show} \B q .zoi.\ me'oi .String.\ je cu sinxa la'oi .\B q.
 
 \begin{code}
-show : ∀ {a} → {A : Set a} → ⦃ _ : Showable A ⦄
+show : ∀ {a} → {A : Set a} → ⦃ Showable A ⦄
      → A → String
 show ⦃ Q ⦄ = Showable.show Q
 \end{code}
@@ -447,7 +447,7 @@ ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
 
 \begin{code}
 _◈_ : ∀ {a} → {A B C : Set a}
-    → {M : Set a → Set _} → ⦃ _ : RawApplicative M ⦄
+    → {M : Set a → Set _} → ⦃ RawApplicative M ⦄
     → (B → C) → (A → M B) → A → M C
 _◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
 \end{code}
