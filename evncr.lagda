@@ -92,12 +92,12 @@ open import Data.Nat
   )
 open import Data.Vec
   hiding (
-    map;
     drop
   )
   renaming (
     [] to []ᵥ;
     _++_ to _++ᵥ_;
+    map to mapᵥ;
     _∷_ to _∷ᵥ_
   )
 open import Function
@@ -646,7 +646,7 @@ spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
   denpaXipa : Midnoi
   denpaXipa = "sleep " ++ₛ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
-  spks l = Data.Vec.map (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
+  spks l = mapᵥ (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
 \end{code}
 
 \section{la'oi .\F{main}.}
