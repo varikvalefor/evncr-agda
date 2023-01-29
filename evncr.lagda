@@ -90,6 +90,10 @@ open import Data.Nat
     suc to sucₙ;
     _+_ to _+ₙ_
   )
+open import Data.Sum
+  hiding (
+    map
+  )
 open import Data.Vec
   hiding (
     drop
@@ -169,11 +173,18 @@ open import Data.Fin.Show
 
 \chapter{le srana be lo nu tcimi'e}
 
-\section{la'oi .\F{selsniduXipa}.}
-ni'o la'oi .\F{selsniduXipa}.\ bitmu fo lo me'oi .Lerfu.
+\section{la'oi .\F{selsniduXiPa}.}
+ni'o la'oi .\F{selsniduXiPa}.\ bitmu fo lo me'oi .\F{Lerfu}.
 
 \begin{code}
 postulate selsniduXiPa : Float
+\end{code}
+
+\section{la'oi .\F{selsniduXiRe}.}
+ni'o la'oi .\F{selsniduXiRe}.\ bitmu fo lo mu'oi glibau.\ \F{List} \F{Lerfu} .glibau.
+
+\begin{code}
+postulate selsniduXiRe : Float
 \end{code}
 
 \section{la'oi .\F{ddvs}.}
@@ -638,19 +649,33 @@ ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e l
 
 \begin{code}
 spk : ∀ {a} → Lerfu → IO {a} ⊤
-spk l = vecMapM′ doit $ intersperse denpaXipa $ spks l
+spk l = vecMapM′ doit $ intersperse denpaXiPa $ spks l
   where
   vecMapM′ : ∀ {a b} → {n : ℕ} → {A : Set a}
            → (A → IO {b} ⊤) → Vec A n → IO {b} ⊤
   vecMapM′ f = IO.List.mapM′ f ∘ toList
-  denpaXipa : Midnoi
-  denpaXipa = "sleep " ++ₛ show selsniduXiPa
+  denpaXiPa : Midnoi
+  denpaXiPa = "sleep " ++ₛ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
 \end{code}
 
-\section{la'oi .\F{main}.}
+\section{la'oi .\F{bacru}.}
+ni'o ga naja co'e zoi zoi.\ \F{bacru} \B q .zoi.\ gi lo srana be lo skami cu selsnapra lo sinxa be la'o zoi.\ \B q .zoi.
 
+\begin{code}
+bacru : ∀ {a} → List Lerfu → IO {a} ⊤
+bacru = ignore ∘ IO.List.mapM spkJaDnp ∘ ass
+  where
+  denpu : ∀ {a} → IO {a} ⊤
+  denpu = doit $ "sleep " ++ show selsniduXiRe
+  ass : List Lerfu → List $ Fin 1 ⊎ Lerfu
+  ass = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
+  spkJaDnp : ∀ {a} → Fin 1 ⊎ Lerfu → IO {a} ⊤
+  spkJaDnp = [_,_] (const denpu) spk
+\end{code}
+
+\section{la'oi .\F{main}.}
 \begin{code}
 main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
   where
@@ -662,7 +687,5 @@ main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
     eng = "Inputs a non-ASCII character."
     postulate erroy : String → PIO Unit
     {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
-  bacru : ∀ {a} → List Lerfu → IO {a} ⊤
-  bacru = ignore ∘ IO.List.mapM spk
 \end{code}
 \end{document}
