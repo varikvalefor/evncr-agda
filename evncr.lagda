@@ -59,6 +59,7 @@
 \newunicodechar{ₙ}{\ensuremath{\mathnormal{_n}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{'}}}
+\newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
