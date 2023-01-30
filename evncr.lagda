@@ -78,12 +78,15 @@
 open import IO
   renaming (
     lift to liftᵢₒ;
+    _<$>_ to _<$>ᵢₒ_;
     _>>=_ to _>>=ᵢₒ_
   )
   hiding (
-    _<$>_
   )
 open import Level
+  renaming (
+    lift to liftₗ
+  )
 open import Data.Fin
 open import Data.Nat
   renaming (
@@ -155,7 +158,7 @@ open import IO.Primitive
     return to returnₚᵢₒ
   )
 open import Category.Monad
-open import Agda.Builtin.Unit
+open import Agda.Builtin.Unit as ABU
   renaming (
     ⊤ to Unit
   )
@@ -633,27 +636,49 @@ spkCF q = "mplayer " ++ ddvs ++ f (Lerfu.bnam q)
 \section{la'oi .\F{doit}.}
 
 \begin{code}
-doit : ∀ {a} → String → IO {a} ⊤
-doit = liftx ∘ doit'
+doit : String → IO $ Maybe ℕ
+doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   where
-  postulate doit' : String → PIO Unit
+  bixygau : ℕ → Maybe ℕ
+  bixygau n = if n Data.Nat.<ᵇ 127 then nothing else just n
+  postulate doit' : String → PIO ℕ
   {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
+  {-# FOREIGN GHC import System.Exit #-}
   {-# FOREIGN GHC import Control.Monad #-}
   {-# FOREIGN GHC import System.Process #-}
-  {-# COMPILE GHC doit' = \_ -> void . runCommand . unpack #-}
+  {-# COMPILE GHC
+    doit' = fmap (fromIntegral . g . f) . rpwce . unpack
+      where {
+        f (a, _, _) = a;
+        g (ExitFailure t) = t;
+        g _ = 128;
+        rpwce a = readProcessWithExitCode a [] [];
+      }
+  #-}
+\end{code}
+
+\section{la'oi .\F{sequin}.}
+ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\F{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\F{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\F{nothing}.
+
+\begin{code}
+sequin : ∀ {a} → {n : ℕ} → {A : Set a}
+       → Vec (Maybe A) n → Maybe A
+sequin (just q ∷ᵥ _) = just q
+sequin (nothing ∷ᵥ xs) = sequin xs
+sequin []ᵥ = nothing
 \end{code}
 
 \section{la'oi .\F{spk}.}
 ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e la'oi .\B q.
 
 \begin{code}
-spk : ∀ {a} → Lerfu → IO {a} ⊤
-spk l = vecMapM′ doit $ intersperse denpaXiPa $ spks l
+spk : Lerfu → IO $ Maybe ℕ
+spk l = mvm doit $ intersperse denpaXiPa $ spks l
   where
-  vecMapM′ : ∀ {a b} → {n : ℕ} → {A : Set a}
-           → (A → IO {b} ⊤) → Vec A n → IO {b} ⊤
-  vecMapM′ f = IO.List.mapM′ f ∘ toList
+  mvm : ∀ {a} → {n : ℕ} → {A B : Set a}
+      → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
+  mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
   denpaXiPa : Midnoi
   denpaXiPa = "sleep " ++ₛ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
@@ -664,28 +689,43 @@ spk l = vecMapM′ doit $ intersperse denpaXiPa $ spks l
 ni'o ga naja co'e zoi zoi.\ \F{bacru} \B q .zoi.\ gi lo srana be lo skami cu selsnapra lo sinxa be la'o zoi.\ \B q .zoi.
 
 \begin{code}
-bacru : ∀ {a} → List Lerfu → IO {a} ⊤
-bacru = ignore ∘ IO.List.mapM spkJaDnp ∘ ass
+bacru : List Lerfu → IO $ Maybe ℕ
+bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ ass
   where
-  denpu : ∀ {a} → IO {a} ⊤
+  fromListᵥ = Data.Vec.fromList
+  mapMₗ = IO.List.mapM
+  denpu : IO $ Maybe ℕ
   denpu = doit $ "sleep " ++ show selsniduXiRe
   ass : List Lerfu → List $ Fin 1 ⊎ Lerfu
   ass = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
-  spkJaDnp : ∀ {a} → Fin 1 ⊎ Lerfu → IO {a} ⊤
+  spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
   spkJaDnp = [_,_] (const denpu) spk
 \end{code}
 
 \section{la'oi .\F{main}.}
 \begin{code}
-main = run $ getLine >>=ᵢₒ maybe bacru spojaPe'aRu'e ∘ genturfa'i
+main : Main
+main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
   where
+  postulate erroy : String → PIO Unit
+  {-# COMPILE GHC erroy = hPutStrLn stderr . unpack #-}
   spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
   spojaPe'aRu'e = liftx $ erroy $ jbo ++ "\n\n" ++ eng
     where
     jbo = "ni'o pruce lo lerfu poi \
           \ke'a na srana la .asycy'i'is."
     eng = "Inputs a non-ASCII character."
-    postulate erroy : String → PIO Unit
-    {-# COMPILE GHC erroy = \_ -> hPutStrLn stderr . unpack #-}
+  -- | ni'o zo'oi .bjsf. cmavlaka'i lu bacru ja
+  -- samfli li'u
+  --
+  -- .i la .varik. cu na djuno lo du'u cadga fa lo nu
+  -- ma kau basti zo'oi .bjsf.
+  bjsf : List Lerfu → IO ⊤
+  bjsf a = bacru a >>=ᵢₒ camki'a
+    where
+    nope : IO ⊤
+    nope = return $ liftₗ ABU.tt
+    camki'a : Maybe ℕ → IO ⊤
+    camki'a = maybe (liftx ∘ erroy ∘ show) nope
 \end{code}
 \end{document}
