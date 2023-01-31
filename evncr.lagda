@@ -244,12 +244,9 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     e : Set a
     olen : ℕ → Set a
     [] : olen 0
-    l n : ℕ
-  olenn = olen n
-  olenl+n = olen $ l +ₙ n
+    l : A → ℕ
   field
-    _++_ : A → olen n → olen $ l +ₙ n
-    _∷_ : e → A → olen $ sucₙ l
+    _∷_ : e → (q : A) → olen $ sucₙ $ l q
     liste : A → List e
     etsil : (q : List e) → olen $ Data.List.length q
 \end{code}
@@ -263,9 +260,7 @@ instance
     e = A;
     olen = const $ List A;
     [] = []ₗ;
-    l = 0;
-    n = 0;
-    _++_ = _++ₗ_;
+    l = lengthₗ;
     _∷_ = _∷ₗ_;
     liste = id;
     etsil = id}
@@ -274,23 +269,43 @@ instance
     e = Char;
     olen = const String;
     [] = "";
-    l = 0;
-    n = 0;
-    _++_ = _++ₛ_;
+    l = Data.String.length;
     _∷_ = λ a → fromListₗ ∘ _∷ₗ_ a ∘ toListₗ;
     liste = Data.String.toList;
     etsil = Data.String.fromList}
-  liliVec : ∀ {a} → {A : Set a} → {n m : ℕ} → LL $ Vec A n
-  liliVec {_} {A} {n'} {m'} = record {
+  liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
+  liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
     olen = Vec A;
     e = A;
-    l = n';
-    n = m';
-    _++_ = _++ᵥ_;
+    l = const n';
     _∷_ = _∷ᵥ_;
     liste = Data.Vec.toList;
     etsil = Data.Vec.fromList}
+\end{code}
+
+\section{la'oi .\F{LC}.}
+ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'oi .\B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+
+\begin{code}
+record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
+  where
+  field
+    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C +ₙ LL.l R D
+\end{code}
+
+\subsection{le me'oi .\AgdaKeyword{instance}.}
+
+\begin{code}
+instance
+  LCList : ∀ {a} → {A : Set a}
+         → LC (List A) (List A)
+  LCList = record {_++_ = _++ₗ_}
+  LCString : LC String String
+  LCString = record {_++_ = _++ₛ_}
+  LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
+        → LC (Vec A m) (Vec A n)
+  LCVec = record {_++_ = _++ᵥ_}
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{data}.}
@@ -415,10 +430,13 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 \begin{code}
 infixr 5 _++_
 
-_++_ : ∀ {a} → {Bean : Set a}
+_++_ : ∀ {a} → {Bean CoolJ : Set a}
      → ⦃ T : LL Bean ⦄
-     → Bean → LL.olenn T → LL.olenl+n T
-_++_ ⦃ Q ⦄ = LL._++_ Q
+     → ⦃ U : LL CoolJ ⦄
+     → ⦃ C : LC Bean CoolJ ⦄
+     → (BN : Bean) → (CJ : CoolJ)
+     → LL.olen T $ LL.l T BN +ₙ LL.l U CJ
+_++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
 \end{code}
 
 \section{la'oi .\F{\_∷\_}.}
@@ -429,7 +447,7 @@ infixr 5 _∷_
 
 _∷_ : ∀ {a} → {A : Set a}
      → ⦃ ALL : LL A ⦄
-     → LL.e ALL → A → LL.olen ALL $ sucₙ $ LL.l ALL
+     → LL.e ALL → (q : A) → LL.olen ALL $ sucₙ $ LL.l ALL q
 _∷_ ⦃ Q ⦄ = LL._∷_ Q
 \end{code}
 
@@ -681,7 +699,7 @@ spk l = mvm doit $ intersperse denpaXiPa $ spks l
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
   mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
   denpaXiPa : Midnoi
-  denpaXiPa = "sleep " ++ₛ show selsniduXiPa
+  denpaXiPa = "sleep " ++ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
 \end{code}
