@@ -231,7 +231,7 @@ ni'o ga go zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ 
   \item ga je la'o zoi.\ \F{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
   \item ga je ga jo la'oi .\B n.\ selvau la'oi .\D{ℕ}.\ gi la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
   \item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
-  \item ga je ga jonai ga je cumki fa lo nu lo nilzilcmi be ko'a goi lo ctaipe be la'oi .\B t.\ cu na du lo nilzilcmi be lo ctaipe be la'oi .\B t.\ be'o poi ke'a na du ko'a gi la'o zoi.\ \F{LL.l} \B q .zoi.\ je la'o zoi.\ \F{LL.n} \B q.\ cu du li no gi ga je la'o zoi.\ \F{LL.l} \B q .zoi.\ nilzilcmi lo ctaipe be la'oi .\B t.\ gi la'o zoi.\ \F{LL.n} \B q .zoi.\ nilzilcmi lo remoi be lo'i ro sumti be la'oi .\F{\_++\_}.\ gi
+  \item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi. gi
   \item ga je la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.\ gi
   \item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
   \item la'o zoi.\ \F{LL.etsil} \Sym∘ \F{LL.liste} .zoi.\ dunli la'oi .\F{id}.
