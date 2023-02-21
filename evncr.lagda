@@ -165,14 +165,11 @@ open import Agda.Builtin.Unit as ABU
   )
 open import Category.Applicative
 open import Data.Maybe.Instances
+open import Truthbrary.Record.SR
 open import Data.Unit.Polymorphic
+open import Truthbrary.Record.LLC
 open import Relation.Binary.PropositionalEquality
-open import Data.Nat.Show
   using ()
-open import Data.Fin.Show
-  using (
-    readMaybe
-  )
 \end{code}
 
 \chapter{le srana be lo nu tcimi'e}
@@ -199,113 +196,6 @@ ni'o la'oi .\F{ddvs}.\ me'oi .path. lo datnyveiste poi ke'a vasru lo sance datny
 \begin{code}
 ddvs : String
 ddvs = "/usr/local/share/evannouncer/"
-\end{code}
-
-\chapter{le me'oi .\AgdaKeyword{record}.\ je le me'oi .\AgdaKeyword{instance}.\ je zo'e}
-
-\section{la'oi .\F{Showable}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu jmina lo velcki\ldots kei kei je cu na djuno lo du'u ma kau zabna velcki la'oi .\F{Showable}.
-
-\begin{code}
-record Showable {a} (A : Set a) : Set a
-  where
-  field
-    show : A → String
-\end{code}
-
-\subsection{le me'oi .\AgdaKeyword{instance}.\ pe zo'e poi la'oi .EVANNOUNCER.\ cu na vasru lo vlavelcki be ke'a}
-
-\begin{code}
-instance
-  showableℕ : Showable ℕ
-  showableℕ = record {show = Data.Nat.Show.show}
-  showableFloat : Showable Float
-  showableFloat = record {show = Data.Float.show}
-\end{code}
-
-\section{la'oi .\F{LL}.}
-ni'o ga go zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
-
-.i ga go la'oi .\B q.\ zasti je cu ctaipe la'o zoi.\ \F{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
-\begin{itemize}
-  \item ga je la'o zoi.\ \F{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
-  \item ga je ga jo la'oi .\B n.\ selvau la'oi .\D{ℕ}.\ gi la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
-  \item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
-  \item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi. gi
-  \item ga je la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.\ gi
-  \item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
-  \item la'o zoi.\ \F{LL.etsil} \Sym∘ \F{LL.liste} .zoi.\ dunli la'oi .\F{id}.
-\end{itemize}
-
-\begin{code}
-record LL {a} (A : Set a) : Set (Level.suc a)
-  where
-  field
-    e : Set a
-    olen : ℕ → Set a
-    [] : olen 0
-    l : A → ℕ
-  field
-    _∷_ : e → (q : A) → olen $ sucₙ $ l q
-    liste : A → List e
-    etsil : (q : List e) → olen $ Data.List.length q
-\end{code}
-
-\subsection{le me'oi .\AgdaKeyword{instance}.\ pe zo'e poi la'oi .EVANNOUNCER.\ cu na vasru lo vlavelcki be ke'a}
-
-\begin{code}
-instance
-  liliList : ∀ {a} → {A : Set a} → LL $ List A
-  liliList {_} {A} = record {
-    e = A;
-    olen = const $ List A;
-    [] = []ₗ;
-    l = lengthₗ;
-    _∷_ = _∷ₗ_;
-    liste = id;
-    etsil = id}
-  liliString : LL String
-  liliString = record {
-    e = Char;
-    olen = const String;
-    [] = "";
-    l = Data.String.length;
-    _∷_ = λ a → fromListₗ ∘ _∷ₗ_ a ∘ toListₗ;
-    liste = Data.String.toList;
-    etsil = Data.String.fromList}
-  liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
-  liliVec {_} {A} {n'} = record {
-    [] = []ᵥ;
-    olen = Vec A;
-    e = A;
-    l = const n';
-    _∷_ = _∷ᵥ_;
-    liste = Data.Vec.toList;
-    etsil = Data.Vec.fromList}
-\end{code}
-
-\section{la'oi .\F{LC}.}
-ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi. B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
-
-\begin{code}
-record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
-  where
-  field
-    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C +ₙ LL.l R D
-\end{code}
-
-\subsection{le me'oi .\AgdaKeyword{instance}.}
-
-\begin{code}
-instance
-  LCList : ∀ {a} → {A : Set a}
-         → LC (List A) (List A)
-  LCList = record {_++_ = _++ₗ_}
-  LCString : LC String String
-  LCString = record {_++_ = _++ₛ_}
-  LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
-        → LC (Vec A m) (Vec A n)
-  LCVec = record {_++_ = _++ᵥ_}
 \end{code}
 
 \chapter{le me'oi .\AgdaKeyword{data}.}
@@ -337,7 +227,7 @@ data Case : Set
 
 \begin{code}
 instance
-  shockAndAwe : Showable Case
+  shockAndAwe : Show Case
   shockAndAwe = record {show = f}
     where
     f : Case → String
@@ -367,7 +257,7 @@ data LTyp : Set
 
 \begin{code}
 instance
-  showUsYourBoobs : Showable LTyp
+  showUsYourBoobs : Show LTyp
   showUsYourBoobs = record {show = f}
     where
     f : LTyp → String
@@ -414,66 +304,6 @@ record Lerfu : Set
 \end{code}
 
 \chapter{le vrici je fancu}
-
-\section{la'oi .\F{show}.}
-ni'o la'o zoi.\ \F{show} \B q .zoi.\ me'oi .String.\ je cu sinxa la'oi .\B q.
-
-\begin{code}
-show : ∀ {a} → {A : Set a} → ⦃ Showable A ⦄
-     → A → String
-show ⦃ Q ⦄ = Showable.show Q
-\end{code}
-
-\section{la'oi .\F{\_++\_}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
-
-\begin{code}
-infixr 5 _++_
-
-_++_ : ∀ {a} → {Bean CoolJ : Set a}
-     → ⦃ T : LL Bean ⦄
-     → ⦃ U : LL CoolJ ⦄
-     → ⦃ C : LC Bean CoolJ ⦄
-     → (BN : Bean) → (CJ : CoolJ)
-     → LL.olen T $ LL.l T BN +ₙ LL.l U CJ
-_++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
-\end{code}
-
-\section{la'oi .\F{\_∷\_}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
-
-\begin{code}
-infixr 5 _∷_
-
-_∷_ : ∀ {a} → {A : Set a}
-     → ⦃ ALL : LL A ⦄
-     → LL.e ALL → (q : A) → LL.olen ALL $ sucₙ $ LL.l ALL q
-_∷_ ⦃ Q ⦄ = LL._∷_ Q
-\end{code}
-
-\section{la'oi .\F{[]}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
-
-\begin{code}
-[] : ∀ {a} → {A : Set a}
-   → ⦃ Q : LL A ⦄
-   → LL.olen Q 0
-[] ⦃ Q ⦄ = LL.[] Q
-\end{code}
-
-\section{la'oi .\F{map}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
-
-\begin{code}
-map : ∀ {a b} → {A : Set a} → {B : Set b}
-    → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
-    → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ lengthₗ $ Data.List.map f $ LL.liste Q x
-map ⦃ Q ⦄ ⦃ R ⦄ f = etsil ∘ Data.List.map f ∘ liste
-  where
-  liste = LL.liste Q
-  etsil = LL.etsil R
-\end{code}
 
 \section{la'oi .\Sym{◈}.}
 ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
@@ -590,7 +420,7 @@ ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLe
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu = finToLerfu ◈ readMaybe 10 ∘ show
+toLerfu = finToLerfu ◈ readMaybe ∘ show
   where
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
