@@ -543,12 +543,12 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ ass
   where
   fromListᵥ = Data.Vec.fromList
   mapMₗ = IO.List.mapM
-  denpu : IO $ Maybe ℕ
-  denpu = doit $ "sleep " ++ show selsniduXiRe
+  denpa : IO $ Maybe ℕ
+  denpa = doit $ "sleep " ++ show selsniduXiRe
   ass : List Lerfu → List $ Fin 1 ⊎ Lerfu
   ass = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
   spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
-  spkJaDnp = [_,_] (const denpu) spk
+  spkJaDnp = [_,_] (const denpa) spk
 \end{code}
 
 \section{la'oi .\F{main}.}
