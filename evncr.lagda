@@ -537,7 +537,6 @@ intdMm a b = drop a $ upTo b
 toBnam : Fin 128 → ℕ
 toBnam q = plicu'a q' q' ns
   where
-  q' : ℕ
   q' = toℕ q
   du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
   cmalu = intdMm 97 123
@@ -574,7 +573,6 @@ toCase q = plicu'a (toℕ q) Snile'u ns
 toLtyp : Fin 128 → LTyp
 toLtyp q = plicu'a q' Vrici ns
   where
-  q' : ℕ
   q' = toℕ q
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
@@ -595,9 +593,7 @@ toLerfu = finToLerfu ◈ readMaybe 10 ∘ show
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
     where
-    lt : LTyp
     lt = toLtyp a
-    cs : Case
     cs = toCase a
 \end{code}
 
@@ -613,7 +609,6 @@ genturfa'i = sikh ∘ map c2l? ∘ toListₗ
   sikh (just x ∷ₗ xs) = _∷_ x <$>ₘ sikh xs
   sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
-  c2l? : Char → Maybe Lerfu
   c2l? = toLerfu ∘ C2N
 \end{code}
 
@@ -626,7 +621,6 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo n
 spkCL : Lerfu → Midnoi
 spkCL q = "mplayer " ++ ddvs ++ f (Lerfu.ctyp q)
   where
-  f : LTyp → String
   f = map Data.Char.toLower ∘ show
 \end{code}
 
@@ -637,7 +631,6 @@ ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo n
 spkCC : Lerfu → Midnoi
 spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
   where
-  f : Case → String
   f = map Data.Char.toLower ∘ show
 \end{code}
 
@@ -698,7 +691,6 @@ spk l = mvm doit $ intersperse denpaXiPa $ spks l
   mvm : ∀ {a} → {n : ℕ} → {A B : Set a}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
   mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
-  denpaXiPa : Midnoi
   denpaXiPa = "sleep " ++ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
@@ -713,11 +705,8 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ ass
   where
   fromListᵥ = Data.Vec.fromList
   mapMₗ = IO.List.mapM
-  denpu : IO $ Maybe ℕ
   denpu = doit $ "sleep " ++ show selsniduXiRe
-  ass : List Lerfu → List $ Fin 1 ⊎ Lerfu
   ass = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
-  spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
   spkJaDnp = [_,_] (const denpu) spk
 \end{code}
 
@@ -728,7 +717,6 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
   where
   postulate erroy : String → PIO Unit
   {-# COMPILE GHC erroy = hPutStrLn stderr . unpack #-}
-  spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
   spojaPe'aRu'e = liftx $ erroy $ jbo ++ "\n\n" ++ eng
     where
     jbo = "ni'o pruce lo lerfu poi \
@@ -742,9 +730,7 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
   bjsf : List Lerfu → IO ⊤
   bjsf a = bacru a >>=ᵢₒ camki'a
     where
-    nope : IO ⊤
     nope = return $ liftₗ ABU.tt
-    camki'a : Maybe ℕ → IO ⊤
     camki'a = maybe (liftx ∘ erroy ∘ show) nope
 \end{code}
 \end{document}
