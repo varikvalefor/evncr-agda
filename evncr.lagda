@@ -494,7 +494,6 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
   {-# FOREIGN GHC import System.Exit #-}
-  {-# FOREIGN GHC import Control.Monad #-}
   {-# FOREIGN GHC import System.Process #-}
   {-# COMPILE GHC
     doit' = fmap (fromIntegral . g . f) . rpwce . unpack
