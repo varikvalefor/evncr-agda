@@ -496,12 +496,12 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   {-# FOREIGN GHC import System.Exit #-}
   {-# FOREIGN GHC import System.Process #-}
   {-# COMPILE GHC
-    doit' = fmap (fromIntegral . g . f) . rpwce . unpack
+    doit' = fmap (fromIntegral . g . f) . rpwec . unpack
       where {
         f (a, _, _) = a;
         g (ExitFailure t) = t;
         g _ = 128;
-        rpwce a = readProcessWithExitCode a [] [];
+        rpwec a = readProcessWithExitCode a [] [];
       }
   #-}
 \end{code}
