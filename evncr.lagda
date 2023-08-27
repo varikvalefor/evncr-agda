@@ -562,7 +562,7 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
   spojaPe'aRu'e = liftx $ erroy $ jbo ++ "\n\n" ++ eng
     where
     jbo = "ni'o pruce lo lerfu poi \
-          \ke'a na srana la .asycy'i'is."
+          \ke'a tolmapti la .asycy'i'is."
     eng = "Inputs a non-ASCII character."
   -- | ni'o zo'oi .bjsf. cmavlaka'i lu bacru ja
   -- samfli li'u
