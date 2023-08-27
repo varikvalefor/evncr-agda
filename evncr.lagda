@@ -551,6 +551,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ ass
 \end{code}
 
 \section{la'oi .\F{main}.}
+
 \begin{code}
 main : Main
 main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
