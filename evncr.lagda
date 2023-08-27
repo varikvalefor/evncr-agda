@@ -328,7 +328,7 @@ ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
 
 .i la .varik.\ cu milxe le ka ce'u sorpa'a lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
 
-.i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \Sym\$ \F{lengthₗ} \Sym\$ \F{intersperseₗ} \B t \Sym\$ \F{toList} \B q) \Sym ≡ (\B n \Sym * 2 \Sym ∸ 1) .zoi.
+.i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \F\$ \F{lengthₗ} \F\$ \F{intersperseₗ} \B t \F\$ \F{toList} \B q) \F ≡ (\B n \F * 2 \F ∸ 1) .zoi.
 
 \begin{code}
 intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
@@ -339,7 +339,7 @@ intersperse q = fromList ∘ intersperseₗ q ∘ Data.Vec.toList
 
 \chapter{le skicu fancu}
 \section{la'oi .\F{plicu'a}.}
-ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \Sym, \B y) .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B y.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \Sym\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
+ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \F, \B y) .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B y.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \F\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
 
 to .i li renoreci pi'e pa pi'e pare cu detri le nu le mu'oi glibau.\ parsing expression .glibau.\ gerna cu na mapti di'u\ldots noi ke'a drani  .i lo skami cu mabla .u'e nai toi
 
