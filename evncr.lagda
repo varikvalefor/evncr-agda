@@ -320,7 +320,7 @@ ni'o cadga fa lo nu le se ctaipe cu banzu lo nu jimpe
 
 \begin{code}
 liftx : ∀ {a} → PIO Unit → IO {a} ⊤
-liftx q = liftᵢₒ (q >>=ₚᵢₒ λ _ → returnₚᵢₒ _)
+liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → returnₚᵢₒ _
 \end{code}
 
 \section{la'oi .\F{intersperse}.}
