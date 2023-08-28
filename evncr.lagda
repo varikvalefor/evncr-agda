@@ -345,7 +345,7 @@ ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \F, \B y) .zoi.\ 
 to .i li renoreci pi'e pa pi'e pare cu detri le nu le mu'oi glibau.\ parsing expression .glibau.\ gerna cu na mapti di'u\ldots noi ke'a drani  .i lo skami cu mabla .u'e nai toi
 
 \begin{code}
-plicu'a : ∀ {a} {A : Set a} → ℕ → A → List $ List ℕ × A → A
+plicu'a : ∀ {a} → {A : Set a} → ℕ → A → List $ List ℕ × A → A
 plicu'a _ d []ₗ = d
 plicu'a q x ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q x xs
   where
