@@ -65,6 +65,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\IC\AgdaInductiveConstructor
 
 \title{le me'oi .Agda.\ me'oi .implementation.\ be la'oi .EVANNOUNCER.}
 \author{la .varik.\ .VALefor.}
@@ -175,14 +176,14 @@ open import Relation.Binary.PropositionalEquality
 \chapter{le srana be lo nu tcimi'e}
 
 \section{la'oi .\F{selsniduXiPa}.}
-ni'o la'oi .\F{selsniduXiPa}.\ bitmu fo lo me'oi .\F{Lerfu}.
+ni'o la'oi .\F{selsniduXiPa}.\ bitmu fo lo me'oi .\D{Lerfu}.
 
 \begin{code}
 postulate selsniduXiPa : Float
 \end{code}
 
 \section{la'oi .\F{selsniduXiRe}.}
-ni'o la'oi .\F{selsniduXiRe}.\ bitmu fo lo mu'oi glibau.\ \F{List} \F{Lerfu} .glibau.
+ni'o la'oi .\F{selsniduXiRe}.\ bitmu fo lo mu'oi glibau.\ \D{List} \D{Lerfu} .glibau.
 
 \begin{code}
 postulate selsniduXiRe : Float
@@ -241,7 +242,7 @@ instance
     f Snile'u = "Snile'u"
 \end{code}
 
-\section{la'oi .\F{LTyp}.}
+\section{la'oi .\D{LTyp}.}
 
 \begin{code}
 data LTyp : Set
@@ -273,25 +274,25 @@ ni'o ro da poi me'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi
 
 .i go fo'a goi la'oi .\B x.\ toldra gi\ldots
 \begin{itemize}
-	\item gonai ge ko'a goi la'o zoi.\ \F{ctyp} \B x .zoi.\ du la'oi .\F{Xrabo}.\ gi ge fo'a sinxa lo me'oi .digit.\ lerfu gi ge ko'e goi la'o zoi.\ \F{case} \B x .zoi.\ du la'oi .\F{Namcu}.\ gi ko'i goi la'o zoi.\ \F{bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o livobi gi
-  \item gonai ge ko'a du la'oi .\F{Latmo}.\ gi\ldots
+	\item gonai ge ko'a goi la'o zoi.\ \F{ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ge fo'a sinxa lo me'oi .digit.\ lerfu gi ge ko'e goi la'o zoi.\ \F{case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \F{bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o livobi gi
+  \item gonai ge ko'a du la'oi .\IC{Latmo}.\ gi\ldots
   \begin{itemize}
-    \item gonai ge ko'e du la'oi .\F{Barda}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .majuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li xamu gi
-    \item ge ko'e du la'oi .\F{Cmalu}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .minuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li soze gi
+    \item gonai ge ko'e du la'oi .\IC{Barda}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .majuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li xamu gi
+    \item ge ko'e du la'oi .\IC{Cmalu}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .minuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li soze gi
   \end{itemize}
-  \item gonai ge ko'a du la'oi .\F{Kalri}.\ gi ge ko'i du li sopa gi\ldots
+  \item gonai ge ko'a du la'oi .\IC{Kalri}.\ gi ge ko'i du li sopa gi\ldots
   \begin{itemize}
-    \item gonai ge ko'e du la'oi .\F{Curly}.\ gi fo'a sinxa lo tolsti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li pareci pe la .asycy'i'is.\ gi
-    \item gonai ge ko'e du la'oi .\F{Kurfa}.\ gi fo'a sinxa lo tolsti kurfa bo me'oi .bracket.\ noi ke'a selsni li sopa pe la .asycy'i'is.\ gi
-    \item ge ko'e du la'oi .\F{Cukla}.\ gi fo'a sinxa lo tolsti cukla bo me'oi .bracket.\ noi ke'a selsni li vono pe la .asycy'i'is.\ gi
+    \item gonai ge ko'e du la'oi .\IC{Curly}.\ gi fo'a sinxa lo tolsti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li pareci pe la .asycy'i'is.\ gi
+    \item gonai ge ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo tolsti kurfa bo me'oi .bracket.\ noi ke'a selsni li sopa pe la .asycy'i'is.\ gi
+    \item ge ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo tolsti cukla bo me'oi .bracket.\ noi ke'a selsni li vono pe la .asycy'i'is.\ gi
   \end{itemize}
-  \item ge ko'a du la'oi .\F{Ganlo}.\ gi ge ko'i du li soci gi\ldots
+  \item ge ko'a du la'oi .\IC{Ganlo}.\ gi ge ko'i du li soci gi\ldots
   \begin{itemize}
-    \item gonai ge ko'e du la'oi .\F{Curly}.\ gi fo'a sinxa lo sisti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li paremu pe la .asycy'i'is.\ gi
-    \item gonai ge ko'e du la'oi .\F{Kurfa}.\ gi fo'a sinxa lo sisti kurfa bo me'oi .bracket.\ noi ke'a selsni li soci pe la .asycy'i'is.\ gi
-    \item gonai ge ko'e du la'oi .\F{Cukla}.\ gi fo'a sinxa lo sisti cukla bo me'oi .bracket.\ noi ke'a selsni li vopa pe la .asycy'i'is.\ gi
+    \item gonai ge ko'e du la'oi .\IC{Curly}.\ gi fo'a sinxa lo sisti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li paremu pe la .asycy'i'is.\ gi
+    \item gonai ge ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo sisti kurfa bo me'oi .bracket.\ noi ke'a selsni li soci pe la .asycy'i'is.\ gi
+    \item gonai ge ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo sisti cukla bo me'oi .bracket.\ noi ke'a selsni li vopa pe la .asycy'i'is.\ gi
   \end{itemize}
-  \item ge ko'a du la'oi .\F{Vrici}.\ gi ge ko'e du la'oi .\F{Snile'u}.\ gi ko'i .asycy'i'is.\ sinxa lo selsni be fo'a
+  \item ge ko'a du la'oi .\IC{Vrici}.\ gi ge ko'e du la'oi .\IC{Snile'u}.\ gi ko'i .asycy'i'is.\ sinxa lo selsni be fo'a
 \end{itemize}
 
 \begin{code}
@@ -378,7 +379,7 @@ toBnam q = plicu'a q' q' ns
 \section{la'oi .\F{toCase}.}
 \newcommand\BQ{la'oi .\B q.}
 \newcommand\toCase{la'o zoi.\ \F{toCase \B q} .zoi.}
-ni'o ga jonai ga je \B q .asycy'i'is.\ sinxa lo latmo glibau lerfu gi \toCase\ du la'oi .\F{Latmo}.\ gi ga jonai ga je la'oi .\B q.\ 
+ni'o ga jonai ga je \B q .asycy'i'is.\ sinxa lo latmo glibau lerfu gi \toCase\ du la'oi .\IC{Latmo}.\ gi ga jonai ga je la'oi .\B q.\ 
 
 \begin{code}
 toCase : Fin 128 → Case
