@@ -309,8 +309,8 @@ record Lerfu : Set
 ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
 
 \begin{code}
-_◈_ : ∀ {a} → {A B C : Set a}
-    → {M : Set a → Set _} → ⦃ RawApplicative M ⦄
+_◈_ : ∀ {a} → {A B C : Set a} → {M : Set a → Set _}
+    → ⦃ RawApplicative M ⦄
     → (B → C) → (A → M B) → A → M C
 _◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
 \end{code}
