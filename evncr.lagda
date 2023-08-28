@@ -272,7 +272,7 @@ instance
 \section{la'oi .\D{Lerfu}.}
 ni'o ro da poi me'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi .ASCII.
 
-.i go fo'a goi la'oi .\B x.\ toldra gi\ldots
+.i go fo'a goi la'oi .\B x.\ drani gi\ldots
 \begin{itemize}
 	\item gonai ge ko'a goi la'o zoi.\ \F{ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ge fo'a sinxa lo me'oi .digit.\ lerfu gi ge ko'e goi la'o zoi.\ \F{case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \F{bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o livobi gi
   \item gonai ge ko'a du la'oi .\IC{Latmo}.\ gi\ldots
