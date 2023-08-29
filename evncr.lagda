@@ -115,9 +115,6 @@ open import Data.Char
   using (
     Char
   )
-  renaming (
-    toℕ to C2N
-  )
 open import Data.List
   using (
     List;
@@ -444,7 +441,7 @@ genturfa'i = sikh ∘ map c2l? ∘ toListₗ
   sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
   c2l? : Char → Maybe Lerfu
-  c2l? = toLerfu ∘ C2N
+  c2l? = toLerfu ∘ Data.Char.toℕ
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
