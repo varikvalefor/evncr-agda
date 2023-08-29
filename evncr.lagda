@@ -368,7 +368,6 @@ intdMm a b = drop a $ upTo b
 toBnam : Fin 128 → ℕ
 toBnam q = plicu'a q' q' ns
   where
-  q' : ℕ
   q' = toℕ q
   du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
   cmalu = intdMm 97 123
