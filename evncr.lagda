@@ -432,15 +432,13 @@ ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa
 
 \begin{code}
 genturfa'i : String → Maybe $ List Lerfu
-genturfa'i = sikh ∘ map c2l? ∘ toListₗ
+genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₗ
   where
   _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
   sikh (just x ∷ₗ xs) = _∷_ x <$>ₘ sikh xs
   sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
-  c2l? : Char → Maybe Lerfu
-  c2l? = toLerfu ∘ Data.Char.toℕ
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
