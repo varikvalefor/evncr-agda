@@ -124,7 +124,6 @@ open import Data.List
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
-    _++_ to _++ₗ_;
     intersperse to intersperseₗ;
     length to lengthₗ
   )
