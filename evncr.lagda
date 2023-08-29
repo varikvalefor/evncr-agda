@@ -524,7 +524,7 @@ spk l = mvm doit $ intersperse denpaXiPa $ spks l
   denpaXiPa : Midnoi
   denpaXiPa = "sleep " ++ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
-  spks l = mapᵥ (flip _$_ l) $ spkCL ∷ᵥ spkCC ∷ᵥ spkCF ∷ᵥ []ᵥ
+  spks l = mapᵥ (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
 \end{code}
 
 \section{la'oi .\F{bacru}.}
