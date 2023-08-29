@@ -323,7 +323,7 @@ liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → returnₚᵢₒ _
 \section{la'oi .\F{intersperse}.}
 ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
 
-.i la .varik.\ cu milxe le ka ce'u sorpa'a lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
+.i la .varik.\ cu milxe le ka ce'u panra lo nu jdikygau le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
 
 .i lo nu jdikygau le se ctaipe lo nu ce'u vasru lo lerfu cu cumki lo nu ciska lo lojysra ja co'e be la'o zoi.\ (\D{Vec} \B A \F\$ \F{lengthₗ} \F\$ \F{intersperseₗ} \B t \F\$ \F{toList} \B q) \F ≡ (\B n \F * 2 \F ∸ 1) .zoi.
 
