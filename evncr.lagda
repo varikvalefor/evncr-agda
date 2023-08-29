@@ -532,9 +532,8 @@ ni'o ga naja co'e zoi zoi.\ \F{bacru} \B q .zoi.\ gi lo srana be lo skami cu sel
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
-bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ dej
+bacru = _<$>ᵢₒ_ (sequin ∘ Data.Vec.fromList) ∘ mapMₗ spkJaDnp ∘ dej
   where
-  fromListᵥ = Data.Vec.fromList
   mapMₗ = IO.List.mapM
   denpa : IO $ Maybe ℕ
   denpa = doit $ "sleep " ++ show selsniduXiRe
