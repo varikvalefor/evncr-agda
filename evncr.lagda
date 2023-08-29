@@ -138,8 +138,8 @@ open import Data.Maybe
 open import Data.String
   renaming (
     _++_ to _++ₛ_;
-    fromList to fromListₗ;
-    toList to toListₗ
+    fromList to fromListₛ;
+    toList to toListₛ
   )
   using (
     String
@@ -432,7 +432,7 @@ ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa
 
 \begin{code}
 genturfa'i : String → Maybe $ List Lerfu
-genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₗ
+genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   where
   _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
