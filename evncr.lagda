@@ -532,14 +532,15 @@ ni'o ga naja co'e zoi zoi.\ \F{bacru} \B q .zoi.\ gi lo srana be lo skami cu sel
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
-bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ ass
+bacru = _<$>ᵢₒ_ (sequin ∘ fromListᵥ) ∘ mapMₗ spkJaDnp ∘ dej
   where
   fromListᵥ = Data.Vec.fromList
   mapMₗ = IO.List.mapM
   denpa : IO $ Maybe ℕ
   denpa = doit $ "sleep " ++ show selsniduXiRe
-  ass : List Lerfu → List $ Fin 1 ⊎ Lerfu
-  ass = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
+  -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
+  dej : List Lerfu → List $ Fin 1 ⊎ Lerfu
+  dej = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
   spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
   spkJaDnp = [_,_] (const denpa) spk
 \end{code}
