@@ -355,7 +355,7 @@ ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ vasru lo ro kacna'u poi ke'a dubjavm
 
 \begin{code}
 intdMm : ℕ → ℕ → List ℕ
-intdMm a b = drop a $ upTo b
+intdMm a = drop a ∘ upTo
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
