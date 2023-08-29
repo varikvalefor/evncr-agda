@@ -341,7 +341,7 @@ ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ (\B x \F, \B z) .zoi.\ 
 \begin{code}
 plicu'a : ∀ {a} → {A : Set a} → ℕ → A → List $ List ℕ × A → A
 plicu'a _ d []ₗ = d
-plicu'a q x ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q x xs
+plicu'a q d ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q d xs
   where
   _elem_ : ℕ → List ℕ → Bool
   _elem_ _ []ₗ = false
