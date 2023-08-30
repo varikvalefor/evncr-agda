@@ -321,17 +321,26 @@ liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → returnₚᵢₒ _
 \end{code}
 
 \section{la'oi .\F{intersperse}.}
-ni'o cadga fa lo nu le se ctaipe cu xamgu velcki
-
-.i la .varik.\ cu milxe le ka ce'u panra ko'a goi lo nu jdikygau ja co'e le se ctaipe lo ni ce'u vasru lo lerpinsle\ldots je lo lerfu
-
-.i ko'a cumki lo nu ciksi lo ctaipe be la'o zoi.\ (\D{Vec} \B A \F\$ \F{lengthₗ} \F\$ \F{intersperseₗ} \B t \F\$ \F{toList} \B q) \F ≡ (\B n \F * 2 \F ∸ 1) .zoi.
+ni'o la .varik.\ cu na djuno lo du'u ma kau zabna je cu velcki la'oi .\F{intersperse}.\ bau la .lojban.
 
 \begin{code}
 intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
             → (t : A) → (q : Vec A n)
-            → Vec A $ lengthₗ $ intersperseₗ t $ toList q
-intersperse q = fromList ∘ intersperseₗ q ∘ Data.Vec.toList
+            → Vec A $ n * 2 ∸ 1
+intersperse _ []ᵥ = []ᵥ
+intersperse t (x ∷ᵥ []ᵥ) = x ∷ᵥ []ᵥ
+intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = coerce k $ x ∷ᵥ t ∷ᵥ i t (y ∷ᵥ z)
+  where
+  i = intersperse
+
+  open import Relation.Binary.PropositionalEquality
+  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+  coerce refl = id
+  k = cong (Vec _) $ g $ n ∸ 2
+    where
+    g : (n : ℕ)
+      → sucₙ (sucₙ $ sucₙ n * 2 ∸ 1) ≡ sucₙ (sucₙ n) * 2 ∸ 1
+    g _ = refl
 \end{code}
 
 \chapter{le skicu fancu}
