@@ -398,7 +398,6 @@ toCase q = plicu'a (toℕ q) Snile'u ns
 toLtyp : Fin 128 → LTyp
 toLtyp q = plicu'a q' Vrici ns
   where
-  q' : ℕ
   q' = toℕ q
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
@@ -419,9 +418,7 @@ toLerfu = finToLerfu ◈ readMaybe ∘ show
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
     where
-    lt : LTyp
     lt = toLtyp a
-    cs : Case
     cs = toCase a
 \end{code}
 
