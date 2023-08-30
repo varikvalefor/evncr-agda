@@ -429,9 +429,8 @@ ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa
 genturfa'i : String → Maybe $ List Lerfu
 genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   where
-  _<$>ₘ_ = RawMonad._<$>_ maybeMonad
   sikh : List $ Maybe Lerfu → Maybe $ List Lerfu
-  sikh (just x ∷ₗ xs) = _∷_ x <$>ₘ sikh xs
+  sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
   sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
 \end{code}
