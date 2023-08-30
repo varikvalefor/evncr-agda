@@ -313,7 +313,7 @@ _◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
 \end{code}
 
 \section{la'oi .\F{liftx}.}
-ni'o cadga fa lo nu le se ctaipe cu banzu lo nu jimpe
+ni'o cadga fa lo nu le velcki be le se ctaipe cu banzu lo nu jimpe
 
 \begin{code}
 liftx : ∀ {a} → PIO Unit → IO {a} ⊤
