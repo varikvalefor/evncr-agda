@@ -154,10 +154,6 @@ open import IO.Primitive
     _>>=_ to _>>=ₚᵢₒ_;
     return to returnₚᵢₒ
   )
-open import Agda.Builtin.Unit as ABU
-  renaming (
-    ⊤ to Unit
-  )
 open import Category.Applicative
 open import Data.Maybe.Instances
 open import Truthbrary.Record.SR
@@ -165,6 +161,8 @@ open import Data.Unit.Polymorphic
 open import Truthbrary.Record.LLC
 open import Relation.Binary.PropositionalEquality
   using ()
+
+import Agda.Builtin.Unit as ABU
 \end{code}
 
 \chapter{le srana be lo nu tcimi'e}
@@ -314,7 +312,7 @@ _◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
 ni'o cadga fa lo nu le velcki be le se ctaipe cu banzu lo nu jimpe
 
 \begin{code}
-liftx : ∀ {a} → PIO Unit → IO {a} ⊤
+liftx : ∀ {a} → PIO ABU.⊤ → IO {a} ⊤
 liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → returnₚᵢₒ _
 \end{code}
 
@@ -551,7 +549,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ Data.Vec.fromList) ∘ mapMₗ spkJaDnp ∘ dej
 main : Main
 main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
   where
-  postulate erroy : String → PIO Unit
+  postulate erroy : String → PIO ABU.⊤
   {-# COMPILE GHC erroy = hPutStrLn stderr . unpack #-}
   spojaPe'aRu'e : ∀ {a} → IO {a} ⊤
   spojaPe'aRu'e = liftx $ erroy $ jbo ++ "\n\n" ++ eng
