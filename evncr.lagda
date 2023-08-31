@@ -160,7 +160,11 @@ open import Truthbrary.Record.SR
 open import Data.Unit.Polymorphic
 open import Truthbrary.Record.LLC
 open import Relation.Binary.PropositionalEquality
-  using ()
+  using (
+    cong;
+    refl;
+    _≡_
+  )
 
 import Agda.Builtin.Unit as ABU
 \end{code}
@@ -329,7 +333,6 @@ intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = coerce k $ x ∷ᵥ t ∷ᵥ i t (
   where
   i = intersperse
 
-  open import Relation.Binary.PropositionalEquality
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
   k = cong (Vec _) $ g $ n ∸ 2
