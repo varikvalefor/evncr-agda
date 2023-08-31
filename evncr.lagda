@@ -137,7 +137,6 @@ open import Data.Maybe
 open import Data.String
   renaming (
     _++_ to _++ₛ_;
-    fromList to fromListₛ;
     toList to toListₛ
   )
   using (
