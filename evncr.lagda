@@ -131,8 +131,8 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
-  renaming (
-    map to mapₘ
+  hiding (
+    map
   )
 open import Data.String
   renaming (
