@@ -440,6 +440,14 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
   sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
+
+  module Veritas
+    where
+    faivos : ∀ {a} → {A : Set a}
+           → (j : List A)
+           → just j ≡ sikh (map just j)
+    faivos []ₗ = refl
+    faivos (x ∷ₗ y) = cong (Data.Maybe.map $ _∷_ x) $ faivos y
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
