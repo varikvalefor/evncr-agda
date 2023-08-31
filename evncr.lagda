@@ -154,7 +154,6 @@ open import IO.Primitive
     _>>=_ to _>>=ₚᵢₒ_;
     return to returnₚᵢₒ
   )
-open import Category.Monad
 open import Agda.Builtin.Unit as ABU
   renaming (
     ⊤ to Unit
