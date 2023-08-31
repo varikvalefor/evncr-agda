@@ -453,7 +453,7 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
 \chapter{le fancu be fi lo .uniks.\ midnoi}
 
 \section{la'oi .\F{spkCL}.}
-ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
+ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{spkCL} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{ltyp}.\ be la'oi .\B x.
 
 \begin{code}
 spkCL : Lerfu → Midnoi
@@ -464,7 +464,7 @@ spkCL q = "mplayer " ++ ddvs ++ f (Lerfu.ctyp q)
 \end{code}
 
 \section{la'oi .\F{spkCC}.}
-ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .case.\ be la'oi .\B x.
+ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{spkCC} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .case.\ be la'oi .\B x.
 
 \begin{code}
 spkCC : Lerfu → Midnoi
@@ -475,7 +475,7 @@ spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
 \end{code}
 
 \section{la'oi .\F{spkCF}.}
-ni'o lo nu xamgu .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{bnam}.\ be la'oi .\B x.
+ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{spkCF} \B x .zoi.\ cu rinka lo nu selsnapra lo velski be lo me'oi .\F{bnam}.\ be la'oi .\B x.
 
 \begin{code}
 spkCF : Lerfu → Midnoi
