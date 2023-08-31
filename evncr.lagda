@@ -124,7 +124,6 @@ open import Data.List
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
-    intersperse to intersperseₗ;
     length to lengthₗ
   )
 open import Data.Float
@@ -542,7 +541,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ Data.Vec.fromList) ∘ mapMₗ spkJaDnp ∘ dej
   denpa = doit $ "sleep " ++ show selsniduXiRe
   -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
   dej : List Lerfu → List $ Fin 1 ⊎ Lerfu
-  dej = intersperseₗ (inj₁ $ fromℕ 0) ∘ map inj₂
+  dej = Data.List.intersperse (inj₁ $ fromℕ 0) ∘ map inj₂
   spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
   spkJaDnp = [_,_] (const denpa) spk
 \end{code}
