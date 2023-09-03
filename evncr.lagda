@@ -453,16 +453,16 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
     faivos []ₗ = refl
     faivos (x ∷ₗ y) = cong (Data.Maybe.map $ _∷_ x) $ faivos y
 
-    faivtus : ∀ {a} → {A : Set a}
+    faivuyn : ∀ {a} → {A : Set a}
             → (x z : List $ Maybe A)
             → nothing ≡ sikh (x ++ nothing ∷ₗ z)
-    faivtus []ₗ _ = refl
-    faivtus (nothing ∷ₗ _) _ = refl
-    faivtus (just x ∷ₗ xs) z = sym $ begin
+    faivuyn []ₗ _ = refl
+    faivuyn (nothing ∷ₗ _) _ = refl
+    faivuyn (just x ∷ₗ xs) z = sym $ begin
       sikh (just x ∷ xisinoz)
         ≡⟨ refl ⟩
       mapₘ (_∷_ x) (sikh xisinoz)
-        ≡⟨ sym $ cong (mapₘ $ _∷_ x) $ faivtus xs z ⟩
+        ≡⟨ sym $ cong (mapₘ $ _∷_ x) $ faivuyn xs z ⟩
       mapₘ (_∷_ x) nothing
         ≡⟨ refl ⟩
       nothing ∎
