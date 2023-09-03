@@ -18,7 +18,9 @@
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
 \newunicodechar{𝕗}{\ensuremath{\mathbb{f}}}
@@ -160,8 +162,10 @@ open import Data.Unit.Polymorphic
 open import Truthbrary.Record.LLC
 open import Relation.Binary.PropositionalEquality
   using (
+    subst;
     cong;
     refl;
+    sym;
     _≡_
   )
 
@@ -448,6 +452,32 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
            → just j ≡ sikh (map just j)
     faivos []ₗ = refl
     faivos (x ∷ₗ y) = cong (Data.Maybe.map $ _∷_ x) $ faivos y
+
+    faivuyn : ∀ {a} → {A : Set a}
+            → (e : A)
+            → (x : List $ Maybe A)
+            → (_≡_
+                (Data.Maybe.map (_∷_ e) $ sikh x)
+                (sikh $ just e ∷ x))
+    faivuyn _ _ = refl
+
+    faivtus : ∀ {a} → {A : Set a}
+            → (x z : List $ Maybe A)
+            → nothing ≡ sikh (x ++ nothing ∷ₗ z)
+    faivtus []ₗ _ = refl
+    faivtus (nothing ∷ₗ _) _ = refl
+    faivtus (just x ∷ₗ xs) z = sym $ begin
+      sikh (just x ∷ₗ xisinoz)
+        ≡⟨ faivuyn x xisinoz ⟩
+      mapₘ (_∷_ x) (sikh xisinoz)
+        ≡⟨ sym $ cong (mapₘ $ _∷_ x) $ faivtus xs z ⟩
+      mapₘ (_∷_ x) nothing
+        ≡⟨ refl ⟩
+      nothing ∎
+      where
+      mapₘ = Data.Maybe.map
+      xisinoz = xs ++ nothing ∷ z
+      open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
