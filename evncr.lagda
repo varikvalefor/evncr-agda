@@ -467,7 +467,7 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
     faivtus []ₗ _ = refl
     faivtus (nothing ∷ₗ _) _ = refl
     faivtus (just x ∷ₗ xs) z = sym $ begin
-      sikh (just x ∷ₗ xisinoz)
+      sikh (just x ∷ xisinoz)
         ≡⟨ faivuyn x xisinoz ⟩
       mapₘ (_∷_ x) (sikh xisinoz)
         ≡⟨ sym $ cong (mapₘ $ _∷_ x) $ faivtus xs z ⟩
