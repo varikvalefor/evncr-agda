@@ -458,7 +458,7 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
             → nothing ≡ sikh (x ++ nothing ∷ₗ z)
     faivuyn []ₗ _ = refl
     faivuyn (nothing ∷ₗ _) _ = refl
-    faivuyn (just x ∷ₗ xs) z = cong (mapₘ $ _∷_ x) $ faivuyn xs z
+    faivuyn (just x ∷ₗ xs) = cong (mapₘ $ _∷_ x) ∘ faivuyn xs
       where
       mapₘ = Data.Maybe.map
 \end{code}
