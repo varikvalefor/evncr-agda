@@ -458,15 +458,9 @@ genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
             → nothing ≡ sikh (x ++ nothing ∷ₗ z)
     faivuyn []ₗ _ = refl
     faivuyn (nothing ∷ₗ _) _ = refl
-    faivuyn (just x ∷ₗ xs) z = begin
-      nothing ≡⟨ refl ⟩
-      mapₘ (_∷_ x) nothing ≡⟨ cong (mapₘ $ _∷_ x) $ faivuyn xs z ⟩
-      mapₘ (_∷_ x) (sikh xisinoz) ≡⟨ refl ⟩
-      sikh (just x ∷ xisinoz) ∎
+    faivuyn (just x ∷ₗ xs) z = cong (mapₘ $ _∷_ x) $ faivuyn xs z
       where
       mapₘ = Data.Maybe.map
-      xisinoz = xs ++ nothing ∷ z
-      open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
 \chapter{le fancu be fi lo .uniks.\ midnoi}
