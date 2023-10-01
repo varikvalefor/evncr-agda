@@ -433,12 +433,12 @@ toLerfu = finToLerfu ◈ readMaybe ∘ show
     cs = toCase a
 \end{code}
 
-\section{la'oi .\F{genturfa'i}.}
-ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{genturfa'i} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke';a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
+\section{la'oi .\F{lerste}.}
+ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
 
 \begin{code}
-genturfa'i : String → Maybe $ List Lerfu
-genturfa'i = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
+lerste : String → Maybe $ List Lerfu
+lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   where
   sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
   sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
@@ -570,7 +570,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ Data.Vec.fromList) ∘ mapMₗ spkJaDnp ∘ dej
 
 \begin{code}
 main : Main
-main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ genturfa'i
+main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ lerste
   where
   postulate erroy : String → PIO ABU.⊤
   {-# COMPILE GHC erroy = hPutStrLn stderr . unpack #-}
