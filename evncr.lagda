@@ -588,9 +588,7 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ lerste
   bjsf : List Lerfu → IO ⊤
   bjsf a = bacru a >>=ᵢₒ camki'a
     where
-    nope : IO ⊤
-    nope = return $ liftₗ ABU.tt
     camki'a : Maybe ℕ → IO ⊤
-    camki'a = maybe (liftx ∘ erroy ∘ show) nope
+    camki'a = maybe (liftx ∘ erroy ∘ show) $ pure $ liftₗ ABU.tt
 \end{code}
 \end{document}
