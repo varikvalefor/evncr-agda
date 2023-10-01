@@ -201,7 +201,7 @@ ddvs = "/usr/local/share/evannouncer/"
 \chapter{le me'oi .\AgdaKeyword{data}.}
 
 \section{la'oi .\D{Midnoi}.}
-ni'o ro da poi me'oi .\D{Midnoi}.\ zo'u da sinxa lo .uniks.\ midnoi
+ni'o ro da poi ke'a ctaipe la'oi .\D{Midnoi}.\ zo'u da sinxa lo .uniks.\ midnoi
 
 \begin{code}
 Midnoi : Set
