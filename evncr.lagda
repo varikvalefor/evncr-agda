@@ -434,7 +434,7 @@ toLerfu = finToLerfu ◈ readMaybe ∘ show
 \end{code}
 
 \section{la'oi .\F{lerste}.}
-ni'o ga jonai ga je la'oi .\B x.\ .aski gi ga je ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.\ gi ko'a du la'oi .\F{nothing}.
+ni'o ga jonai ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ me'oi .\F{nothing}.\ gi ga je la'oi .\B x.\ .aski gi ga je ko'a du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
 
 \begin{code}
 lerste : String → Maybe $ List Lerfu
