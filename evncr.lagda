@@ -441,9 +441,9 @@ lerste : String → Maybe $ List Lerfu
 lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   where
   sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
-  sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
-  sikh (nothing ∷ₗ _) = nothing
   sikh []ₗ = just []ₗ
+  sikh (nothing ∷ₗ _) = nothing
+  sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
 
   module Veritas
     where
