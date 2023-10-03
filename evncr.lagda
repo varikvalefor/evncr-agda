@@ -538,7 +538,7 @@ ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e l
 
 \begin{code}
 spk : Lerfu → IO $ Maybe ℕ
-spk l = mvm doit $ intersperse denpaXiPa $ spks l
+spk = mvm doit ∘ intersperse denpaXiPa ∘ spks
   where
   mvm : ∀ {a} → {n : ℕ} → {A B : Set a}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
