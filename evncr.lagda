@@ -528,9 +528,9 @@ ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\F{just}.\ g
 \begin{code}
 sequin : ∀ {a} → {n : ℕ} → {A : Set a}
        → Vec (Maybe A) n → Maybe A
+sequin []ᵥ = nothing
 sequin (just q ∷ᵥ _) = just q
 sequin (nothing ∷ᵥ xs) = sequin xs
-sequin []ᵥ = nothing
 \end{code}
 
 \section{la'oi .\F{spk}.}
