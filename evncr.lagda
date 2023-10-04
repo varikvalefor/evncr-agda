@@ -49,7 +49,6 @@
 \newunicodechar{ₘ}{\ensuremath{_\mathsf{m}}}
 \newunicodechar{ₛ}{\ensuremath{_\mathsf{s}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
-\newunicodechar{◈}{\ensuremath{\diamond\hspace{-0.39em}\cdot}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{∘\hspace{-0.455em}\backslash}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
@@ -305,16 +304,6 @@ record Lerfu : Set
 
 \chapter{le vrici je fancu}
 
-\section{la'oi .\Sym{◈}.}
-ni'o lakne fa lo nu le mu'oi glibau.\ type signature .glibau.\ cu banzuka
-
-\begin{code}
-_◈_ : ∀ {a} → {A B C : Set a} → {M : Set a → Set a}
-    → ⦃ RawApplicative M ⦄
-    → (B → C) → (A → M B) → A → M C
-_◈_ ⦃ Q ⦄ g f = RawApplicative._<$>_ Q g ∘ f
-\end{code}
-
 \section{la'oi .\F{liftx}.}
 ni'o cadga fa lo nu le velcki be le se ctaipe cu banzu lo nu jimpe
 
@@ -424,7 +413,7 @@ ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLe
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu = finToLerfu ◈ readMaybe ∘ show
+toLerfu = Data.Maybe.map finToLerfu ∘ readMaybe ∘ show
   where
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
