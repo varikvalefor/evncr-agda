@@ -396,9 +396,8 @@ toCase q = plicu'a (toℕ q) Snile'u ns
 
 \begin{code}
 toLtyp : Fin 128 → LTyp
-toLtyp q = plicu'a q' Vrici ns
+toLtyp q = plicu'a (toℕ q) Vrici ns
   where
-  q' = toℕ q
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
   latmo = intdMm 65 91 ++ intdMm 97 123
