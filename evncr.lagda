@@ -320,7 +320,7 @@ intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
             → (t : A) → (q : Vec A n)
             → Vec A $ n * 2 ∸ 1
 intersperse _ []ᵥ = []ᵥ
-intersperse t q@(_ ∷ᵥ []ᵥ) = q
+intersperse _ q@(_ ∷ᵥ []ᵥ) = q
 intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = coerce k $ x ∷ᵥ t ∷ᵥ i t (y ∷ᵥ z)
   where
   i = intersperse
