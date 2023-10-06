@@ -519,6 +519,25 @@ sequin : ∀ {a} → {n : ℕ} → {A : Set a}
 sequin []ᵥ = nothing
 sequin (just q ∷ᵥ _) = just q
 sequin (nothing ∷ᵥ xs) = sequin xs
+
+module SequinVeritas where
+  pamoi : ∀ {a} → {A : Set a} → {n : ℕ}
+        → (x : Vec (Maybe A) n)
+        → (z : A)
+        → just z ≡ sequin (just z ∷ x)
+  pamoi _ _ = refl
+
+  nymois : ∀ {a} → {A : Set a} → {n m : ℕ}
+         → (x : Vec (Maybe A) n)
+         → (z : A)
+         → (_≡_
+             (just z)
+             (sequin
+               (_++ᵥ_
+                 (Data.Vec.replicate {n = m} nothing)
+                 (just z ∷ᵥ x))))
+  nymois {m = 0} _ _ = refl
+  nymois {m = ℕ.suc n} = nymois {m = n}
 \end{code}
 
 \section{la'oi .\F{spk}.}
