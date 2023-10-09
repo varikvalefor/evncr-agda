@@ -321,17 +321,12 @@ intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
             → Vec A $ n * 2 ∸ 1
 intersperse _ []ᵥ = []ᵥ
 intersperse _ q@(_ ∷ᵥ []ᵥ) = q
-intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = coerce k $ x ∷ᵥ t ∷ᵥ i t (y ∷ᵥ z)
+intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ i t (y ∷ᵥ z)
   where
   i = intersperse
 
   coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
   coerce refl = id
-  k = cong (Vec _) $ g $ n ∸ 2
-    where
-    g : (n : ℕ)
-      → sucₙ (sucₙ $ sucₙ n * 2 ∸ 1) ≡ sucₙ (sucₙ n) * 2 ∸ 1
-    g _ = refl
 \end{code}
 
 \chapter{le skicu fancu}
