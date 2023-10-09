@@ -531,7 +531,7 @@ module SequinVeritas where
                  (Data.Vec.replicate {n = m} nothing)
                  (just z ∷ᵥ x))))
   nymois {m = 0} _ _ = refl
-  nymois {m = ℕ.suc n} = nymois {m = n}
+  nymois {m = sucₙ n} = nymois {m = n}
 \end{code}
 
 \section{la'oi .\F{spk}.}
