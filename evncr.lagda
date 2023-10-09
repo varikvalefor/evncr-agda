@@ -555,7 +555,7 @@ ni'o tu'a la'o zoi.\ \F{bacru} \B q .zoi.\ rinka lo nu lo srana be lo skami cu s
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
-bacru = _<$>ᵢₒ_ (sequin ∘ Data.Vec.fromList) ∘ mapMₗ spkJaDnp ∘ dej
+bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ mapMₗ spkJaDnp ∘ dej
   where
   mapMₗ = IO.List.mapM
   denpa : IO $ Maybe ℕ
