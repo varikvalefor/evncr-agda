@@ -97,12 +97,17 @@ open import Data.Nat
     _+_ to _+ₙ_
   )
 open import Data.Sum
-  hiding (
-    map
+  using (
+    [_,_];
+    inj₁;
+    inj₂;
+    _⊎_
   )
 open import Data.Vec
-  hiding (
-    drop
+  using (
+    fromList;
+    toList;
+    Vec
   )
   renaming (
     [] to []ᵥ;
@@ -132,8 +137,11 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
-  hiding (
-    map
+  using (
+    nothing;
+    Maybe;
+    maybe;
+    just
   )
 open import Data.String
   renaming (
