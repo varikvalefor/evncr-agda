@@ -157,6 +157,8 @@ open import Data.Product
     _,_
   )
 open import IO.Primitive
+  using (
+  )
   renaming (
     IO to PIO;
     _>>=_ to _>>=ₚᵢₒ_;
