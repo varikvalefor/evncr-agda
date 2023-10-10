@@ -446,7 +446,7 @@ lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
       mapₘ = Data.Maybe.map
 \end{code}
 
-\chapter{le fancu be fi lo .uniks.\ midnoi}
+\chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
 
 \section{la'oi .\F{spkCL}.}
 ni'o \selsnap{\F{spkCL} \B x}{lo me'oi .\F{ltyp}.\ be la'oi .\B x.}
