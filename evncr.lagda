@@ -68,7 +68,7 @@
 \newcommand\B\AgdaBound
 \newcommand\IC\AgdaInductiveConstructor
 
-\newcommand\selsnap[2]{lo nu drani .uniks.\ bo co'e la'o zoi.\ #1\ .zoi.\ cu rinka lo nu selsnapra lo velski be #2}
+\newcommand\selsnap[2]{lo nu drani .uniks.\ bo co'e la'o zoi.\ #1\ .zoi.\ cu rinka lo nu lo srana be lo skami cu selsnapra lo velski be #2}
 
 \title{le me'oi .Agda.\ me'oi .implementation.\ be la'oi .EVANNOUNCER.}
 \author{la .varik.\ .VALefor.}
