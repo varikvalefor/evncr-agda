@@ -494,6 +494,14 @@ spkCF q = "mplayer " ++ ddvs ++ f (Lerfu.bnam q)
   f = show ∘ toℕ
 \end{code}
 
+\section{la \F{denpa}.}
+ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{denpa}\ \B f\ .zoi.\ cu rinka lo nu snidu la'o zoi.\ \B f\ .zoi.\ fa lo nu denpa
+
+\begin{code}
+denpa : Float → Midnoi
+denpa = _++_ "sleep " ∘ show
+\end{code}
+
 \section{la'oi .\F{doit}.}
 ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ snada gi ko'a me'oi .\F{pure}.\ la'oi .\F{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
 
@@ -552,13 +560,11 @@ ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e l
 
 \begin{code}
 spk : Lerfu → IO $ Maybe ℕ
-spk = mvm doit ∘ intersperse denpaXiPa ∘ spks
+spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
   where
   mvm : ∀ {a} → {n : ℕ} → {A B : Set a}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
   mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
-  denpaXiPa : Midnoi
-  denpaXiPa = "sleep " ++ show selsniduXiPa
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
 \end{code}
@@ -576,7 +582,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM spkJaDnp ∘ dej
   dej : List Lerfu → List $ Fin 1 ⊎ Lerfu
   dej = Data.List.intersperse (inj₁ Fin.zero) ∘ map inj₂
   spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
-  spkJaDnp = [_,_] (const denpaXiRe) spk
+  spkJaDnp = [_,_] (const $ doit $ denpa selsniduXiRe) spk
 \end{code}
 
 \section{la'oi .\F{main}.}
