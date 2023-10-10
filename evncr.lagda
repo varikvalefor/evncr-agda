@@ -67,6 +67,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 \newcommand\IC\AgdaInductiveConstructor
+\newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
 \newcommand\selsnap[2]{lo nu drani .uniks.\ bo co'e la'o zoi.\ #1\ .zoi.\ cu rinka lo nu lo srana be lo skami cu selsnapra lo velski be #2}
 
@@ -339,7 +340,7 @@ intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y
 
 \chapter{le skicu fancu}
 \section{la'oi .\F{plicu'a}.}
-ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \F, \B z .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B z.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \F\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
+ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \OpF, \B z .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B z.\ gi ga jonai ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \OpF\$ \F{tail} \B K .zoi.\ gi ko'a du la'oi .\B n.
 
 \begin{code}
 plicu'a : ∀ {a} → {A : Set a} → ℕ → A → List $ List ℕ × A → A
