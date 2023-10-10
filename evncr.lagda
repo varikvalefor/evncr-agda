@@ -559,13 +559,13 @@ ni'o tu'a la'o zoi.\ \F{bacru} \B q .zoi.\ rinka lo nu lo srana be lo skami cu s
 bacru : List Lerfu → IO $ Maybe ℕ
 bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM spkJaDnp ∘ dej
   where
-  denpa : IO $ Maybe ℕ
-  denpa = doit $ "sleep " ++ show selsniduXiRe
+  denpaXiRe : IO $ Maybe ℕ
+  denpaXiRe = doit $ "sleep " ++ show selsniduXiRe
   -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
   dej : List Lerfu → List $ Fin 1 ⊎ Lerfu
   dej = Data.List.intersperse (inj₁ $ fromℕ 0) ∘ map inj₂
   spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
-  spkJaDnp = [_,_] (const denpa) spk
+  spkJaDnp = [_,_] (const denpaXiRe) spk
 \end{code}
 
 \section{la'oi .\F{main}.}
