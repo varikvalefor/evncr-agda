@@ -86,8 +86,6 @@ open import IO
     _<$>_ to _<$>ᵢₒ_;
     _>>=_ to _>>=ᵢₒ_
   )
-  hiding (
-  )
 open import Level
   renaming (
     lift to liftₗ
