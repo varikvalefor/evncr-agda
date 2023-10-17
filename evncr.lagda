@@ -415,7 +415,7 @@ toLtyp q = plicu'a (toℕ q) Vrici ns
 \end{code}
 
 \section{la'oi .\F{toLerfu}.}
-ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLerfu} \B n .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ be lo sinxa lo .asycy'i'is.\ lerfu poi meirmoi la'oi .\B n.\ fo le'i ro .asyci'is.\ lerfu gi ko'a me'oi .\AgdaInductiveConstructor{nothing}.
+ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLerfu} \B n .zoi.\ me'oi .\IC{just}.\ be lo sinxa lo .asycy'i'is.\ lerfu poi meirmoi la'oi .\B n.\ fo le'i ro .asyci'is.\ lerfu gi ko'a me'oi .\IC{nothing}.
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
@@ -429,7 +429,7 @@ toLerfu = Data.Maybe.map finToLerfu ∘ readMaybe ∘ show
 \end{code}
 
 \section{la'oi .\F{lerste}.}
-ni'o ga jonai ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ me'oi .\AgdaInductiveConstructor{nothing}.\ gi ga je la'oi .\B x.\ .aski gi ga je ko'a du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
+ni'o ga jonai ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ me'oi .\IC{nothing}.\ gi ga je la'oi .\B x.\ .aski gi ga je ko'a du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
 
 \begin{code}
 lerste : String → Maybe $ List Lerfu
