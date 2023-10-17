@@ -283,7 +283,7 @@ ni'o ro da poi me'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi
 
 .i go fo'a goi la'oi .\B x.\ drani gi\ldots
 \begin{itemize}
-	\item gonai ge ko'a goi la'o zoi.\ \F{ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ge fo'a sinxa lo nacle'u gi ge ko'e goi la'o zoi.\ \F{case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \F{bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o li vo bi gi
+	\item gonai ge ko'a goi la'o zoi.\ \AgdaField{ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ge fo'a sinxa lo nacle'u gi ge ko'e goi la'o zoi.\ \AgdaField{case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \AgdaField{bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o li vo bi gi
 	\item gonai ge ko'a du la'oi .\IC{Latmo}.\ gi\ldots
 	\begin{itemize}
 		\item gonai ge ko'e du la'oi .\IC{Barda}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .majuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li xamu gi
@@ -461,7 +461,7 @@ lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
 
 \section{la'oi .\F{spkCL}.}
-ni'o \selsnap{\F{spkCL} \B x}{lo me'oi .\F{ctyp}.\ be la'oi .\B x.}
+ni'o \selsnap{\F{spkCL} \B x}{lo me'oi .\AgdaField{ctyp}.\ be la'oi .\B x.}
 
 \begin{code}
 spkCL : Lerfu → Midnoi
@@ -483,7 +483,7 @@ spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
 \end{code}
 
 \section{la'oi .\F{spkCF}.}
-ni'o \selsnap{\F{spkCF} \B x}{lo me'oi .\F{bnam}.\ be la'oi .\B x.}
+ni'o \selsnap{\F{spkCF} \B x}{lo me'oi .\AgdaField{bnam}.\ be la'oi .\B x.}
 
 \begin{code}
 spkCF : Lerfu → Midnoi
