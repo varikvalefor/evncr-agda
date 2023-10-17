@@ -380,7 +380,6 @@ toBnam q = plicu'a q' q' ns
 \section{la'oi .\F{toCase}.}
 \newcommand\BQ{la'oi .\B q.}
 \newcommand\toCase{la'o zoi.\ \F{toCase} \B q .zoi.}
-ni'o ga jonai ga je \B q .asycy'i'is.\ sinxa lo latmo glibau lerfu gi \toCase\ du la'oi .\IC{Latmo}.\ gi ga jonai ga je la'oi .\B q.\ 
 
 \begin{code}
 toCase : Fin 128 → Case
