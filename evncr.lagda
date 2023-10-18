@@ -333,9 +333,6 @@ intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
 intersperse _ []ᵥ = []ᵥ
 intersperse _ q@(_ ∷ᵥ []ᵥ) = q
 intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y ∷ᵥ z)
-  where
-  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-  coerce refl = id
 \end{code}
 
 \chapter{le skicu fancu}
