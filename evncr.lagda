@@ -279,7 +279,7 @@ instance
 \end{code}
 
 \section{la'oi .\D{Lerfu}.}
-ni'o ro da poi me'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi .ASCII.
+ni'o ro da poi ctaipe la'oi .\D{Lerfu}.\ je poi toldra zo'u da sinxa lo selvau be la'oi .ASCII.
 
 .i go fo'a goi la'oi .\B x.\ drani gi\ldots
 \begin{itemize}
