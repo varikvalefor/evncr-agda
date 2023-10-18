@@ -558,7 +558,7 @@ ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e l
 spk : Lerfu → IO $ Maybe ℕ
 spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
   where
-  mvm : ∀ {a} → {n : ℕ} → {A B : Set a}
+  mvm : ∀ {a b} → {n : ℕ} → {A : Set a} → {B : Set b}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
   mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
   spks : Lerfu → Vec Midnoi 3
