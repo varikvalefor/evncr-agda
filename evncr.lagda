@@ -523,7 +523,7 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
 \end{code}
 
 \section{la'oi .\F{sequin}.}
-ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\F{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\F{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\F{nothing}.
+ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\F{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\IC{nothing}.
 
 \begin{code}
 sequin : ∀ {a} → {n : ℕ} → {A : Set a}
