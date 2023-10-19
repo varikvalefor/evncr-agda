@@ -561,7 +561,7 @@ spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
   mvm f = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM f ∘ toList
   spks : Lerfu → Vec Midnoi 3
-  spks l = mapᵥ (flip _$_ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
+  spks l = mapᵥ (_$ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
 \end{code}
 
 \section{la'oi .\F{bacru}.}
