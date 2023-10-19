@@ -551,7 +551,7 @@ module SequinVeritas where
 \end{code}
 
 \section{la'oi .\F{spk}.}
-ni'o ga naja co'e zoi zoi.\ \F{spk} \B q .zoi.\ gi lo skami cu bacru pe'a ru'e la'oi .\B q.
+ni'o tu'a zoi zoi.\ \F{spk} \B q .zoi.\ cu rinka lo nu lo skami cu bacru pe'a ru'e la'oi .\B q.
 
 \begin{code}
 spk : Lerfu → IO $ Maybe ℕ
