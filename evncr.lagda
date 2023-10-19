@@ -162,8 +162,7 @@ open import IO.Primitive
   )
   renaming (
     IO to PIO;
-    _>>=_ to _>>=ₚᵢₒ_;
-    return to returnₚᵢₒ
+    _>>=_ to _>>=ₚᵢₒ_
   )
 open import Category.Applicative
 open import Data.Maybe.Instances
@@ -320,7 +319,7 @@ ni'o cadga fa lo nu le velcki be le se ctaipe cu banzu lo nu jimpe
 
 \begin{code}
 liftx : ∀ {a} → PIO ABU.⊤ → IO {a} ⊤
-liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → returnₚᵢₒ _
+liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → IO.Primitive.return _
 \end{code}
 
 \section{la'oi .\F{intersperse}.}
