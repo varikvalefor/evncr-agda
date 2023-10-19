@@ -603,6 +603,6 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ lerste
   bjsf a = bacru a >>=ᵢₒ camki'a
     where
     camki'a : Maybe ℕ → IO ⊤
-    camki'a = maybe (liftx ∘ erroy ∘ show) $ pure $ liftₗ ABU.tt
+    camki'a = maybe (liftx ∘ erroy ∘ show) $ pure tt
 \end{code}
 \end{document}
