@@ -73,7 +73,7 @@
 \newcommand\selsnap[2]{lo nu drani .uniks.\ bo co'e la'o zoi.\ #1\ .zoi.\ cu rinka lo nu lo srana be lo skami cu selsnapra lo velski be #2}
 \newcommand\sopa{\colorbox{black!90}{sopa}}
 
-\title{le me'oi .Agda.\ me'oi .implementation.\ be la'oi .EVANNOUNCER.}
+\title{le me'oi .Agda.\ velcki be la'oi .EVANNOUNCER.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
