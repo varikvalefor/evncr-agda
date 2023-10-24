@@ -3,6 +3,7 @@
 \usepackage{ar}
 \usepackage[bw]{agda}
 \usepackage{ifsym}
+\usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{parskip}
@@ -376,6 +377,18 @@ toBnam q = plicu'a q' q' ns
 \section{la'oi .\F{toCase}.}
 \newcommand\BQ{la'oi .\B q.}
 \newcommand\toCase{la'o zoi.\ \F{toCase} \B q .zoi.}
+\newcommand\sopa{\colorbox{black!90}{sopa}}
+
+ni'o ga jonai \toCase\ du la'oi .\IC{Snile'u}.\ gi\ldots
+\begin{itemize}
+	\item gonai ge \BQ\ dubjavmau li vobi je cu mleca li mubi gi \toCase\ du la'oi .\IC{Namcu}.\ gi
+        \item gonai ge \BQ\ dubjavmau li xamu je cu mleca li \sopa\ gi \toCase\ du la'oi .\IC{Barda}.\ gi
+        \item gonai ge \BQ\ dubjavmau li soze je cu mleca li pareci gi \toCase\ du la'oi .\IC{Cmalu}.\ gi
+        \item gonai ge \BQ\ du li vono ja li vopa gi \toCase\ du la'oi .\IC{Cukla}.\ gi
+        \item gonai ge \BQ\ du li xano ja li xare gi \toCase\ du la'oi .\IC{Jganu}.\ gi
+        \item gonai ge \BQ\ du li \sopa\ ja li soci gi \toCase\ du la'oi .\F{Kurfa}.\ gi
+        \item ge \BQ\ du li pareci ja li paremu gi \toCase\ du la'oi .\F{Curly}.
+\end{itemize}
 
 \begin{code}
 toCase : Fin 128 → Case
