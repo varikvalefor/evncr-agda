@@ -92,7 +92,6 @@ open import IO
 open import Data.Fin
 open import Data.Nat
   renaming (
-    suc to sucₙ;
     _+_ to _+ₙ_
   )
 open import Data.Sum
@@ -556,7 +555,7 @@ module SequinVeritas where
                  (Data.Vec.replicate {n = m} nothing)
                  (just z ∷ᵥ x))))
   nymois {m = 0} _ _ = refl
-  nymois {m = sucₙ n} = nymois {m = n}
+  nymois {m = suc n} = nymois {m = n}
 \end{code}
 
 \section{la'oi .\F{spk}.}
