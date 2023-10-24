@@ -545,7 +545,8 @@ module SequinVeritas where
         → just z ≡ sequin (just z ∷ x)
   pamoi _ _ = refl
 
-  nymois : ∀ {a} → {A : Set a} → {n m : ℕ}
+  nymois : ∀ {a} → {A : Set a} → {n : ℕ}
+         → (m : ℕ)
          → (x : Vec (Maybe A) n)
          → (z : A)
          → (_≡_
@@ -554,8 +555,8 @@ module SequinVeritas where
                (_++ᵥ_
                  (Data.Vec.replicate {n = m} nothing)
                  (just z ∷ᵥ x))))
-  nymois {m = 0} _ _ = refl
-  nymois {m = suc n} = nymois {m = n}
+  nymois 0 _ _ = refl
+  nymois (suc n) = nymois n
 \end{code}
 
 \section{la'oi .\F{spk}.}
