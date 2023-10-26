@@ -206,7 +206,7 @@ ddvs : String
 ddvs = "/usr/local/share/evannouncer/"
 \end{code}
 
-\chapter{le me'oi .\AgdaKeyword{data}.}
+\chapter{le zo'oi .\AgdaKeyword{data}.\ co'e}
 
 \section{la'oi .\D{Midnoi}.}
 ni'o ro da poi ke'a ctaipe la'oi .\D{Midnoi}.\ zo'u da sinxa lo .uniks.\ midnoi
