@@ -70,6 +70,8 @@
 \newcommand\IC\AgdaInductiveConstructor
 \newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
+\newcommand\filrihavelcki[1]{ni'o la .varik.\ cu jinvi le du'u lo nu jimpe fi la'oi .\D{Lerfu}.\ cu filri'a lo nu jimpe fi la'oi .\D{#1}.}
+
 \newcommand\selsnap[2]{lo nu drani .uniks.\ bo co'e la'o zoi.\ #1\ .zoi.\ cu rinka lo nu lo srana be lo skami cu selsnapra lo velski be #2}
 \newcommand\sopa{\colorbox{black!90}{sopa}}
 
@@ -215,6 +217,7 @@ Midnoi = String
 \end{code}
 
 \section{la'oi .\D{Case}.}
+\filrihavelcki{Case}
 
 \begin{code}
 data Case : Set
@@ -248,6 +251,7 @@ instance
 \end{code}
 
 \section{la'oi .\D{LTyp}.}
+\filrihavelcki{LTyp}
 
 \begin{code}
 data LTyp : Set
