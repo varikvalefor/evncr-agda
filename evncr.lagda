@@ -371,8 +371,7 @@ plicu'a _ d []ₗ = d
 plicu'a q d ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q d xs
   where
   _elem_ : ℕ → List ℕ → Bool
-  _elem_ _ []ₗ = false
-  _elem_ x (y ∷ₗ ys) = (x ≡ᵇ y) ∨ (x elem ys)
+  _elem_ x = Data.Nat._<ᵇ_ 0 ∘ length ∘ Data.List.filter (x ≟_)
 \end{code}
 
 \section{la'oi .\F{intdMm}.}
