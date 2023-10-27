@@ -98,7 +98,6 @@ open import Data.Fin
   )
 open import Data.Nat
   using (
-    _≡ᵇ_;
     _∸_;
     _*_;
     suc;
@@ -183,6 +182,7 @@ open import IO.Primitive
   )
 open import Category.Applicative
 open import Data.Maybe.Instances
+open import Truthbrary.Record.Eq
 open import Truthbrary.Record.SR
 open import Data.Unit.Polymorphic
   using (
