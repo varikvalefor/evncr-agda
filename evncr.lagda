@@ -87,9 +87,9 @@
 
 open import IO
   renaming (
-    lift to liftᵢₒ;
     _<$>_ to _<$>ᵢₒ_;
-    _>>=_ to _>>=ᵢₒ_
+    _>>=_ to _>>=ᵢₒ_;
+    lift to liftᵢₒ
   )
 open import Data.Fin
   using (
@@ -121,10 +121,10 @@ open import Data.Vec
     Vec
   )
   renaming (
-    [] to []ᵥ;
     _++_ to _++ᵥ_;
     map to mapᵥ;
-    _∷_ to _∷ᵥ_
+    _∷_ to _∷ᵥ_;
+    [] to []ᵥ
   )
 open import Function
 open import Data.Bool
