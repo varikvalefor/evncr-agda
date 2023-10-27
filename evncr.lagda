@@ -372,7 +372,9 @@ ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \OpF, \B z .zoi.\ 
 \end{itemize}
 
 \begin{code}
-plicu'a : ∀ {a} → {A : Set a} → ℕ → A → List $ List ℕ × A → A
+plicu'a : ∀ {a b} → {A : Set a} → {B : Set b}
+        → ⦃ Eq B ⦄
+        → B → A → List $ List B × A → A
 plicu'a _ d []ₗ = d
 plicu'a q d ((a , b) ∷ₗ xs) = if q ∈ᵇ a then b else plicu'a q d xs
   where
