@@ -196,6 +196,10 @@ open import Data.Unit.Polymorphic
     ⊤
   )
 open import Truthbrary.Record.LLC
+open import Relation.Nullary.Decidable
+  using (
+    isYes
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     subst;
@@ -378,7 +382,7 @@ plicu'a : ∀ {a b} → {A : Set a} → {B : Set b}
 plicu'a _ d []ₗ = d
 plicu'a q d ((a , b) ∷ₗ xs) = if q ∈ᵇ a then b else plicu'a q d xs
   where
-  _∈ᵇ_ = λ x z → is-just $ decToMaybe $ Dec (x ∈ z) ∋ _ ≟ _
+  _∈ᵇ_ = λ x z → isYes $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
 
 \section{la'oi .\F{intdMm}.}
