@@ -155,6 +155,8 @@ open import Data.Float
   )
 open import Data.Maybe
   using (
+    decToMaybe;
+    is-just;
     nothing;
     Maybe;
     maybe;
@@ -179,6 +181,10 @@ open import IO.Primitive
   renaming (
     IO to PIO;
     _>>=_ to _>>=ₚᵢₒ_
+  )
+open import Relation.Nullary
+  using (
+    Dec
   )
 open import Category.Applicative
 open import Data.Maybe.Instances
@@ -371,7 +377,7 @@ plicu'a _ d []ₗ = d
 plicu'a q d ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q d xs
   where
   _elem_ : ℕ → List ℕ → Bool
-  _elem_ x = Data.Nat._<ᵇ_ 0 ∘ length ∘ Data.List.filter (x ≟_)
+  _elem_ x z = is-just $ decToMaybe $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
 
 \section{la'oi .\F{intdMm}.}
