@@ -376,8 +376,7 @@ plicu'a : ∀ {a} → {A : Set a} → ℕ → A → List $ List ℕ × A → A
 plicu'a _ d []ₗ = d
 plicu'a q d ((a , b) ∷ₗ xs) = if q elem a then b else plicu'a q d xs
   where
-  _elem_ : ℕ → List ℕ → Bool
-  _elem_ x z = is-just $ decToMaybe $ Dec (x ∈ z) ∋ _ ≟ _
+  _elem_ = λ x z → is-just $ decToMaybe $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
 
 \section{la'oi .\F{intdMm}.}
