@@ -92,7 +92,18 @@ open import IO
     _>>=_ to _>>=ᵢₒ_
   )
 open import Data.Fin
+  using (
+    toℕ;
+    Fin
+  )
 open import Data.Nat
+  using (
+    _≡ᵇ_;
+    _∸_;
+    _*_;
+    suc;
+    ℕ
+  )
   renaming (
     _+_ to _+ₙ_
   )
@@ -117,6 +128,13 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
+  using (
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    _∨_
+  )
 open import Data.Char
   using (
     Char
@@ -167,6 +185,10 @@ open import Category.Applicative
 open import Data.Maybe.Instances
 open import Truthbrary.Record.SR
 open import Data.Unit.Polymorphic
+  using (
+    tt;
+    ⊤
+  )
 open import Truthbrary.Record.LLC
 open import Relation.Binary.PropositionalEquality
   using (
