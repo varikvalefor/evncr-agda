@@ -619,10 +619,10 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM spkJaDnp ∘ dej
   denpaXiRe : IO $ Maybe ℕ
   denpaXiRe = doit $ "sleep " ++ show selsniduXiRe
   -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
-  dej : List Lerfu → List $ Fin 1 ⊎ Lerfu
-  dej = Data.List.intersperse (inj₁ Fin.zero) ∘ map inj₂
-  spkJaDnp : Fin 1 ⊎ Lerfu → IO $ Maybe ℕ
-  spkJaDnp = [_,_] (const $ doit $ denpa selsniduXiRe) spk
+  dej : List Lerfu → List $ Maybe Lerfu
+  dej = Data.List.intersperse nothing ∘ map just
+  spkJaDnp : Maybe Lerfu → IO $ Maybe ℕ
+  spkJaDnp = maybe spk $ doit $ denpa selsniduXiRe
 \end{code}
 
 \section{la'oi .\F{main}.}
