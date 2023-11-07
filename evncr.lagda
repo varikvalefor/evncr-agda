@@ -629,7 +629,7 @@ bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM spkJaDnp ∘ dej
 
 \begin{code}
 main : Main
-main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ lerste
+main = run $ getLine >>=ᵢₒ maybe evnc spojaPe'aRu'e ∘ lerste
   where
   postulate erroy : String → PIO ABU.⊤
   {-# COMPILE GHC erroy = hPutStrLn stderr . unpack #-}
@@ -639,13 +639,9 @@ main = run $ getLine >>=ᵢₒ maybe bjsf spojaPe'aRu'e ∘ lerste
     jbo = "ni'o pruce lo lerfu poi \
           \ke'a tolmapti la .asycy'i'is."
     eng = "Inputs a non-ASCII character."
-  -- | ni'o zo'oi .bjsf. cmavlaka'i lu bacru ja
-  -- samfli li'u
-  --
-  -- .i la .varik. cu na djuno lo du'u cadga fa lo nu
-  -- ma kau basti zo'oi .bjsf.
-  bjsf : List Lerfu → IO ⊤
-  bjsf a = bacru a >>=ᵢₒ camki'a
+  -- | ni'o zo'oi .evnc. cmavlaka'i zo'oi .EVANNOUNCER.
+  evnc : List Lerfu → IO ⊤
+  evnc a = bacru a >>=ᵢₒ camki'a
     where
     camki'a : Maybe ℕ → IO ⊤
     camki'a = maybe (liftx ∘ erroy ∘ show) $ pure tt
