@@ -588,7 +588,7 @@ module SequinVeritas where
          → (_≡_
              (just z)
              (sequin
-               (_++ᵥ_
+               (_++_
                  (Data.Vec.replicate {n = m} nothing)
                  (just z ∷ᵥ x))))
   nymois 0 _ _ = refl
