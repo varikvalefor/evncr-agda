@@ -187,15 +187,34 @@ open import Relation.Nullary
     Dec
   )
 open import Category.Applicative
+  using (
+  )
 open import Data.Maybe.Instances
+  using (
+  )
 open import Truthbrary.Record.Eq
+  using (
+    _≟_;
+    Eq
+  )
 open import Truthbrary.Record.SR
+  using (
+    readMaybe;
+    Show;
+    show
+  )
 open import Data.Unit.Polymorphic
   using (
     tt;
     ⊤
   )
 open import Truthbrary.Record.LLC
+  using (
+    _++_;
+    _∷_;
+    _∈_;
+    map
+  )
 open import Relation.Nullary.Decidable
   using (
     isYes
