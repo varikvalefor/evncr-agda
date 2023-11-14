@@ -186,12 +186,6 @@ open import Relation.Nullary
   using (
     Dec
   )
-open import Category.Applicative
-  using (
-  )
-open import Data.Maybe.Instances
-  using (
-  )
 open import Truthbrary.Record.Eq
   using (
     _≟_;
