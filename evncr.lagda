@@ -385,7 +385,7 @@ intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y
 ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \OpF, \B z .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi\ldots
 \begin{itemize}
 	\item ko'a goi la'o zoi.\ \F{plicu'a} \B q \B n \B K .zoi.\ du la'oi .\B z.\ gi
-	\item ga jonai ko'a du la'oi .\B n.\ gi ga je lo nilzilcmi be la'oi .\B k.\ cu zmadu li pa gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \OpF\$ \F{tail} \B K .zoi.
+	\item ga jonai ko'a du la'oi .\B n.\ gi ga je li pa mleca lo nilzilcmi be la'oi .\B k.\ gi ko'a du la'o zoi.\ \F{plicu'a} \B q \B n \OpF\$ \F{tail} \B K .zoi.
 \end{itemize}
 
 \begin{code}
