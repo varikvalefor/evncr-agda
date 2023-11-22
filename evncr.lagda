@@ -499,14 +499,14 @@ lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
            → (j : List A)
            → just j ≡ sikh (map just j)
     faivos []ₗ = refl
-    faivos (x ∷ₗ y) = cong (Data.Maybe.map $ _∷_ x) $ faivos y
+    faivos (x ∷ₗ y) = cong (Data.Maybe.map $ x ∷_) $ faivos y
 
     faivuyn : ∀ {a} → {A : Set a}
             → (x z : List $ Maybe A)
             → nothing ≡ sikh (x ++ nothing ∷ₗ z)
     faivuyn []ₗ _ = refl
     faivuyn (nothing ∷ₗ _) _ = refl
-    faivuyn (just x ∷ₗ xs) = cong (mapₘ $ _∷_ x) ∘ faivuyn xs
+    faivuyn (just x ∷ₗ xs) = cong (mapₘ $ x ∷_) ∘ faivuyn xs
       where
       mapₘ = Data.Maybe.map
 \end{code}
