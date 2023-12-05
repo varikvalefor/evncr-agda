@@ -615,7 +615,7 @@ spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
   where
   mvm : ∀ {a b} → {n : ℕ} → {A : Set a} → {B : Set b}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
-  mvm f x = sequin <$>ᵢₒ IO.List.mapM f (toList x)
+  mvm f = _<$>ᵢₒ_ sequin ∘ IO.List.mapM f ∘ toList
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (_$ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
 \end{code}
