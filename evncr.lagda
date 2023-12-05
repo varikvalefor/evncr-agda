@@ -554,7 +554,7 @@ denpa = _++_ "sleep " ∘ show
 \end{code}
 
 \section{la'oi .\F{doit}.}
-ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\F{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
+ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\IC{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
 
 \begin{code}
 doit : String → IO $ Maybe ℕ
@@ -579,7 +579,7 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
 \end{code}
 
 \section{la'oi .\F{sequin}.}
-ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\F{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\IC{nothing}.
+ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\IC{nothing}.
 
 \begin{code}
 sequin : ∀ {a} → {n : ℕ} → {A : Set a}
