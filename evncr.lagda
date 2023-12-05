@@ -555,7 +555,7 @@ denpa = _++_ "sleep " ∘ show
 \end{code}
 
 \section{la'oi .\F{doit}.}
-ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\F{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\AgdaInductiveConstructor{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
+ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\F{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
 
 \begin{code}
 doit : String → IO $ Maybe ℕ
