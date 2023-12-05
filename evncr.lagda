@@ -582,27 +582,26 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
 ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\IC{nothing}.
 
 \begin{code}
-sequin : ∀ {a} → {n : ℕ} → {A : Set a}
-       → Vec (Maybe A) n → Maybe A
-sequin = Data.List.head ∘ Data.List.mapMaybe id ∘ toList
+sequin : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe A
+sequin = Data.List.head ∘ Data.List.mapMaybe id
 
 module SequinVeritas where
-  pamoi : ∀ {a} → {A : Set a} → {n : ℕ}
-        → (x : Vec (Maybe A) n)
+  pamoi : ∀ {a} → {A : Set a}
+        → (x : List $ Maybe A)
         → (z : A)
         → just z ≡ sequin (just z ∷ x)
   pamoi _ _ = refl
 
-  nymois : ∀ {a} → {A : Set a} → {n : ℕ}
+  nymois : ∀ {a} → {A : Set a}
          → (m : ℕ)
-         → (x : Vec (Maybe A) n)
+         → (x : List $ Maybe A)
          → (z : A)
          → (_≡_
              (just z)
              (sequin
                (_++_
-                 (Data.Vec.replicate {n = m} nothing)
-                 (just z ∷ᵥ x))))
+                 (Data.List.replicate m nothing)
+                 (just z ∷ₗ x))))
   nymois 0 _ _ = refl
   nymois (suc n) = nymois n
 \end{code}
@@ -616,7 +615,7 @@ spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
   where
   mvm : ∀ {a b} → {n : ℕ} → {A : Set a} → {B : Set b}
       → (A → IO $ Maybe B) → Vec A n → IO $ Maybe B
-  mvm f x = sequin ∘ fromList <$>ᵢₒ IO.List.mapM f (toList x)
+  mvm f x = sequin <$>ᵢₒ IO.List.mapM f (toList x)
   spks : Lerfu → Vec Midnoi 3
   spks l = mapᵥ (_$ l) $ spkCL ∷ spkCC ∷ spkCF ∷ []ᵥ
 \end{code}
@@ -626,7 +625,7 @@ ni'o tu'a la'o zoi.\ \F{bacru} \B q .zoi.\ rinka lo nu lo srana be lo skami cu s
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
-bacru = _<$>ᵢₒ_ (sequin ∘ fromList) ∘ IO.List.mapM spkJaDnp ∘ dej
+bacru = _<$>ᵢₒ_ sequin ∘ IO.List.mapM spkJaDnp ∘ dej
   where
   denpaXiRe : IO $ Maybe ℕ
   denpaXiRe = doit $ "sleep " ++ show selsniduXiRe
