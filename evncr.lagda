@@ -361,7 +361,7 @@ record Lerfu : Set
 \chapter{le vrici je fancu}
 
 \section{la'oi .\F{liftx}.}
-ni'o lo jalge be tu'a la'o zoi.\ \B x\ .zoi.\ cu jalge be tu'a la'o zoi.\ \F{liftx} \B x\ .zoi.
+ni'o lo jalge be tu'a la'o zoi.\ \B x\ .zoi.\ cu jalge tu'a la'o zoi.\ \F{liftx} \B x\ .zoi.
 
 \begin{code}
 liftx : ∀ {a} → PIO ABU.⊤ → IO {a} ⊤
