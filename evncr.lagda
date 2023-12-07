@@ -621,7 +621,7 @@ spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
 \end{code}
 
 \section{la'oi .\F{bacru}.}
-ni'o tu'a la'o zoi.\ \F{bacru} \B q .zoi.\ rinka lo nu lo srana be lo skami cu selsnapra lo sinxa be la'o zoi.\ \B q .zoi.
+ni'o \selsnap{\F{bacru} \B q}{la'o zoi.\ \B q .zoi.}
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
