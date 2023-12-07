@@ -579,7 +579,7 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
 \end{code}
 
 \section{la'oi .\F{sequin}.}
-ni'o ga jonai ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a gi ko'e du la'oi .\IC{nothing}.
+ni'o ga jonai la'oi .\IC{nothing}.\ du ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ gi ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a
 
 \begin{code}
 sequin : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe A
