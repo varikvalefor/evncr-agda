@@ -241,7 +241,7 @@ postulate selsniduXiRe : Float
 \end{code}
 
 \section{la'oi .\F{ddvs}.}
-ni'o la'oi .\F{ddvs}.\ me'oi .path.\ lo datnyveiste poi ke'a vasru lo sance datnyvei pe la'oi .EVANNOUNCER.
+ni'o la'oi .\F{ddvs}.\ me'oi .path.\ lo datnyveiste be lo'i sance pe la'oi .EVANNOUNCER.
 
 .i zo'oi .ddvs.\ cmavlaka'i lu datni datnyveiste li'u
 
