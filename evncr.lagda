@@ -325,27 +325,27 @@ instance
 \section{la'oi .\D{Lerfu}.}
 ni'o sinxa lo lerfu be la'oi .ASCII.\ fa lo ro ctaipe be la'oi .\D{Lerfu}.\ be'o poi ke'a drani
 
-.i go fo'a goi la'oi .\B x.\ drani gi\ldots
+.i ga jo fo'a goi la'oi .\B x.\ drani gi\ldots
 \begin{itemize}
-	\item gonai ge ko'a goi la'o zoi.\ \AgdaField{Lerfu.ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ge fo'a sinxa lo nacle'u gi ge ko'e goi la'o zoi.\ \AgdaField{Lerfu.case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \AgdaField{Lerfu.bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o li vobi gi
-	\item gonai ge ko'a du la'oi .\IC{Latmo}.\ gi\ldots
+	\item ga jonai ga je ko'a goi la'o zoi.\ \AgdaField{Lerfu.ctyp} \B x .zoi.\ du la'oi .\IC{Xrabo}.\ gi ga je fo'a sinxa lo nacle'u gi ga je ko'e goi la'o zoi.\ \AgdaField{Lerfu.case} \B x .zoi.\ du la'oi .\IC{Namcu}.\ gi ko'i goi la'o zoi.\ \AgdaField{Lerfu.bnam} \B x .zoi.\ sumji lo namcu poi selsni la'oi .\B x.\ ku'o li vobi gi
+	\item ga jonai ga je ko'a du la'oi .\IC{Latmo}.\ gi\ldots
 	\begin{itemize}
-		\item gonai ge ko'e du la'oi .\IC{Barda}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .majuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li xamu gi
-		\item ge ko'e du la'oi .\IC{Cmalu}.\ gi ge la'oi .\B x.\ sinxa lo me'oi .minuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li soze gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Barda}.\ gi ga je la'oi .\B x.\ sinxa lo me'oi .majuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li xamu gi
+		\item ga je ko'e du la'oi .\IC{Cmalu}.\ gi ga je la'oi .\B x.\ sinxa lo me'oi .minuscule.\ lerfu gi ko'i sumji lo mu'oi glibau.\ 0-indexed .glibau.\ se meirmoi be lo me'oi .caseless.\ versiio be lo selsni be la'oi .\B x.\ li soze gi
 	\end{itemize}
-	\item gonai ge ko'a du la'oi .\IC{Kalri}.\ gi ge ko'i du li \sopa\ gi\ldots
+	\item ga jonai ga je ko'a du la'oi .\IC{Kalri}.\ gi ga je ko'i du li \sopa\ gi\ldots
 	\begin{itemize}
-		\item gonai ge ko'e du la'oi .\IC{Tcekr}.\ gi fo'a sinxa lo tolsti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li pareci pe la .asycy'i'is.\ gi
-		\item gonai ge ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo tolsti kurfa bo me'oi .bracket.\ noi ke'a selsni li \sopa\ pe la .asycy'i'is.\ gi
-		\item ge ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo tolsti cukla bo me'oi .bracket.\ noi ke'a selsni li vono pe la .asycy'i'is.\ gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Tcekr}.\ gi fo'a sinxa lo tolsti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li pareci pe la .asycy'i'is.\ gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo tolsti kurfa bo me'oi .bracket.\ noi ke'a selsni li \sopa\ pe la .asycy'i'is.\ gi
+		\item ga je ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo tolsti cukla bo me'oi .bracket.\ noi ke'a selsni li vono pe la .asycy'i'is.\ gi
 	\end{itemize}
-	\item ge ko'a du la'oi .\IC{Ganlo}.\ gi ge ko'i du li soci gi\ldots
+	\item ga je ko'a du la'oi .\IC{Ganlo}.\ gi ga je ko'i du li soci gi\ldots
 	\begin{itemize}
-		\item gonai ge ko'e du la'oi .\IC{Tcekr}.\ gi fo'a sinxa lo sisti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li paremu pe la .asycy'i'is.\ gi
-		\item gonai ge ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo sisti kurfa bo me'oi .bracket.\ noi ke'a selsni li soci pe la .asycy'i'is.\ gi
-		\item gonai ge ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo sisti cukla bo me'oi .bracket.\ noi ke'a selsni li vopa pe la .asycy'i'is.\ gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Tcekr}.\ gi fo'a sinxa lo sisti me'oi .curly.\ bo me'oi .bracket.\ noi ke'a selsni li paremu pe la .asycy'i'is.\ gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Kurfa}.\ gi fo'a sinxa lo sisti kurfa bo me'oi .bracket.\ noi ke'a selsni li soci pe la .asycy'i'is.\ gi
+		\item ga jonai ga je ko'e du la'oi .\IC{Cukla}.\ gi fo'a sinxa lo sisti cukla bo me'oi .bracket.\ noi ke'a selsni li vopa pe la .asycy'i'is.\ gi
 	\end{itemize}
-	\item ge ko'a du la'oi .\IC{Vrici}.\ gi ge ko'e du la'oi .\IC{Snile'u}.\ gi ko'i .asycy'i'is.\ sinxa lo selsni be fo'a
+	\item ga je ko'a du la'oi .\IC{Vrici}.\ gi ga je ko'e du la'oi .\IC{Snile'u}.\ gi ko'i .asycy'i'is.\ sinxa lo selsni be fo'a
 \end{itemize}
 
 \begin{code}
@@ -424,13 +424,13 @@ toBnam q = plicu'a q' q' ns
 
 ni'o ga jonai \toCase\ du la'oi .\IC{Snile'u}.\ gi\ldots
 \begin{itemize}
-	\item gonai ge \BQ\ dubjavmau li vobi je cu mleca li mubi gi \toCase\ du la'oi .\IC{Namcu}.\ gi
-        \item gonai ge \BQ\ dubjavmau li xamu je cu mleca li \sopa\ gi \toCase\ du la'oi .\IC{Barda}.\ gi
-        \item gonai ge \BQ\ dubjavmau li soze je cu mleca li pareci gi \toCase\ du la'oi .\IC{Cmalu}.\ gi
-        \item gonai ge \BQ\ du li vono ja li vopa gi \toCase\ du la'oi .\IC{Cukla}.\ gi
-        \item gonai ge \BQ\ du li xano ja li xare gi \toCase\ du la'oi .\IC{Jganu}.\ gi
-        \item gonai ge \BQ\ du li \sopa\ ja li soci gi \toCase\ du la'oi .\F{Kurfa}.\ gi
-        \item ge \BQ\ du li pareci ja li paremu gi \toCase\ du la'oi .\F{Curly}.
+	\item ga jonai ga je \BQ\ dubjavmau li vobi je cu mleca li mubi gi \toCase\ du la'oi .\IC{Namcu}.\ gi
+        \item ga jonai ga je \BQ\ dubjavmau li xamu je cu mleca li \sopa\ gi \toCase\ du la'oi .\IC{Barda}.\ gi
+        \item ga jonai ga je \BQ\ dubjavmau li soze je cu mleca li pareci gi \toCase\ du la'oi .\IC{Cmalu}.\ gi
+        \item ga jonai ga je \BQ\ du li vono ja li vopa gi \toCase\ du la'oi .\IC{Cukla}.\ gi
+        \item ga jonai ga je \BQ\ du li xano ja li xare gi \toCase\ du la'oi .\IC{Jganu}.\ gi
+        \item ga jonai ga je \BQ\ du li \sopa\ ja li soci gi \toCase\ du la'oi .\F{Kurfa}.\ gi
+        \item ga je \BQ\ du li pareci ja li paremu gi \toCase\ du la'oi .\F{Curly}.
 \end{itemize}
 
 \begin{code}
