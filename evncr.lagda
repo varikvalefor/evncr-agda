@@ -360,7 +360,7 @@ record Lerfu : Set
 \chapter{le vrici je fancu}
 
 \section{la'oi .\F{liftx}.}
-ni'o lo jalge be tu'a la'o zoi.\ \B x\ .zoi.\ cu jalge tu'a la'o zoi.\ \F{liftx} \B x\ .zoi.
+ni'o lo jalge be tu'a la'oi .\B x.\ cu jalge tu'a la'o zoi.\ \F{liftx} \B x\ .zoi.
 
 \begin{code}
 liftx : ∀ {a} → PIO ABU.⊤ → IO {a} ⊤
@@ -546,7 +546,7 @@ spkCF q = "mplayer " ++ ddvs ++ f (Lerfu.bnam q)
 \end{code}
 
 \section{la \F{denpa}.}
-ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{denpa}\ \B f\ .zoi.\ cu rinka lo nu snidu la'o zoi.\ \B f\ .zoi.\ fa lo nu denpa
+ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{denpa}\ \B f\ .zoi.\ cu rinka lo nu snidu la'oi .\B f.\ fa lo nu denpa
 
 \begin{code}
 denpa : Float → Midnoi
@@ -554,7 +554,7 @@ denpa = _++_ "sleep " ∘ show
 \end{code}
 
 \section{la'oi .\F{doit}.}
-ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'o zoi.\ \B s\ .zoi.  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\IC{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
+ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'oi .\B s.\  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\IC{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a tu'a ke'a selri'a tu'a ko'a
 
 \begin{code}
 doit : String → IO $ Maybe ℕ
@@ -579,7 +579,7 @@ doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
 \end{code}
 
 \section{la'oi .\F{sequin}.}
-ni'o ga jonai la'oi .\IC{nothing}.\ du ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ gi ga je ko'a goi la'o zoi.\ \B n .zoi.\ vasru lo me'oi .\IC{just}.\ gi ko'e pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a
+ni'o ga jonai la'oi .\IC{nothing}.\ du ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ gi ga je ko'a goi la'oi .\B n.\ vasru lo me'oi .\IC{just}.\ gi ko'e pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a
 
 \begin{code}
 sequin : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe A
@@ -621,7 +621,7 @@ spk = mvm doit ∘ intersperse (denpa selsniduXiPa) ∘ spks
 \end{code}
 
 \section{la'oi .\F{bacru}.}
-ni'o \selsnap{\F{bacru} \B q}{la'o zoi.\ \B q .zoi.}
+ni'o \selsnap{\F{bacru} \B q}{la'oi .\B q.}
 
 \begin{code}
 bacru : List Lerfu → IO $ Maybe ℕ
