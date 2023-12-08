@@ -381,7 +381,6 @@ intersperse _ q@(_ ∷ᵥ []ᵥ) = q
 intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y ∷ᵥ z)
 \end{code}
 
-\chapter{le skicu fancu}
 \section{la'oi .\F{plicu'a}.}
 ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \OpF, \B z .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi\ldots
 \begin{itemize}
@@ -399,6 +398,7 @@ plicu'a q d ((a , b) ∷ₗ xs) = if q ∈ᵇ a then b else plicu'a q d xs
   _∈ᵇ_ = λ x z → isYes $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
 
+\chapter{le skicu fancu}
 \section{la'oi .\F{intdMm}.}
 ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ porsi lo'i ro kacna'u poi ke'a dubjavmau la'oi .\B a.\ je cu mleca la'oi .\B b.
 
