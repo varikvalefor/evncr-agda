@@ -18,7 +18,9 @@
 \newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
