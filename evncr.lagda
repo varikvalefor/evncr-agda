@@ -404,7 +404,7 @@ ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ porsi lo'i ro kacna'u poi ke'a dubja
 
 \begin{code}
 intdMm : ℕ → ℕ → List ℕ
-intdMm a = drop a ∘ upTo
+intdMm a = drop a ∘ upTo ∘ suc
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
@@ -415,7 +415,7 @@ toBnam q = plicu'a q' q' ns
   where
   q' = toℕ q
   du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
-  cmalu = intdMm 97 123
+  cmalu = intdMm 97 122
   ns : List $ List ℕ × ℕ
   ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []ₗ
 \end{code}
@@ -439,9 +439,9 @@ ni'o ga jonai \toCase\ du la'oi .\IC{Snile'u}.\ gi\ldots
 toCase : Fin 128 → Case
 toCase q = plicu'a (toℕ q) Snile'u ns
   where
-  namcu = intdMm 48 58
-  barda = intdMm 65 91
-  cmalu = intdMm 97 123
+  namcu = intdMm 48 57
+  barda = intdMm 65 90
+  cmalu = intdMm 97 122
   cukla = 40 ∷ 41 ∷ []ₗ
   jganu = 60 ∷ 62 ∷ []ₗ
   kurfa = 91 ∷ 93 ∷ []ₗ
@@ -461,8 +461,8 @@ toLtyp q = plicu'a (toℕ q) Vrici ns
   where
   kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
   ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
-  latmo = intdMm 65 91 ++ intdMm 97 123
-  xrabo = intdMm 48 58
+  latmo = intdMm 65 90 ++ intdMm 97 122
+  xrabo = intdMm 48 57
   ns : List $ List ℕ × LTyp
   ns = (kalri , Kalri) ∷ (ganlo , Ganlo) ∷
        (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []ₗ
