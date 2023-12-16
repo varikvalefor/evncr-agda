@@ -151,8 +151,7 @@ open import Data.List
   )
   renaming (
     [] to []ₗ;
-    _∷_ to _∷ₗ_;
-    length to lengthₗ
+    _∷_ to _∷ₗ_
   )
 open import Data.Float
   using (
