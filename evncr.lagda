@@ -125,6 +125,12 @@ open import Data.Vec
     [] to []ᵥ
   )
 open import Function
+  using (
+    _∋_;
+    _$_;
+    _∘_;
+    id
+  )
 open import Data.Bool
   using (
     if_then_else_;
