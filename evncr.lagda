@@ -105,9 +105,6 @@ open import Data.Nat
     suc;
     ℕ
   )
-  renaming (
-    _+_ to _+ₙ_
-  )
 open import Data.Sum
   using (
     [_,_];
