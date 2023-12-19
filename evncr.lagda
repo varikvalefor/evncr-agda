@@ -372,7 +372,7 @@ liftx q = liftᵢₒ $ q >>=ₚᵢₒ λ _ → IO.Primitive.return _
 \end{code}
 
 \section{la'oi .\F{intersperse}.}
-ni'o la .varik.\ na birti lo du'u ma kau zabna je cu velcki la'oi .\F{intersperse}.\ bau la .lojban.
+ni'o la .varik.\ na birti lo du'u ciksi la'oi .\F{intersperse}.\ bau la .lojban.\ fo ma kau poi ke'a zabna
 
 \begin{code}
 intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
