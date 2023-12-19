@@ -602,10 +602,7 @@ module SequinVeritas where
          → (z : A)
          → (_≡_
              (just z)
-             (sequin
-               (_++_
-                 (Data.List.replicate m nothing)
-                 (just z ∷ₗ x))))
+             (sequin $ Data.List.replicate m nothing ++ just z ∷ₗ x))
   nymois 0 _ _ = refl
   nymois (suc n) = nymois n
 \end{code}
