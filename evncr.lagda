@@ -654,7 +654,7 @@ main = run $ getLine >>=ᵢₒ maybe evnc spojaPe'aRu'e ∘ lerste
     jbo = "ni'o pruce lo lerfu poi \
           \ke'a tolmapti la .asycy'i'is."
     eng = "Inputs a non-ASCII character."
-  -- | ni'o zo'oi .evnc. cmavlaka'i zo'oi .EVANNOUNCER.
+  -- | ni'o zo'oi .evnc. cmavlaka'i zo'oi .EVANNOUNCE.
   evnc : List Lerfu → IO ⊤
   evnc a = bacru a >>=ᵢₒ maybe (liftx ∘ erroy ∘ show) (pure tt)
 \end{code}
