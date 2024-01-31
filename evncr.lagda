@@ -383,6 +383,21 @@ intersperse _ q@(_ ∷ᵥ []ᵥ) = q
 intersperse {n = n} t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y ∷ᵥ z)
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{intersperse}.\ mapti}
+
+\begin{code}
+module IntersperseVeritas where
+  snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
+             → (t : A) → (q : Vec A n)
+             → (x : Fin n)
+             → (_≡_
+                 (Data.Vec.lookup q x)
+                 (Data.Vec.lookup
+                   (intersperse t q)
+                   (Data.Fin.fromℕ< {toℕ x * 2 ∸ 1} {!!})))
+  snaredunli = {!!}
+\end{code}
+
 \section{la'oi .\F{plicu'a}.}
 ni'o ga jonai ga je ga je la'oi .\B K.\ vasru la'o zoi.\ \B x \OpF, \B z .zoi.\ gi la'oi .\B q.\ selvau la'oi .\B x.\ gi\ldots
 \begin{itemize}
