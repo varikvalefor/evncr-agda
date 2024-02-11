@@ -231,14 +231,14 @@ import Agda.Builtin.Unit as ABU
 \chapter{le srana be lo nu tcimi'e}
 
 \section{la'oi .\F{selsniduXiPa}.}
-ni'o la'oi .\F{selsniduXiPa}.\ bitmu fo lo me'oi .\D{Lerfu}.
+ni'o la'oi .\F{selsniduXiPa}.\ bitmu fo lo ctaipe be la'oi .\D{Lerfu}.
 
 \begin{code}
 postulate selsniduXiPa : Float
 \end{code}
 
 \section{la'oi .\F{selsniduXiRe}.}
-ni'o la'oi .\F{selsniduXiRe}.\ bitmu fo lo mu'oi glibau.\ \D{List} \D{Lerfu} .glibau.
+ni'o la'oi .\F{selsniduXiRe}.\ bitmu fo lo ctaipe be la'oi glibau.\ \D{List} \D{Lerfu} .glibau.
 
 \begin{code}
 postulate selsniduXiRe : Float
