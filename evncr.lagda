@@ -151,6 +151,7 @@ open import Data.List
   )
   renaming (
     [] to []ₗ;
+    map to mapₗ;
     _∷_ to _∷ₗ_
   )
 open import Data.Float
@@ -207,6 +208,7 @@ open import Data.Unit.Polymorphic
   )
 open import Truthbrary.Record.LLC
   using (
+    liliString;
     _++_;
     _∷_;
     _∈_;
@@ -504,7 +506,7 @@ ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zo
 
 \begin{code}
 lerste : String → Maybe $ List Lerfu
-lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
+lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
   where
   sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
   sikh []ₗ = just []ₗ
@@ -515,7 +517,7 @@ lerste = sikh ∘ map (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
     where
     faivos : ∀ {a} → {A : Set a}
            → (j : List A)
-           → just j ≡ sikh (map just j)
+           → just j ≡ sikh (mapₗ just j)
     faivos []ₗ = refl
     faivos (x ∷ₗ y) = cong (Data.Maybe.map $ x ∷_) $ faivos y
 
@@ -539,7 +541,7 @@ spkCL : Lerfu → Midnoi
 spkCL q = "mplayer " ++ ddvs ++ f (Lerfu.ctyp q)
   where
   f : LTyp → String
-  f = map Data.Char.toLower ∘ show
+  f = map ⦃ liliString ⦄ ⦃ liliString ⦄ Data.Char.toLower ∘ show
 \end{code}
 
 \section{la'oi .\F{spkCC}.}
@@ -550,7 +552,7 @@ spkCC : Lerfu → Midnoi
 spkCC q = "mplayer " ++ ddvs ++ f (Lerfu.case q)
   where
   f : Case → String
-  f = map Data.Char.toLower ∘ show
+  f = map ⦃ liliString ⦄ ⦃ liliString ⦄ Data.Char.toLower ∘ show
 \end{code}
 
 \section{la'oi .\F{spkCF}.}
@@ -647,7 +649,7 @@ bacru = _<$>ᵢₒ_ sequin ∘ IO.List.mapM spkJaDnp ∘ dej
   denpaXiRe = doit $ "sleep " ++ show selsniduXiRe
   -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
   dej : List Lerfu → List $ Maybe Lerfu
-  dej = Data.List.intersperse nothing ∘ map just
+  dej = Data.List.intersperse nothing ∘ mapₗ just
   spkJaDnp : Maybe Lerfu → IO $ Maybe ℕ
   spkJaDnp = maybe spk $ doit $ denpa selsniduXiRe
 \end{code}
