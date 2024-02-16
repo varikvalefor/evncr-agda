@@ -120,6 +120,7 @@ open import Data.Vec
 open import Function
   using (
     _∋_;
+    flip;
     _$_;
     _∘_;
     id
@@ -400,7 +401,7 @@ module IntersperseVeritas where
        → (t : A) → (q : Vec A n)
        → (x : Fin $ n * 2 ∸ 1)
        → 0 ≡ toℕ x % 2
-       → t ≡ Data.Vec.lookup (intersperse t q) x
+       → t ≡ flip Data.Vec.lookup x (intersperse t q)
   even = ?
 \end{code}
 
