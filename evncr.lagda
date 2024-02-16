@@ -424,6 +424,18 @@ plicu'a q d ((a , b) ∷ₗ xs) = if q ∈ᵇ a then b else plicu'a q d xs
   _∈ᵇ_ = λ x z → isYes $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
 
+\subsection{le ctaipe be le su'u la \F{plicu'a}\ cu mapti}
+
+\begin{code}
+module Plicu'aVeritas where
+  non : ∀ {a b} → {A : Set a} → {B : Set b}
+      → ⦃ _ : Eq B ⦄
+      → (x : B)
+      → (d : A)
+      → d ≡ plicu'a x d []ₗ
+  non _ _ = refl
+\end{code}
+
 \chapter{le skicu fancu}
 \section{la'oi .\F{intdMm}.}
 ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ porsi lo'i ro kacna'u poi ke'a dubjavmau la'oi .\B a.\ je cu mleca la'oi .\B b.
