@@ -179,6 +179,10 @@ open import IO.Primitive
     IO to PIO;
     _>>=_ to _>>=ₚᵢₒ_
   )
+open import Data.Nat.DivMod
+  using (
+    _%_
+  )
 open import Relation.Nullary
   using (
     Dec
@@ -391,6 +395,15 @@ module IntersperseVeritas where
                    (intersperse t q)
                    (Data.Fin.fromℕ< {toℕ x * 2 ∸ 1} {!!})))
   snaredunli = {!!}
+
+  even : ∀ {a} → {n : ℕ} → {A : Set a}
+       → (t : A) → (q : Vec A n)
+       → (x : Fin $ n * 2 ∸ 1)
+       → 0 ≡ toℕ x % 2
+       → (_≡_
+           t
+           (Data.Vec.lookup (intersperse t q) x))
+  even = ?
 \end{code}
 
 \section{la'oi .\F{plicu'a}.}
