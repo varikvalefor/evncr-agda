@@ -388,7 +388,8 @@ intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y ∷ᵥ 
 \begin{code}
 module IntersperseVeritas where
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
-             → (t : A) → (q : Vec A n)
+             → (t : A)
+             → (q : Vec A n)
              → (x : Fin n)
              → (_≡_
                  (Data.Vec.lookup q x)
