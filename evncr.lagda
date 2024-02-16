@@ -573,7 +573,7 @@ spkCF q = "mplayer " ++ ddvs ++ f (Lerfu.bnam q)
   f = show ∘ toℕ
 \end{code}
 
-\section{la \F{denpa}.}
+\section{la \F{denpa}}
 ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{denpa}\ \B f\ .zoi.\ cu rinka lo nu snidu la'oi .\B f.\ fa lo nu denpa
 
 \begin{code}
