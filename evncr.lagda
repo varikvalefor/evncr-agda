@@ -105,13 +105,6 @@ open import Data.Nat
     suc;
     ℕ
   )
-open import Data.Sum
-  using (
-    [_,_];
-    inj₁;
-    inj₂;
-    _⊎_
-  )
 open import Data.Vec
   using (
     fromList;
