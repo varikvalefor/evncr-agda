@@ -399,7 +399,8 @@ module IntersperseVeritas where
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
-       → (t : A) → (q : Vec A n)
+       → (t : A)
+       → (q : Vec A n)
        → (x : Fin $ n * 2 ∸ 1)
        → 0 ≡ toℕ x % 2
        → t ≡ flip Data.Vec.lookup x (intersperse t q)
