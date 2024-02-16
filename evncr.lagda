@@ -400,9 +400,7 @@ module IntersperseVeritas where
        → (t : A) → (q : Vec A n)
        → (x : Fin $ n * 2 ∸ 1)
        → 0 ≡ toℕ x % 2
-       → (_≡_
-           t
-           (Data.Vec.lookup (intersperse t q) x))
+       → t ≡ Data.Vec.lookup (intersperse t q) x
   even = ?
 \end{code}
 
