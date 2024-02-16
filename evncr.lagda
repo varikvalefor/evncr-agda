@@ -574,31 +574,6 @@ denpa : Float → Midnoi
 denpa = _++_ "sleep " ∘ show
 \end{code}
 
-\section{la'oi .\F{doit}.}
-ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'oi .\B s.\  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\IC{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a
-
-\begin{code}
-doit : String → IO $ Maybe ℕ
-doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
-  where
-  bixygau : ℕ → Maybe ℕ
-  bixygau n = if n Data.Nat.<ᵇ 127 then nothing else just n
-  postulate doit' : String → PIO ℕ
-  {-# FOREIGN GHC import System.IO #-}
-  {-# FOREIGN GHC import Data.Text #-}
-  {-# FOREIGN GHC import System.Exit #-}
-  {-# FOREIGN GHC import System.Process #-}
-  {-# COMPILE GHC
-    doit' = fmap (fromIntegral . g . f) . rpwec . unpack
-      where {
-        f (a, _, _) = a;
-        g (ExitFailure t) = t;
-        g _ = 128;
-        rpwec a = readProcessWithExitCode a [] [];
-      }
-  #-}
-\end{code}
-
 \section{la'oi .\F{sequin}.}
 ni'o ga jonai la'oi .\IC{nothing}.\ du ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.\ gi ga je ko'a goi la'oi .\B n.\ vasru lo me'oi .\IC{just}.\ gi ko'e pa moi lo'i ro me'oi .\IC{just}.\ poi ke'a selvau ko'a
 
@@ -622,6 +597,31 @@ module SequinVeritas where
              (sequin $ Data.List.replicate m nothing ++ just z ∷ₗ x))
   nymois 0 _ _ = refl
   nymois (suc n) = nymois n
+\end{code}
+
+\section{la'oi .\F{doit}.}
+ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'oi .\B s.\  .i ga jonai ga je .indika lo du'u snada fa tu'a ko'a goi la'o zoi.\ \F{doit} \B s\ .zoi.\ gi ko'a me'oi .\F{pure}.\ la'oi .\IC{nothing}.\ gi ko'a me'oi .\F{pure}.\ lo me'oi .\IC{just}.\ be lo mu'oi glibau.\ exit code .glibau.\ poi tu'a ko'a rinka tu'a ke'a
+
+\begin{code}
+doit : String → IO $ Maybe ℕ
+doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
+  where
+  bixygau : ℕ → Maybe ℕ
+  bixygau n = if n Data.Nat.<ᵇ 127 then nothing else just n
+  postulate doit' : String → PIO ℕ
+  {-# FOREIGN GHC import System.IO #-}
+  {-# FOREIGN GHC import Data.Text #-}
+  {-# FOREIGN GHC import System.Exit #-}
+  {-# FOREIGN GHC import System.Process #-}
+  {-# COMPILE GHC
+    doit' = fmap (fromIntegral . g . f) . rpwec . unpack
+      where {
+        f (a, _, _) = a;
+        g (ExitFailure t) = t;
+        g _ = 128;
+        rpwec a = readProcessWithExitCode a [] [];
+      }
+  #-}
 \end{code}
 
 \section{la'oi .\F{spk}.}
