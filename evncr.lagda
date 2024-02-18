@@ -380,7 +380,7 @@ intersperse : ∀ {a} → {n : ℕ} → {A : Set a}
             → Vec A $ n * 2 ∸ 1
 intersperse _ []ᵥ = []ᵥ
 intersperse _ q@(_ ∷ᵥ []ᵥ) = q
-intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ᵥ t ∷ᵥ intersperse t (y ∷ᵥ z)
+intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ t ∷ intersperse t (y ∷ᵥ z)
 \end{code}
 
 \subsection{le ctaipe be le su'u la'oi .\F{intersperse}.\ mapti}
