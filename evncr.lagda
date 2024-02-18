@@ -192,7 +192,8 @@ open import Data.Nat.DivMod
   )
 open import Relation.Nullary
   using (
-    Dec
+    Dec;
+    ¬_
   )
 open import Truthbrary.Record.Eq
   using (
@@ -470,7 +471,7 @@ module Plicu'aVeritas where
            → (d : A)
            → (L : List B × A)
            → (M : List $ List B × A)
-           → q ∉ proj₁ L
+           → ¬ (q ∈ proj₁ L)
            → plicu'a q d M ≡ plicu'a q d (L ∷ M)
   napamois q d L M j = sym $ begin
     plicu'a q d (L ∷ M) ≡⟨ refl ⟩
