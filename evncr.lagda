@@ -222,6 +222,7 @@ open import Truthbrary.Record.LLC
   )
 open import Relation.Nullary.Decidable
   using (
+    isYes≗does;
     isYes
   )
 open import Relation.Binary.PropositionalEquality
@@ -460,7 +461,6 @@ module Plicu'aVeritas where
     P = Dec (q ∈ L) ∋ _ ≟ _
     c = plicu'a q d M
     k = λ n → if n then z else c
-    isYes≗does = Relation.Nullary.Decidable.isYes≗does
     dec-true = Relation.Nullary.Decidable.dec-true
     open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
@@ -483,7 +483,6 @@ module Plicu'aVeritas where
     c = plicu'a q d M
     k = λ n → if n then proj₂ L else c
     P = Dec (q ∈ proj₁ L) ∋ _ ≟ _
-    isYes≗does = Relation.Nullary.Decidable.isYes≗does
     dec-false = Relation.Nullary.Decidable.dec-false
     open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
