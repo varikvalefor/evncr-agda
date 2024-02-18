@@ -449,23 +449,19 @@ module Plicu'aVeritas where
          → (M : List $ List B × A)
          → q ∈ L
          → z ≡_ $ plicu'a q d $ (L , z) ∷ M
-  pamois q d z L M j = ifdek _ _ j $ Dec (q ∈ L) ∋ _ ≟ _
+  pamois q d z L M j = sym $ begin
+    (if isYes P then b else c) ≡⟨ isYes≐does P ▹ cong k ⟩
+    (if Dec.does P then b else c) ≡⟨ dec-true P j ▹ cong k ⟩
+    b ∎
     where
-    ifdek : ∀ {a b} → {A : Set a} → {B : Set b}
-          → (b c : A)
-          → (a : B)
-          → (z : Dec B)
-          → b ≡_ $ if isYes z then b else c
-    ifdek b c a z = sym $ begin
-      (if isYes z then b else c) ≡⟨ isYes≐does z ▹ cong k ⟩
-      (if Dec.does z then b else c) ≡⟨ dec-true z a ▹ cong k ⟩
-      b ∎
-      where
-      k = λ n → if n then b else c
-      isYes≐does = Relation.Nullary.Decidable.isYes≗does
-      dec-true = Relation.Nullary.Decidable.dec-true
-      open import Relation.Binary.PropositionalEquality
-      open ≡-Reasoning
+    P = Dec (q ∈ L) ∋ _ ≟ _
+    b = z
+    c = plicu'a q d M
+    k = λ n → if n then b else c
+    isYes≐does = Relation.Nullary.Decidable.isYes≗does
+    dec-true = Relation.Nullary.Decidable.dec-true
+    open import Relation.Binary.PropositionalEquality
+    open ≡-Reasoning
 
   napamois : ∀ {a b} → {A : Set a} → {B : Set b}
            → ⦃ _ : Eq B ⦄
