@@ -474,13 +474,15 @@ module Plicu'aVeritas where
            → plicu'a q d M ≡ plicu'a q d (L ∷ M)
   napamois q d L M j = sym $ begin
     plicu'a q d (L ∷ M) ≡⟨ refl ⟩
-    (if isYes P then proj₂ L else c) ≡⟨ ? ⟩
-    (if Dec.does P then proj₂ L else c) ≡⟨ ? ⟩
+    (if isYes P then proj₂ L else c) ≡⟨ isYes≗does P ▹ cong k ⟩
+    (if Dec.does P then proj₂ L else c) ≡⟨ {!!} ⟩
     c ≡⟨ refl ⟩
     plicu'a q d M ∎
     where
     c = plicu'a q d M
+    k = λ n → if n then proj₂ L else c
     P = Dec (q ∈ proj₁ L) ∋ _ ≟ _
+    isYes≗does = Relation.Nullary.Decidable.isYes≗does
     open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
 \end{code}
