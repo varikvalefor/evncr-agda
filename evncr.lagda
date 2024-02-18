@@ -434,6 +434,16 @@ module Plicu'aVeritas where
       → (d : A)
       → d ≡ plicu'a x d []ₗ
   non _ _ = refl
+
+  pamois : ∀ {a b} → {A : Set a} → {B : Set b}
+         → ⦃ _ : Eq B ⦄
+         → (q : B)
+         → (d z : A)
+         → (L : List B)
+         → (M : List $ List B × A)
+         → q ∈ L
+         → z ≡_ $ plicu'a q d $ (L , z) ∷ M
+  pamois = {!!}
 \end{code}
 
 \chapter{le skicu fancu}
