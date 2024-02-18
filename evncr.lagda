@@ -131,11 +131,13 @@ open import Function
   )
 open import Data.Bool
   using (
-    if_then_else_;
     false;
     Bool;
     true;
     _∨_
+  )
+  renaming (
+    if_then_else_ to if
   )
 open import Data.Char
   using (
@@ -428,7 +430,7 @@ plicu'a : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq B ⦄
         → B → A → List $ List B × A → A
 plicu'a _ d []ₗ = d
-plicu'a q d ((a , b) ∷ₗ xs) = if q ∈ᵇ a then b else plicu'a q d xs
+plicu'a q d ((a , b) ∷ₗ xs) = if (q ∈ᵇ a) b $ plicu'a q d xs
   where
   _∈ᵇ_ = λ x z → isYes $ Dec (x ∈ z) ∋ _ ≟ _
 \end{code}
@@ -454,13 +456,13 @@ module Plicu'aVeritas where
          → z ≡_ $ plicu'a q d $ (L , z) ∷ M
   pamois q d z L M j = sym $ begin
     plicu'a q d ((L , z) ∷ M) ≡⟨ refl ⟩
-    (if isYes P then z else c) ≡⟨ isYes≗does P ▹ cong k ⟩
-    (if Dec.does P then z else c) ≡⟨ dec-true P j ▹ cong k ⟩
+    (if (isYes P) z c) ≡⟨ isYes≗does P ▹ cong k ⟩
+    (if (Dec.does P) z c) ≡⟨ dec-true P j ▹ cong k ⟩
     z ∎
     where
     P = Dec (q ∈ L) ∋ _ ≟ _
     c = plicu'a q d M
-    k = λ n → if n then z else c
+    k = λ n → if n z c
     dec-true = Relation.Nullary.Decidable.dec-true
     open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
@@ -475,13 +477,13 @@ module Plicu'aVeritas where
            → plicu'a q d M ≡ plicu'a q d (L ∷ M)
   napamois q d L M j = sym $ begin
     plicu'a q d (L ∷ M) ≡⟨ refl ⟩
-    (if isYes P then proj₂ L else c) ≡⟨ isYes≗does P ▹ cong k ⟩
-    (if Dec.does P then proj₂ L else c) ≡⟨ dec-false P j ▹ cong k ⟩
+    (if (isYes P) (proj₂ L) c) ≡⟨ isYes≗does P ▹ cong k ⟩
+    (if (Dec.does P) (proj₂ L) c) ≡⟨ dec-false P j ▹ cong k ⟩
     c ≡⟨ refl ⟩
     plicu'a q d M ∎
     where
     c = plicu'a q d M
-    k = λ n → if n then proj₂ L else c
+    k = λ n → if n (proj₂ L) c
     P = Dec (q ∈ proj₁ L) ∋ _ ≟ _
     dec-false = Relation.Nullary.Decidable.dec-false
     open import Relation.Binary.PropositionalEquality
@@ -680,7 +682,7 @@ doit : String → IO $ Maybe ℕ
 doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   where
   bixygau : ℕ → Maybe ℕ
-  bixygau n = if n Data.Nat.<ᵇ 127 then nothing else just n
+  bixygau n = if (n Data.Nat.<ᵇ 127) nothing $ just n
   postulate doit' : String → PIO ℕ
   {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
