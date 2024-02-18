@@ -174,6 +174,7 @@ open import Data.String
   )
 open import Data.Product
   using (
+    proj₂;
     proj₁;
     _×_;
     _,_
@@ -471,7 +472,17 @@ module Plicu'aVeritas where
            → (M : List $ List B × A)
            → q ∉ proj₁ L
            → plicu'a q d M ≡ plicu'a q d (L ∷ M)
-  napamois = {!!}
+  napamois q d L M j = sym $ begin
+    plicu'a q d (L ∷ M) ≡⟨ refl ⟩
+    (if isYes P then proj₂ L else c) ≡⟨ ? ⟩
+    (if Dec.does P then proj₂ L else c) ≡⟨ ? ⟩
+    c ≡⟨ refl ⟩
+    plicu'a q d M ∎
+    where
+    c = plicu'a q d M
+    P = Dec (q ∈ proj₁ L) ∋ _ ≟ _
+    open import Relation.Binary.PropositionalEquality
+    open ≡-Reasoning
 \end{code}
 
 \chapter{le skicu fancu}
