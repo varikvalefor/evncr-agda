@@ -450,6 +450,7 @@ module Plicu'aVeritas where
          → q ∈ L
          → z ≡_ $ plicu'a q d $ (L , z) ∷ M
   pamois q d z L M j = sym $ begin
+    plicu'a q d ((L , z) ∷ M) ≡⟨ refl ⟩
     (if isYes P then b else c) ≡⟨ isYes≐does P ▹ cong k ⟩
     (if Dec.does P then b else c) ≡⟨ dec-true P j ▹ cong k ⟩
     b ∎
