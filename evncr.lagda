@@ -451,14 +451,13 @@ module Plicu'aVeritas where
          → z ≡_ $ plicu'a q d $ (L , z) ∷ M
   pamois q d z L M j = sym $ begin
     plicu'a q d ((L , z) ∷ M) ≡⟨ refl ⟩
-    (if isYes P then b else c) ≡⟨ isYes≐does P ▹ cong k ⟩
-    (if Dec.does P then b else c) ≡⟨ dec-true P j ▹ cong k ⟩
-    b ∎
+    (if isYes P then z else c) ≡⟨ isYes≐does P ▹ cong k ⟩
+    (if Dec.does P then z else c) ≡⟨ dec-true P j ▹ cong k ⟩
+    z ∎
     where
     P = Dec (q ∈ L) ∋ _ ≟ _
-    b = z
     c = plicu'a q d M
-    k = λ n → if n then b else c
+    k = λ n → if n then z else c
     isYes≐does = Relation.Nullary.Decidable.isYes≗does
     dec-true = Relation.Nullary.Decidable.dec-true
     open import Relation.Binary.PropositionalEquality
