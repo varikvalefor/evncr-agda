@@ -18,6 +18,7 @@
 \newunicodechar{∨}{\ensuremath{\mathnormal\vee}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
+\newunicodechar{∉}{\ensuremath{\mathnormal\notin}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
@@ -170,6 +171,7 @@ open import Data.String
   )
 open import Data.Product
   using (
+    proj₁;
     _×_;
     _,_
   )
@@ -209,6 +211,7 @@ open import Truthbrary.Record.LLC
     liliString;
     _++_;
     _∷_;
+    _∉_;
     _∈_;
     map
   )
@@ -444,6 +447,16 @@ module Plicu'aVeritas where
          → q ∈ L
          → z ≡_ $ plicu'a q d $ (L , z) ∷ M
   pamois = {!!}
+
+  napamois : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ _ : Eq B ⦄
+           → (q : B)
+           → (d : A)
+           → (L : List B × A)
+           → (M : List $ List B × A)
+           → q ∉ proj₁ L
+           → plicu'a q d M ≡ plicu'a q d (L ∷ M)
+  napamois = {!!}
 \end{code}
 
 \chapter{le skicu fancu}
