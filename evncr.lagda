@@ -511,8 +511,10 @@ ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLe
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu = Data.Maybe.map finToLerfu ∘ readMaybe ∘ show
+toLerfu n = Data.Maybe.map (finToLerfu ∘ Data.Fin.fromℕ<) $ n <?' _
   where
+  _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
+  _<?'_ _ _ = decToMaybe $ _ Data.Nat.<? _
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
     where
