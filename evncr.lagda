@@ -65,6 +65,7 @@
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{'}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
+\newunicodechar{≗}{\ensuremath{\mathnormal{\circeq}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
