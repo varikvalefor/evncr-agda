@@ -600,8 +600,9 @@ lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
             → nothing ≡ sikh (x ++ nothing ∷ₗ z)
     faivuyn []ₗ _ = refl
     faivuyn (nothing ∷ₗ _) _ = refl
-    faivuyn (just x ∷ₗ xs) = cong (mapₘ $ x ∷_) ∘ faivuyn xs
+    faivuyn (just x ∷ₗ xs) = faivuyn xs ∘⍨ cong (mapₘ $ x ∷_)
       where
+      _∘⍨_ = flip _∘_
       mapₘ = Data.Maybe.map
 \end{code}
 
