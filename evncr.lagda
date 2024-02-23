@@ -593,7 +593,7 @@ lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
            → (j : List A)
            → just j ≡ sikh (mapₗ just j)
     faivos []ₗ = refl
-    faivos (x ∷ₗ y) = cong (Data.Maybe.map $ x ∷_) $ faivos y
+    faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
 
     faivuyn : ∀ {a} → {A : Set a}
             → (x z : List $ Maybe A)
