@@ -169,9 +169,7 @@ open import Data.Maybe
     just
   )
 open import Data.String
-  renaming (
-    toList to toListₛ
-  )
+  as 𝕊
   using (
     String
   )
@@ -582,7 +580,7 @@ ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zo
 
 \begin{code}
 lerste : String → Maybe $ List Lerfu
-lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ toListₛ
+lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
   where
   sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
   sikh []ₗ = just []ₗ
