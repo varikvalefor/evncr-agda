@@ -505,10 +505,11 @@ toBnam : Fin 128 → ℕ
 toBnam q = plicu'a q' q' ns
   where
   q' = toℕ q
-  du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
-  cmalu = intdMm 97 122
   ns : List $ List ℕ × ℕ
   ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []ₗ
+    where
+    du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
+    cmalu = intdMm 97 122
 \end{code}
 
 \section{la'oi .\F{toCase}.}
@@ -530,18 +531,19 @@ ni'o ga jonai \toCase\ du la'oi .\IC{Snile'u}.\ gi\ldots
 toCase : Fin 128 → Case
 toCase q = plicu'a (toℕ q) Snile'u ns
   where
-  namcu = intdMm 48 57
-  barda = intdMm 65 90
-  cmalu = intdMm 97 122
-  cukla = 40 ∷ 41 ∷ []ₗ
-  jganu = 60 ∷ 62 ∷ []ₗ
-  kurfa = 91 ∷ 93 ∷ []ₗ
-  tcekr = 123 ∷ 125 ∷ []ₗ
   ns : List $ List ℕ × Case
   ns = (cukla , Cukla) ∷ (namcu , Namcu) ∷
        (jganu , Jganu) ∷ (barda , Barda) ∷
        (kurfa , Kurfa) ∷ (tcekr , Tcekr) ∷
        (cmalu , Cmalu) ∷ []ₗ
+    where
+    namcu = intdMm 48 57
+    barda = intdMm 65 90
+    cmalu = intdMm 97 122
+    cukla = 40 ∷ 41 ∷ []ₗ
+    jganu = 60 ∷ 62 ∷ []ₗ
+    kurfa = 91 ∷ 93 ∷ []ₗ
+    tcekr = 123 ∷ 125 ∷ []ₗ
 \end{code}
 
 \section{la'oi .\F{toLtyp}.}
@@ -550,13 +552,14 @@ toCase q = plicu'a (toℕ q) Snile'u ns
 toLtyp : Fin 128 → LTyp
 toLtyp q = plicu'a (toℕ q) Vrici ns
   where
-  kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
-  ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
-  latmo = intdMm 65 90 ++ intdMm 97 122
-  xrabo = intdMm 48 57
   ns : List $ List ℕ × LTyp
   ns = (kalri , Kalri) ∷ (ganlo , Ganlo) ∷
        (xrabo , Xrabo) ∷ (latmo , Latmo) ∷ []ₗ
+    where
+    kalri = 40 ∷ 60 ∷ 91 ∷ 123 ∷ []ₗ
+    ganlo = 41 ∷ 61 ∷ 93 ∷ 125 ∷ []ₗ
+    latmo = intdMm 65 90 ++ intdMm 97 122
+    xrabo = intdMm 48 57
 \end{code}
 
 \section{la'oi .\F{toLerfu}.}
