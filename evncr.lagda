@@ -399,6 +399,7 @@ intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ t ∷ intersperse t (y ∷ᵥ z)
 \begin{code}
 module IntersperseVeritas where
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
+             → 2 Data.Nat.≤ n
              → (t : A)
              → (q : Vec A n)
              → (x : Fin n)
@@ -410,6 +411,7 @@ module IntersperseVeritas where
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
+       → 2 Data.Nat.≤ n
        → (t : A)
        → (q : Vec A n)
        → (x : Fin $ n * 2 ∸ 1)
