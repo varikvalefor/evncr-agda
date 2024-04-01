@@ -596,10 +596,7 @@ toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
   _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
   _<?'_ _ _ = decToMaybe $ _ Data.Nat.<? _
   finToLerfu : Fin 128 → Lerfu
-  finToLerfu a = record {ctyp = lt; case = cs; bnam = a}
-    where
-    lt = toLtyp a
-    cs = toCase a
+  finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
 \end{code}
 
 \section{la'oi .\F{lerste}.}
