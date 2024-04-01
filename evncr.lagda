@@ -398,6 +398,11 @@ intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ t ∷ intersperse t (y ∷ᵥ z)
 
 \begin{code}
 module IntersperseVeritas where
+  nada : ∀ {a} → {A : Set a}
+       → (t : A)
+       → intersperse t []ᵥ ≡ []ᵥ
+  nada _ = refl
+
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
              → 2 Data.Nat.≤ n
              → (t : A)
