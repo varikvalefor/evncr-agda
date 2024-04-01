@@ -406,7 +406,7 @@ module IntersperseVeritas where
                  (Data.Vec.lookup q x)
                  (Data.Vec.lookup
                    (intersperse t q)
-                   (fromℕ< {toℕ x * 2 ∸ 1} {!!})))
+                   (fromℕ< {toℕ x * 2} {!!})))
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
