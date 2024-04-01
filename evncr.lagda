@@ -403,6 +403,12 @@ module IntersperseVeritas where
        → intersperse t []ᵥ ≡ []ᵥ
   nada _ = refl
 
+  pav : ∀ {a} → {A : Set a}
+      → (t : A)
+      → (x : Vec A 1)
+      → intersperse t x ≡ x
+  pav _ (_ ∷ᵥ []ᵥ) = refl
+
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
              → 2 Data.Nat.≤ n
              → (t : A)
