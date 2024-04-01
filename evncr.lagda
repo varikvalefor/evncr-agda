@@ -428,7 +428,7 @@ module IntersperseVeritas where
        → (x : Fin $ n * 2 ∸ 1)
        → 1 ≡ toℕ x % 2
        → t ≡ flip Data.Vec.lookup x (intersperse t q)
-  even _ t (_ ∷ᵥ _ ∷ᵥ _) (Fin.suc Fin.zero) d = {!!}
+  even _ t (_ ∷ᵥ _ ∷ᵥ _) (Fin.suc Fin.zero) d = refl
   even z t (_ ∷ᵥ _ ∷ᵥ x) (Fin.suc (Fin.suc n)) d = {!!}
 \end{code}
 
