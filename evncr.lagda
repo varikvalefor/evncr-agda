@@ -481,6 +481,7 @@ module Plicu'aVeritas where
     plicu'a q d ((L , z) ∷ M) ≡⟨ refl ⟩
     if (isYes P) z c ≡⟨ isYes≗does P ▹ cong k ⟩
     if (Dec.does P) z c ≡⟨ dec-true P j ▹ cong k ⟩
+    if true z c ≡⟨ refl ⟩
     z ∎
     where
     P = Dec (q ∈ L) ∋ _ ≟ _
@@ -502,6 +503,7 @@ module Plicu'aVeritas where
     plicu'a q d (L ∷ M) ≡⟨ refl ⟩
     if (isYes P) (proj₂ L) c ≡⟨ isYes≗does P ▹ cong k ⟩
     if (Dec.does P) (proj₂ L) c ≡⟨ dec-false P j ▹ cong k ⟩
+    if false (proj₂ L) c ≡⟨ refl ⟩
     c ≡⟨ refl ⟩
     plicu'a q d M ∎
     where
