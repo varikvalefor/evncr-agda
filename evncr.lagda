@@ -97,6 +97,7 @@ open import IO
   )
 open import Data.Fin
   using (
+    fromℕ<;
     toℕ;
     Fin
   )
@@ -405,7 +406,7 @@ module IntersperseVeritas where
                  (Data.Vec.lookup q x)
                  (Data.Vec.lookup
                    (intersperse t q)
-                   (Data.Fin.fromℕ< {toℕ x * 2 ∸ 1} {!!})))
+                   (fromℕ< {toℕ x * 2 ∸ 1} {!!})))
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
@@ -567,7 +568,7 @@ ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLe
 
 \begin{code}
 toLerfu : ℕ → Maybe Lerfu
-toLerfu n = Data.Maybe.map (finToLerfu ∘ Data.Fin.fromℕ<) $ n <?' _
+toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
   where
   _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
   _<?'_ _ _ = decToMaybe $ _ Data.Nat.<? _
