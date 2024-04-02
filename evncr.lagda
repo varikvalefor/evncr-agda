@@ -229,6 +229,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    module ≡-Reasoning;
     subst;
     cong;
     refl;
@@ -488,7 +489,6 @@ module Plicu'aVeritas where
     c = plicu'a q d M
     k = λ n → if n z c
     dec-true = Relation.Nullary.Decidable.dec-true
-    open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
 
   napamois : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -511,7 +511,6 @@ module Plicu'aVeritas where
     k = λ n → if n (proj₂ L) c
     P = Dec (q ∈ proj₁ L) ∋ _ ≟ _
     dec-false = Relation.Nullary.Decidable.dec-false
-    open import Relation.Binary.PropositionalEquality
     open ≡-Reasoning
 \end{code}
 
