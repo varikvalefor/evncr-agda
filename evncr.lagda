@@ -706,8 +706,7 @@ ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'oi .\B s
 doit : String → IO $ Maybe ℕ
 doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   where
-  bixygau : ℕ → Maybe ℕ
-  bixygau n = if (n Data.Nat.<ᵇ 127) nothing $ just n
+  bixygau = λ n → if (n Data.Nat.<ᵇ 127) nothing $ just n
   postulate doit' : String → PIO ℕ
   {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
