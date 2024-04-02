@@ -516,7 +516,7 @@ module Plicu'aVeritas where
 
 \chapter{le skicu fancu}
 \section{la'oi .\F{intdMm}.}
-ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ porsi lo'i ro kacna'u poi ke'a dubjavmau la'oi .\B a.\ je cu mleca la'oi .\B b.
+ni'o la'o zoi.\ \F{intdMm} \B a \B b .zoi.\ porsi lo'i ro kacna'u poi ke'a dubjavmau la'oi .\B a.\ je cu dubjavme'a la'oi .\B b.
 
 \begin{code}
 intdMm : ℕ → ℕ → List ℕ
