@@ -602,7 +602,7 @@ toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
 \end{code}
 
 \section{la'oi .\F{lerste}.}
-ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ gi ga je la'oi .\B x.\ .aski gi ga je ko'a du la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
+ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ gi ga je la'oi .\B x.\ .aski gi ga je ko'a dunli la'oi .\B x.\ lo ni ce'u vasru gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
 
 \begin{code}
 lerste : String → Maybe $ List Lerfu
