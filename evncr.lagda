@@ -611,7 +611,7 @@ lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
   sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
   sikh []ₗ = just []ₗ
   sikh (nothing ∷ₗ _) = nothing
-  sikh (just x ∷ₗ xs) = Data.Maybe.map (_∷_ x) $ sikh xs
+  sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
 
   module Veritas
     where
