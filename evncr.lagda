@@ -27,9 +27,11 @@
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 \newunicodechar{𝕗}{\ensuremath{\mathnormal{\mathbb{f}}}}
 \newunicodechar{ℙ}{\ensuremath{\mathnormal{\mathbb{P}}}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb{F}}}}
+\newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb{S}}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb{B}}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
