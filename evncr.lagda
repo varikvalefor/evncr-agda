@@ -643,6 +643,12 @@ module LersteVeritas where
   kunti : lerste "" ≡ just []ₗ
   kunti = refl
 
+  naljmina : (x : Char)
+           → (xs : String)
+           → Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x
+           → lerste (x ∷ xs) ≡ nothing
+  naljmina = {!!}
+
   jmina : (x : Char)
         → (xs : String)
         → (j : Data.Maybe.Is-just $ toLerfu $ Data.Char.toℕ x)
