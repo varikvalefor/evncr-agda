@@ -641,7 +641,7 @@ module LersteVeritas where
       mapₘ = Data.Maybe.map
 
   kunti : lerste "" ≡ just []ₗ
-  kunti = {!!}
+  kunti = refl
 
   jmina : (x : Char)
         → (xs : String)
