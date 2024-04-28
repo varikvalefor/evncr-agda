@@ -135,8 +135,7 @@ open import Data.Bool
   using (
     false;
     Bool;
-    true;
-    _∨_
+    true
   )
   renaming (
     if_then_else_ to if
