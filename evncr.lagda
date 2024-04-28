@@ -624,20 +624,21 @@ open Lerste
 module LersteVeritas where
   open Lerste
 
-  faivos : ∀ {a} → {A : Set a}
-         → (j : List A)
-         → just j ≡ sikh (mapₗ just j)
-  faivos []ₗ = refl
-  faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
+  module Sikh where
+    faivos : ∀ {a} → {A : Set a}
+           → (j : List A)
+           → just j ≡ sikh (mapₗ just j)
+    faivos []ₗ = refl
+    faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
 
-  faivuyn : ∀ {a} → {A : Set a}
-          → (x z : List $ Maybe A)
-          → nothing ≡ sikh (x ++ nothing ∷ₗ z)
-  faivuyn []ₗ _ = refl
-  faivuyn (nothing ∷ₗ _) _ = refl
-  faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
-    where
-    mapₘ = Data.Maybe.map
+    faivuyn : ∀ {a} → {A : Set a}
+            → (x z : List $ Maybe A)
+            → nothing ≡ sikh (x ++ nothing ∷ₗ z)
+    faivuyn []ₗ _ = refl
+    faivuyn (nothing ∷ₗ _) _ = refl
+    faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
+      where
+      mapₘ = Data.Maybe.map
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
