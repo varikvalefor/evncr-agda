@@ -604,14 +604,14 @@ ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zo
 
 \begin{code}
 module Lerste where
+  sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
+  sikh []ₗ = just []ₗ
+  sikh (nothing ∷ₗ _) = nothing
+  sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
+
   lerste : String → Maybe $ List Lerfu
   lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
     where
-    sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
-    sikh []ₗ = just []ₗ
-    sikh (nothing ∷ₗ _) = nothing
-    sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
-
     module Veritas
       where
       faivos : ∀ {a} → {A : Set a}
