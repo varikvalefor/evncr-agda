@@ -612,8 +612,7 @@ module Lerste where
   lerste : String → Maybe $ List Lerfu
   lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
     where
-    module Veritas
-      where
+    module Veritas where
       faivos : ∀ {a} → {A : Set a}
              → (j : List A)
              → just j ≡ sikh (mapₗ just j)
