@@ -664,8 +664,7 @@ module LersteVeritas where
        → (∃ $ λ x →
            (_×_
              (x ∈ xs)
-             (Data.Maybe.Is-nothing
-               (toLerfu $ Data.Char.toℕ x))))
+             (Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x)))
   nada = {!!}
 \end{code}
 
