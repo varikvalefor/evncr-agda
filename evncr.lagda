@@ -603,30 +603,36 @@ toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
 ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ gi ga je la'oi .\B x.\ .aski gi ga je nilzilcmi ko'a fa lo nilzilcmi be la'oi .\B x.\ gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
 
 \begin{code}
-lerste : String → Maybe $ List Lerfu
-lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
-  where
-  sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
-  sikh []ₗ = just []ₗ
-  sikh (nothing ∷ₗ _) = nothing
-  sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
-
-  module Veritas
+module Lerste where
+  lerste : String → Maybe $ List Lerfu
+  lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
     where
-    faivos : ∀ {a} → {A : Set a}
-           → (j : List A)
-           → just j ≡ sikh (mapₗ just j)
-    faivos []ₗ = refl
-    faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
+    sikh : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe $ List A
+    sikh []ₗ = just []ₗ
+    sikh (nothing ∷ₗ _) = nothing
+    sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
 
-    faivuyn : ∀ {a} → {A : Set a}
-            → (x z : List $ Maybe A)
-            → nothing ≡ sikh (x ++ nothing ∷ₗ z)
-    faivuyn []ₗ _ = refl
-    faivuyn (nothing ∷ₗ _) _ = refl
-    faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
+    module Veritas
       where
-      mapₘ = Data.Maybe.map
+      faivos : ∀ {a} → {A : Set a}
+             → (j : List A)
+             → just j ≡ sikh (mapₗ just j)
+      faivos []ₗ = refl
+      faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
+
+      faivuyn : ∀ {a} → {A : Set a}
+              → (x z : List $ Maybe A)
+              → nothing ≡ sikh (x ++ nothing ∷ₗ z)
+      faivuyn []ₗ _ = refl
+      faivuyn (nothing ∷ₗ _) _ = refl
+      faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
+        where
+        mapₘ = Data.Maybe.map
+
+open Lerste
+  using (
+    lerste
+  )
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
