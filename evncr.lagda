@@ -180,7 +180,8 @@ open import Data.Product
     proj₂;
     proj₁;
     _×_;
-    _,_
+    _,_;
+    ∃
   )
 open import IO.Primitive
   using (
@@ -657,6 +658,15 @@ module LersteVeritas where
         → let j' = Data.Maybe.to-witness j in
           lerste (x ∷ xs) ≡ Data.Maybe.map (j' ∷ₗ_) (lerste xs)
   jmina = {!!}
+
+  nada : (xs : String)
+       → lerste xs ≡ nothing
+       → (∃ $ λ x →
+           (_×_
+             (x ∈ xs)
+             (Data.Maybe.Is-nothing
+               (toLerfu $ Data.Char.toℕ x))))
+  nada = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
