@@ -639,6 +639,9 @@ module LersteVeritas where
     faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
       where
       mapₘ = Data.Maybe.map
+
+  kunti : lerste "" ≡ just []ₗ
+  kunti = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
