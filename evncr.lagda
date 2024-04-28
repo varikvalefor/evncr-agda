@@ -642,6 +642,13 @@ module LersteVeritas where
 
   kunti : lerste "" ≡ just []ₗ
   kunti = {!!}
+
+  jmina : (x : Char)
+        → (xs : String)
+        → (j : Data.Maybe.Is-just $ toLerfu $ Data.Char.toℕ x)
+        → let j' = Data.Maybe.to-witness j in
+          lerste (x ∷ xs) ≡ Data.Maybe.map (j' ∷ₗ_) (lerste xs)
+  jmina = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
