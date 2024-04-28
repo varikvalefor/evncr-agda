@@ -697,7 +697,7 @@ ni'o lo nu drani .uniks.\ bo co'e la'o zoi.\ \F{denpa}\ \B f\ .zoi.\ cu rinka lo
 
 \begin{code}
 denpa : Float → Midnoi
-denpa = _++_ "sleep " ∘ show
+denpa = ("sleep " ++_) ∘ show
 \end{code}
 
 \section{la'oi .\F{sequin}.}
