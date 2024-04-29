@@ -667,6 +667,11 @@ module LersteVeritas where
              (Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x)))
   nada "" ()
   nada s d = {!!}
+
+  kunti₂ : (s : String)
+         → lerste s ≡ just []ₗ
+         → s ≡ ""
+  kunti₂ = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
