@@ -664,6 +664,7 @@ module LersteVeritas where
   jmina x xs j = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ (toLerfu ∘ Data.Char.toℕ) $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
+    sikh (mapₗ (toLerfu ∘ Data.Char.toℕ) $  x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     mapₘ = Data.Maybe.map
