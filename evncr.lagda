@@ -667,7 +667,7 @@ module LersteVeritas where
              (Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x)))
   nada "" ()
   nada s d with 𝕊.toList s
-  ... | (x ∷ₗ []ₗ) = {!!}
+  ... | (x ∷ₗ []ₗ) = x , {!!} , {!!}
   ... | (x ∷ₗ xs) = {!!}
 
   kunti₂ : (s : String)
