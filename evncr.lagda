@@ -666,10 +666,12 @@ module LersteVeritas where
     sikh (mapₗ f $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
     sikh (f x ∷_ $ mapₗ f $ 𝕊.toList xs) ≡⟨ {!!} ⟩
+    (f x ∷ₘ lerste xs) ≡⟨ {!!} ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     f = toLerfu ∘ Data.Char.toℕ
     mapₘ = Data.Maybe.map
+    _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     j' = Data.Maybe.to-witness j
     open ≡-Reasoning
 
