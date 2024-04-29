@@ -665,7 +665,8 @@ module LersteVeritas where
            (_×_
              (x ∈ xs)
              (Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x)))
-  nada = {!!}
+  nada "" ()
+  nada s d = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
