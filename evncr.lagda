@@ -665,6 +665,7 @@ module LersteVeritas where
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ f $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
+    sikh (f x ∷_ $ mapₗ f $ 𝕊.toList xs) ≡⟨ {!!} ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     f = toLerfu ∘ Data.Char.toℕ
