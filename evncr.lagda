@@ -650,7 +650,11 @@ module LersteVeritas where
            → (xs : String)
            → Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x
            → lerste (x ∷ xs) ≡ nothing
-  naljmina = {!!}
+  naljmina x xs N = begin
+    lerste (x ∷ xs) ≡⟨ {!!} ⟩
+    nothing ∎
+    where
+    open ≡-Reasoning
 
   jmina : (x : Char)
         → (xs : String)
