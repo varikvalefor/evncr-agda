@@ -673,7 +673,7 @@ module LersteVeritas where
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
          → s ≡ ""
-  kunti₂ "" refl = {!!}
+  kunti₂ "" refl = refl
   kunti₂ s x = {!!}
 
   nada₂ : (s : String)
