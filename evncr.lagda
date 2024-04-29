@@ -664,7 +664,7 @@ module LersteVeritas where
   jmina x xs j = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ f $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
-    sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
+    sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ refl ⟩
     sikh (f x ∷_ $ mapₗ f $ 𝕊.toList xs) ≡⟨ {!!} ⟩
     (f x ∷ₘ lerste xs) ≡⟨ {!!} ⟩
     (just j' ∷ₘ lerste xs) ≡⟨ refl ⟩
