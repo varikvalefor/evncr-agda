@@ -662,7 +662,8 @@ module LersteVeritas where
         → let j' = Data.Maybe.to-witness j in
           lerste (x ∷ xs) ≡ Data.Maybe.map (j' ∷ₗ_) (lerste xs)
   jmina x xs j = begin
-    lerste (x ∷ xs) ≡⟨ {!!} ⟩
+    lerste (x ∷ xs) ≡⟨ refl ⟩
+    sikh (mapₗ (toLerfu ∘ Data.Char.toℕ) $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     mapₘ = Data.Maybe.map
