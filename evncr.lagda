@@ -652,8 +652,10 @@ module LersteVeritas where
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ {!!} ⟩
+    sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
     nothing ∎
     where
+    f = toLerfu ∘ Data.Char.toℕ
     open ≡-Reasoning
 
   jmina : (x : Char)
