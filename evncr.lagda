@@ -665,6 +665,7 @@ module LersteVeritas where
     sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
     sikh (f x ∷ mapₗ f (𝕊.toList xs)) ≡⟨ {!!} ⟩
+    sikh (nothing ∷ mapₗ f (𝕊.toList xs)) ≡⟨ {!!} ⟩
     (nothing ∷ₘ lerste xs) ≡⟨ refl ⟩
     nothing ∎
     where
