@@ -124,6 +124,7 @@ open import Data.Vec
   )
 open import Function
   using (
+    _∘₂_;
     _∋_;
     flip;
     _$_;
@@ -600,7 +601,7 @@ toLerfu : ℕ → Maybe Lerfu
 toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
   where
   _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
-  _<?'_ _ _ = decToMaybe $ _ Data.Nat.<? _
+  _<?'_ = decToMaybe ∘₂ Data.Nat._<?_
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
 \end{code}
