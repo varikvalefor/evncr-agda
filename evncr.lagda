@@ -681,7 +681,7 @@ module LersteVeritas where
          → {x : Maybe A}
          → Is-nothing x
          → x ≡ nothing
-    apin = {!!}
+    apin DMA.nothing = refl
     toList-∷ : {x : Char}
              → (z : String)
               → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
