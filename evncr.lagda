@@ -689,7 +689,6 @@ module LersteVeritas where
        → ∃ $ λ x → x ∈ xs × Data.Maybe.Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
-  ... | (x ∷ₗ []ₗ) = x , {!!} , {!!}
   ... | (x ∷ₗ xs) = {!!}
 
   kunti₂ : (s : String)
