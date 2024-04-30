@@ -664,12 +664,14 @@ module LersteVeritas where
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
-    sikh (f x ∷ mapₗ f (𝕊.toList xs)) ≡⟨ {!!} ⟩
+    sikh (f x ∷ mapₗ f (𝕊.toList xs)) ≡⟨ fx≡nothing ▹ cong (λ i → sikh $ i ∷ mapₗ f _ ) ⟩
     sikh (nothing ∷ mapₗ f (𝕊.toList xs)) ≡⟨ {!!} ⟩
     (nothing ∷ₘ lerste xs) ≡⟨ refl ⟩
     nothing ∎
     where
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
+    fx≡nothing : f x ≡ nothing
+    fx≡nothing = {!!}
     open ≡-Reasoning
 
   jmina : (x : Char)
