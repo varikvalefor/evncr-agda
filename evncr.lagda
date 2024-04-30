@@ -616,8 +616,11 @@ module Lerste where
   sikh (nothing ∷ₗ _) = nothing
   sikh (just x ∷ₗ xs) = Data.Maybe.map (x ∷_) $ sikh xs
 
+  f : Char → Maybe Lerfu
+  f = toLerfu ∘ Data.Char.toℕ
+
   lerste : String → Maybe $ List Lerfu
-  lerste = sikh ∘ mapₗ (toLerfu ∘ Data.Char.toℕ) ∘ 𝕊.toList
+  lerste = sikh ∘ mapₗ f ∘ 𝕊.toList
 
 open Lerste
   using (
@@ -658,7 +661,6 @@ module LersteVeritas where
     (nothing ∷ₘ lerste xs) ≡⟨ refl ⟩
     nothing ∎
     where
-    f = toLerfu ∘ Data.Char.toℕ
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     open ≡-Reasoning
 
@@ -676,7 +678,6 @@ module LersteVeritas where
     (just j' ∷ₘ lerste xs) ≡⟨ refl ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
-    f = toLerfu ∘ Data.Char.toℕ
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     j' = Data.Maybe.to-witness j
     open ≡-Reasoning
