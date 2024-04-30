@@ -201,7 +201,9 @@ open import Data.Nat.DivMod
 open import Relation.Nullary
   using (
     Dec;
-    ¬_
+    yes;
+    ¬_;
+    no
   )
 open import Truthbrary.Record.Eq
   using (
@@ -244,6 +246,8 @@ open import Relation.Binary.PropositionalEquality
   )
 
 import Agda.Builtin.Unit as ABU
+import Data.Maybe.Relation.Unary.All
+  as DMA
 \end{code}
 
 \chapter{le srana be lo nu tcimi'e}
@@ -689,7 +693,9 @@ module LersteVeritas where
        → ∃ $ λ x → x ∈ xs × Data.Maybe.Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
-  ... | (x ∷ₗ xs) = {!!}
+  ... | (x ∷ₗ xs) with Dec (Data.Maybe.Is-nothing $ f x) ∋ {!!}
+  ... | yes n = {!!}
+  ... | no j = {!!}
 
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
