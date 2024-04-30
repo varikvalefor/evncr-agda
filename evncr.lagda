@@ -686,10 +686,7 @@ module LersteVeritas where
 
   nada : (xs : String)
        → lerste xs ≡ nothing
-       → (∃ $ λ x →
-           (_×_
-             (x ∈ xs)
-             (Data.Maybe.Is-nothing $ f x)))
+       → ∃ $ λ x → x ∈ xs × Data.Maybe.Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
   ... | (x ∷ₗ []ₗ) = x , {!!} , {!!}
