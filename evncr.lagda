@@ -656,7 +656,8 @@ module LersteVeritas where
            → Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
-    lerste (x ∷ xs) ≡⟨ {!!} ⟩
+    lerste (x ∷ xs) ≡⟨ refl ⟩
+    sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
     (nothing ∷ₘ lerste xs) ≡⟨ refl ⟩
     nothing ∎
