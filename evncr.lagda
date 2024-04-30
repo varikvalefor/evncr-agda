@@ -466,7 +466,7 @@ module Plicu'aVeritas where
       → d ≡ plicu'a x d []ₗ
   non _ _ = refl
 
-  nin : ∀ {a b } → {A : Set a} → {B : Set b}
+  nin : ∀ {a b} → {A : Set a} → {B : Set b}
       → ⦃ _ : Eq B ⦄
       → (x : B)
       → (d : A)
