@@ -165,6 +165,7 @@ open import Data.Float
 open import Data.Maybe
   using (
     decToMaybe;
+    Is-nothing;
     is-just;
     nothing;
     Maybe;
@@ -657,7 +658,7 @@ module LersteVeritas where
 
   naljmina : (x : Char)
            → (xs : String)
-           → Data.Maybe.Is-nothing $ f x
+           → Is-nothing $ f x
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
@@ -690,12 +691,12 @@ module LersteVeritas where
 
   nada : (xs : String)
        → lerste xs ≡ nothing
-       → ∃ $ λ x → x ∈ xs × Data.Maybe.Is-nothing (f x)
+       → ∃ $ λ x → x ∈ xs × Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
   ... | (x ∷ₗ xs) with D
     where
-    D : Dec $ Data.Maybe.Is-nothing $ f x
+    D : Dec $ Is-nothing $ f x
     D = {!!}
   ... | yes n = x , {!!} , n
   ... | no j = {!!}
