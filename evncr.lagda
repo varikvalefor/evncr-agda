@@ -664,7 +664,7 @@ module LersteVeritas where
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
-    sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
+    sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ toList-∷ xs ▹ cong (sikh ∘ mapₗ f) ⟩
     sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ refl ⟩
     sikh (mapₗ f $ x ∷ xs') ≡⟨ refl ⟩
     _ ≡⟨ DLP.map-++-commute f (x ∷ []ₗ) xs' ▹ cong sikh ⟩
@@ -679,6 +679,10 @@ module LersteVeritas where
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     fx≡nothing : f x ≡ nothing
     fx≡nothing = {!!}
+    toList-∷ : {x : Char}
+             → (z : String)
+              → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
+    toList-∷ = {!!}
     open ≡-Reasoning
 
   jmina : (x : Char)
