@@ -693,7 +693,10 @@ module LersteVeritas where
        → ∃ $ λ x → x ∈ xs × Data.Maybe.Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
-  ... | (x ∷ₗ xs) with Dec (Data.Maybe.Is-nothing $ f x) ∋ {!!}
+  ... | (x ∷ₗ xs) with D
+    where
+    D : Dec $ Data.Maybe.Is-nothing $ f x
+    D = {!!}
   ... | yes n = x , {!!} , n
   ... | no j = {!!}
 
