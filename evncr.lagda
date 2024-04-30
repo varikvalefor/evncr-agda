@@ -490,7 +490,7 @@ module Plicu'aVeritas where
     if true z c ≡⟨ refl ⟩
     z ∎
     where
-    P = Dec (q ∈ L) ∋ _ ≟ _
+    P = _ ≟ _
     c = plicu'a q d M
     k = λ n → if n z c
     dec-true = Relation.Nullary.Decidable.dec-true
