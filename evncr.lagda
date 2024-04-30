@@ -247,6 +247,8 @@ open import Relation.Binary.PropositionalEquality
   )
 
 import Agda.Builtin.Unit as ABU
+import Data.List.Properties
+  as DLP
 import Data.Maybe.Relation.Unary.All
   as DMA
 \end{code}
@@ -663,7 +665,7 @@ module LersteVeritas where
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
-    sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ {!!} ⟩
+    sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ DLP.map-++-commute f (x ∷ []ₗ) (𝕊.toList xs) ▹ cong sikh ⟩
     sikh (f x ∷ mapₗ f (𝕊.toList xs)) ≡⟨ refl ⟩
     _ ≡⟨ fx≡nothing ▹ cong (λ i → sikh $ i ∷ mapₗ f _ ) ⟩
     sikh (nothing ∷ mapₗ f (𝕊.toList xs)) ≡⟨ refl ⟩
