@@ -664,7 +664,8 @@ module LersteVeritas where
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
-    sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ toList-∷ xs ▹ cong (sikh ∘ mapₗ f) ⟩
+    sikh (mapₗ f $ 𝕊.toList $ x ∷ xs) ≡⟨ refl ⟩
+    _ ≡⟨ toList-∷ xs ▹ cong (sikh ∘ mapₗ f) ⟩
     sikh (mapₗ f $ x ∷ 𝕊.toList xs) ≡⟨ refl ⟩
     sikh (mapₗ f $ x ∷ xs') ≡⟨ refl ⟩
     _ ≡⟨ DLP.map-++-commute f (x ∷ []ₗ) xs' ▹ cong sikh ⟩
