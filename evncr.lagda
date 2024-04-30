@@ -170,6 +170,9 @@ open import Data.Maybe
     maybe;
     just
   )
+  renaming (
+    map to mapₘ
+  )
 open import Data.String
   as 𝕊
   using (
@@ -640,8 +643,6 @@ module LersteVeritas where
     faivuyn []ₗ _ = refl
     faivuyn (nothing ∷ₗ _) _ = refl
     faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
-      where
-      mapₘ = Data.Maybe.map
 
   kunti : lerste "" ≡ just []ₗ
   kunti = refl
@@ -657,7 +658,6 @@ module LersteVeritas where
     nothing ∎
     where
     f = toLerfu ∘ Data.Char.toℕ
-    mapₘ = Data.Maybe.map
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     open ≡-Reasoning
 
@@ -665,7 +665,7 @@ module LersteVeritas where
         → (xs : String)
         → (j : Data.Maybe.Is-just $ toLerfu $ Data.Char.toℕ x)
         → let j' = Data.Maybe.to-witness j in
-          lerste (x ∷ xs) ≡ Data.Maybe.map (j' ∷ₗ_) (lerste xs)
+          lerste (x ∷ xs) ≡ mapₘ (j' ∷ₗ_) (lerste xs)
   jmina x xs j = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
     sikh (mapₗ f $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
@@ -676,7 +676,6 @@ module LersteVeritas where
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     f = toLerfu ∘ Data.Char.toℕ
-    mapₘ = Data.Maybe.map
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
     j' = Data.Maybe.to-witness j
     open ≡-Reasoning
