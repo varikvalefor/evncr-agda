@@ -653,7 +653,7 @@ module LersteVeritas where
 
   naljmina : (x : Char)
            → (xs : String)
-           → Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x
+           → Data.Maybe.Is-nothing $ f x
            → lerste (x ∷ xs) ≡ nothing
   naljmina x xs N = begin
     lerste (x ∷ xs) ≡⟨ refl ⟩
@@ -668,7 +668,7 @@ module LersteVeritas where
 
   jmina : (x : Char)
         → (xs : String)
-        → (j : Data.Maybe.Is-just $ toLerfu $ Data.Char.toℕ x)
+        → (j : Data.Maybe.Is-just $ f x)
         → let j' = Data.Maybe.to-witness j in
           lerste (x ∷ xs) ≡ mapₘ (j' ∷ₗ_) (lerste xs)
   jmina x xs j = begin
@@ -689,7 +689,7 @@ module LersteVeritas where
        → (∃ $ λ x →
            (_×_
              (x ∈ xs)
-             (Data.Maybe.Is-nothing $ toLerfu $ Data.Char.toℕ x)))
+             (Data.Maybe.Is-nothing $ f x)))
   nada "" ()
   nada s d with 𝕊.toList s
   ... | (x ∷ₗ []ₗ) = x , {!!} , {!!}
