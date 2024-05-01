@@ -537,6 +537,16 @@ intdMm : ℕ → ℕ → List ℕ
 intdMm a = drop a ∘ upTo ∘ suc
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{intdMm}.\ mapti}
+
+\begin{code}
+module IntdMmVeritas where
+  zmadu : (x z : ℕ)
+        → x Data.Nat.> z
+        → intdMm x z ≡ []ₗ
+  zmadu = {!!}
+\end{code}
+
 \section{la'oi .\F{toBnam}.}
 
 \begin{code}
