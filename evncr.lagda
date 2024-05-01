@@ -547,7 +547,8 @@ module IntdMmVeritas where
         → x Data.Nat.> z
         → intdMm x z ≡ []ₗ
   zmadu x z zm = begin
-    intdMm x z ≡⟨ {!!} ⟩
+    intdMm x z ≡⟨ refl ⟩
+    drop x (upTo $ suc z) ≡⟨ {!!} ⟩
     []ₗ ∎
 
   pamois : (x z : ℕ)
