@@ -545,6 +545,11 @@ module IntdMmVeritas where
         → x Data.Nat.> z
         → intdMm x z ≡ []ₗ
   zmadu = {!!}
+
+  pamois : (x z : ℕ)
+         → x Data.Nat.≤ z
+         → Data.List.head (intdMm x z) ≡ just x
+  pamois = {!!}
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
