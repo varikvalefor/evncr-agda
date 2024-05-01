@@ -246,7 +246,8 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
-import Agda.Builtin.Unit as ABU
+import Agda.Builtin.Unit
+  as ABU
 import Data.List.Properties
   as DLP
 import Data.Maybe.Relation.Unary.All
