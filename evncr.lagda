@@ -541,10 +541,14 @@ intdMm a = drop a ∘ upTo ∘ suc
 
 \begin{code}
 module IntdMmVeritas where
+  open ≡-Reasoning
+
   zmadu : (x z : ℕ)
         → x Data.Nat.> z
         → intdMm x z ≡ []ₗ
-  zmadu = {!!}
+  zmadu x z zm = begin
+    intdMm x z ≡⟨ {!!} ⟩
+    []ₗ ∎
 
   pamois : (x z : ℕ)
          → x Data.Nat.≤ z
