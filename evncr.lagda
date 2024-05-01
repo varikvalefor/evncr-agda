@@ -548,8 +548,17 @@ module IntdMmVeritas where
         → intdMm x z ≡ []ₗ
   zmadu x z zm = begin
     intdMm x z ≡⟨ refl ⟩
-    drop x (upTo $ suc z) ≡⟨ {!!} ⟩
+    drop x (upTo $ suc z) ≡⟨ drolen x _ zm₂ ⟩
     []ₗ ∎
+    where
+    zm₂ : x Data.Nat.>_ $ Data.List.length $ upTo $ suc z
+    zm₂ = {!!}
+    drolen : ∀ {a} → {A : Set a}
+           → (n : ℕ)
+           → (L : List A)
+           → n Data.Nat.> Data.List.length L
+           → drop n L ≡ []ₗ
+    drolen = {!!}
 
   pamois : (x z : ℕ)
          → x Data.Nat.≤ z
