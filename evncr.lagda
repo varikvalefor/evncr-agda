@@ -709,7 +709,7 @@ module LersteVeritas where
     _ ≡⟨ apin N ▹ cong (λ i → sikh $ i ∷ mapₗ f _ ) ⟩
     sikh (nothing ∷ mapₗ f xs') ≡⟨ refl ⟩
     sikh (nothing ∷ mapₗ f (𝕊.toList xs)) ≡⟨ refl ⟩
-    (nothing ∷ₘ lerste xs) ≡⟨ refl ⟩
+    nothing ∷ₘ lerste xs ≡⟨ refl ⟩
     nothing ∎
     where
     xs' = 𝕊.toList xs
@@ -731,8 +731,8 @@ module LersteVeritas where
     sikh (mapₗ f $  𝕊.toList $ x ∷ xs) ≡⟨ {!!} ⟩
     sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ refl ⟩
     sikh (f x ∷_ $ mapₗ f $ 𝕊.toList xs) ≡⟨ {!!} ⟩
-    (f x ∷ₘ lerste xs) ≡⟨ {!!} ⟩
-    (just j' ∷ₘ lerste xs) ≡⟨ refl ⟩
+    f x ∷ₘ lerste xs ≡⟨ {!!} ⟩
+    just j' ∷ₘ lerste xs ≡⟨ refl ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
     where
     _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_
