@@ -685,6 +685,12 @@ module LersteVeritas where
     faivuyn (nothing ∷ₗ _) _ = refl
     faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
 
+  private
+    toList-∷ : {x : Char}
+             → (z : String)
+              → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
+    toList-∷ = {!!}
+
   kunti : lerste "" ≡ just []ₗ
   kunti = refl
 
@@ -713,10 +719,6 @@ module LersteVeritas where
          → Is-nothing x
          → x ≡ nothing
     apin DMA.nothing = refl
-    toList-∷ : {x : Char}
-             → (z : String)
-              → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
-    toList-∷ = {!!}
     open ≡-Reasoning
 
   jmina : (x : Char)
