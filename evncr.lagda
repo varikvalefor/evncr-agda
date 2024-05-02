@@ -762,7 +762,9 @@ module LersteVeritas where
            → x ∈_ $ x ∷ₗ xs
     pamoin x xs = sym $ begin
       length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ refl ⟩
+      LT (cevec xs) ≡⟨ refl ⟩
       _ ≡⟨ DVP.toList∘fromList xs ▹ cong LT ⟩
+      LT xs ≡⟨ refl ⟩
       length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ {!!} ⟩
       length (x ∷ []ₗ) ≡⟨ refl ⟩
       1 ∎
