@@ -759,12 +759,10 @@ module LersteVeritas where
            → (xs : List A)
            → x ∈_ $ x ∷ xs
     pamoin = {!!}
-  ... | no j = nada₁ ▹ nada₂
+  ... | no j = {!!} ▹ nada₂
     where
     F : List Char → Set
     F = λ xs → ∃ $ λ x → x ∈ xs × Is-nothing (f x)
-    nada₁ : F xs
-    nada₁ = {!!}
     nada₂ : {x : Char} → {xs : List Char} → F xs → F $ x ∷ xs
     nada₂ {x} {xs} (x₁ , c , N) = x₁ , jminin x xs c , N
       where
