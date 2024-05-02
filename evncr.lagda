@@ -248,6 +248,8 @@ open import Relation.Binary.PropositionalEquality
 
 import Agda.Builtin.Unit
   as ABU
+import Data.Vec.Properties
+  as DVP
 import Data.List.Properties
   as DLP
 import Data.Maybe.Relation.Unary.All
@@ -759,7 +761,7 @@ module LersteVeritas where
            → (xs : List A)
            → x ∈_ $ x ∷ₗ xs
     pamoin x xs = sym $ begin
-      length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ {!!} ⟩
+      length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ DVP.toList∘fromList xs ▹ cong (length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)) ⟩
       length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ {!!} ⟩
       length (x ∷ []ₗ) ≡⟨ refl ⟩
       1 ∎
