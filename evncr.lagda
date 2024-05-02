@@ -757,8 +757,19 @@ module LersteVeritas where
            → ⦃ _ : Eq A ⦄
            → (x : A)
            → (xs : List A)
-           → x ∈_ $ x ∷ xs
-    pamoin = {!!}
+           → x ∈_ $ x ∷ₗ xs
+    pamoin x xs = sym $ begin
+      length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ {!!} ⟩
+      1 ∎
+      where
+      cevec = toList ∘ fromList
+      open Data.List
+        using (
+          filter;
+          length;
+          take
+        )
+      open ≡-Reasoning
   ... | no j = {!!} ▹ nada₂
     where
     F : List Char → Set
