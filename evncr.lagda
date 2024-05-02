@@ -766,7 +766,7 @@ module LersteVeritas where
     nada₁ : F xs
     nada₁ = {!!}
     nada₂ : {x : Char} → {xs : List Char} → F xs → F $ x ∷ xs
-    nada₂ = {!!}
+    nada₂ {x} {xs} (x₁ , c , N) = {!!}
 
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
