@@ -750,7 +750,14 @@ module LersteVeritas where
     D with f x
     ... | nothing = {!!}
     ... | just j = {!!}
-  ... | yes n = x , {!!} , n
+  ... | yes n = x , pamoin x xs , n
+    where
+    pamoin : ∀ {a} → {A : Set a}
+           → ⦃ _ : Eq A ⦄
+           → (x : A)
+           → (xs : List A)
+           → x ∈_ $ x ∷ xs
+    pamoin = {!!}
   ... | no j = {!!}
 
   kunti₂ : (s : String)
