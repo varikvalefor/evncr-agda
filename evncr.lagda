@@ -759,7 +759,14 @@ module LersteVeritas where
            → (xs : List A)
            → x ∈_ $ x ∷ xs
     pamoin = {!!}
-  ... | no j = {!!}
+  ... | no j = nada₁ ▹ nada₂
+    where
+    F : List Char → Set
+    F = λ xs → ∃ $ λ x → x ∈ xs × Is-nothing (f x)
+    nada₁ : F xs
+    nada₁ = {!!}
+    nada₂ : {x : Char} → {xs : List Char} → F xs → F $ x ∷ xs
+    nada₂ = {!!}
 
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
