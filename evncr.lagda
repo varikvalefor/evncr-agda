@@ -747,7 +747,9 @@ module LersteVeritas where
   ... | (x ∷ₗ xs) with D
     where
     D : Dec $ Is-nothing $ f x
-    D = {!!}
+    D with f x
+    ... | nothing = {!!}
+    ... | just j = {!!}
   ... | yes n = x , {!!} , n
   ... | no j = {!!}
 
