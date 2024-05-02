@@ -749,7 +749,7 @@ module LersteVeritas where
     D : Dec $ Is-nothing $ f x
     D with f x
     ... | nothing = yes DMA.All.nothing
-    ... | just j = {!!}
+    ... | just j = no {!!}
   ... | yes n = x , pamoin x xs , n
     where
     pamoin : ∀ {a} → {A : Set a}
