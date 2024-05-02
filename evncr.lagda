@@ -762,7 +762,7 @@ module LersteVeritas where
            → x ∈_ $ x ∷ₗ xs
     pamoin x xs = sym $ begin
       length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ refl ⟩
-      _ ≡⟨ DVP.toList∘fromList xs ▹ cong (length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)) ⟩
+      _ ≡⟨ DVP.toList∘fromList xs ▹ cong LT ⟩
       length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ {!!} ⟩
       length (x ∷ []ₗ) ≡⟨ refl ⟩
       1 ∎
@@ -774,6 +774,7 @@ module LersteVeritas where
           length;
           take
         )
+      LT = length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)
       open ≡-Reasoning
   ... | no j = {!!} ▹ nada₂
     where
