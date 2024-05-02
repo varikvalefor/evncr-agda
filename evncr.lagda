@@ -744,10 +744,12 @@ module LersteVeritas where
        → ∃ $ λ x → x ∈ xs × Is-nothing (f x)
   nada "" ()
   nada s d with 𝕊.toList s
-  ... | (x ∷ₗ xs) with D
+  ... | (x ∷ₗ xs) with D $ f x
     where
-    D : Dec $ Is-nothing $ f x
-    D with f x
+    D : ∀ {a} → {A : Set a}
+      → (x : Maybe A)
+      → Dec $ Is-nothing x
+    D x with x
     ... | nothing = yes DMA.All.nothing
     ... | just j = no {!!}
   ... | yes n = x , pamoin x xs , n
