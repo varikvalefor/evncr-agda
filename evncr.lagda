@@ -748,7 +748,7 @@ module LersteVeritas where
     where
     D : Dec $ Is-nothing $ f x
     D with f x
-    ... | nothing = {!!}
+    ... | nothing = yes DMA.All.nothing
     ... | just j = {!!}
   ... | yes n = x , pamoin x xs , n
     where
