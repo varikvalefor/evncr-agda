@@ -766,7 +766,16 @@ module LersteVeritas where
     nada₁ : F xs
     nada₁ = {!!}
     nada₂ : {x : Char} → {xs : List Char} → F xs → F $ x ∷ xs
-    nada₂ {x} {xs} (x₁ , c , N) = x₁ , {!!} , {!!}
+    nada₂ {x} {xs} (x₁ , c , N) = x₁ , jminin x xs c , {!!}
+      where
+      jminin : ∀ {a} → {A : Set a}
+             → ⦃ _ : Eq A ⦄
+             → (x : A)
+             → (xs : List A)
+             → {z : A}
+             → z ∈ xs
+             → z ∈_ $ x ∷ xs
+      jminin = {!!}
 
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
