@@ -749,9 +749,8 @@ module LersteVeritas where
     D : ∀ {a} → {A : Set a}
       → (x : Maybe A)
       → Dec $ Is-nothing x
-    D x with x
-    ... | nothing = yes DMA.All.nothing
-    ... | just j = no {!!}
+    D nothing = yes DMA.All.nothing
+    D (just j) = no {!!}
   ... | yes n = x , pamoin x xs , n
     where
     pamoin : ∀ {a} → {A : Set a}
