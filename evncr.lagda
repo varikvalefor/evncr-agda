@@ -741,7 +741,13 @@ module LersteVeritas where
     j' = Data.Maybe.to-witness j
     open ≡-Reasoning
     fx≡justj' : f x ≡ just j'
-    fx≡justj' = {!!}
+    fx≡justj' = tuig j
+      where
+      tuig : ∀ {a} → {A : Set a}
+           → {x : Maybe A}
+           → (j : Data.Maybe.Is-just x)
+           → x ≡ just (Data.Maybe.to-witness j)
+      tuig = {!!}
 
   nada : (xs : String)
        → lerste xs ≡ nothing
