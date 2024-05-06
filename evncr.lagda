@@ -640,11 +640,11 @@ module ToLerfu where
   _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
   _<?'_ = decToMaybe ∘₂ Data.Nat._<?_
 
+  finToLerfu : Fin 128 → Lerfu
+  finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
+
   toLerfu : ℕ → Maybe Lerfu
   toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
-    where
-    finToLerfu : Fin 128 → Lerfu
-    finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
 
 open ToLerfu
   using (
