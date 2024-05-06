@@ -696,6 +696,12 @@ module LersteVeritas where
   kunti : lerste "" ≡ just []ₗ
   kunti = refl
 
+  module F where
+    nada : (c : Char)
+         → Data.Char.toℕ c Data.Nat.≥ 128
+         → Is-nothing $ f c
+    nada = {!!}
+
   naljmina : (x : Char)
            → (xs : String)
            → Is-nothing $ f x
