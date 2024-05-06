@@ -636,13 +636,19 @@ toLtyp q = plicu'a (toℕ q) Vrici ns
 ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLerfu} \B n .zoi.\ me'oi .\IC{just}.\ be lo sinxa lo .asycy'i'is.\ lerfu poi ke'a meirmoi la'oi .\B n.\ fo le'i ro .asyci'is.\ lerfu gi ko'a me'oi .\IC{nothing}.
 
 \begin{code}
-toLerfu : ℕ → Maybe Lerfu
-toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
-  where
-  _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
-  _<?'_ = decToMaybe ∘₂ Data.Nat._<?_
-  finToLerfu : Fin 128 → Lerfu
-  finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
+module ToLerfu where
+  toLerfu : ℕ → Maybe Lerfu
+  toLerfu n = Data.Maybe.map (finToLerfu ∘ fromℕ<) $ n <?' _
+    where
+    _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
+    _<?'_ = decToMaybe ∘₂ Data.Nat._<?_
+    finToLerfu : Fin 128 → Lerfu
+    finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
+
+open ToLerfu
+  using (
+    toLerfu
+  )
 \end{code}
 
 \section{la'oi .\F{lerste}.}
