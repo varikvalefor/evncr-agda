@@ -833,17 +833,6 @@ module LersteVeritas where
          → s ≡ ""
   kunti₂ "" refl = refl
   kunti₂ s x = {!!}
-
-  nada₂ : (s : String)
-        → lerste s ≡ nothing
-        → (∃ $ λ i →
-            (_≡_
-              nothing
-              ((toLerfu ∘ Data.Char.toℕ)
-                (Data.List.lookup (𝕊.toList s) i))))
-  nada₂ s d with 𝕊.toList s
-  ... | (x ∷ₗ []ₗ) = {!!}
-  ... | (x ∷ₗ xs) = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
