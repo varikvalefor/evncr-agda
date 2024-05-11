@@ -707,13 +707,16 @@ module LersteVeritas where
     nada : (c : Char)
          → Data.Char.toℕ c Data.Nat.≥ 128
          → Is-nothing $ f c
-    nada c djz = x≡nothing→Is-nothing[x] _ {!!}
+    nada c djz = x≡nothing→Is-nothing[x] _ $ begin
+      f c ≡⟨ {!!} ⟩
+      nothing ∎
       where
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
                               → (x : Maybe A)
                               → x ≡ nothing
                               → Is-nothing x
       x≡nothing→Is-nothing[x] = {!!}
+      open ≡-Reasoning
 
   naljmina : (x : Char)
            → (xs : String)
