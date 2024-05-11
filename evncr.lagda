@@ -707,7 +707,13 @@ module LersteVeritas where
     nada : (c : Char)
          → Data.Char.toℕ c Data.Nat.≥ 128
          → Is-nothing $ f c
-    nada = {!!}
+    nada c djz = x≡nothing→Is-nothing[x] _ {!!}
+      where
+      x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
+                              → (x : Maybe A)
+                              → x ≡ nothing
+                              → Is-nothing x
+      x≡nothing→Is-nothing[x] = {!!}
 
   naljmina : (x : Char)
            → (xs : String)
