@@ -708,7 +708,8 @@ module LersteVeritas where
          → Data.Char.toℕ c Data.Nat.≥ 128
          → Is-nothing $ f c
     nada c djz = x≡nothing→Is-nothing[x] _ $ begin
-      f c ≡⟨ {!!} ⟩
+      f c ≡⟨ refl ⟩
+      toLerfu (Data.Char.toℕ c) ≡⟨ {!!} ⟩
       nothing ∎
       where
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
