@@ -554,7 +554,7 @@ module IntdMmVeritas where
     []ₗ ∎
     where
     zm₂ : x Data.Nat.>_ $ Data.List.length $ upTo $ suc z
-    zm₂ = zm ▹ subst (_ Data.Nat.>_) {!!}
+    zm₂ = zm ▹ subst (_ Data.Nat.≥_) {!!}
     drolen : ∀ {a} → {A : Set a}
            → (n : ℕ)
            → (L : List A)
