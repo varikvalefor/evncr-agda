@@ -560,7 +560,8 @@ module IntdMmVeritas where
            → (L : List A)
            → n Data.Nat.≥ Data.List.length L
            → drop n L ≡ []ₗ
-    drolen = {!!}
+    drolen n List.[] Data.Nat.z≤n = {!!}
+    drolen (suc n) (x List.∷ xs) (Data.Nat.s≤s s) = {!!}
 
   pamois : (x z : ℕ)
          → x Data.Nat.≤ z
