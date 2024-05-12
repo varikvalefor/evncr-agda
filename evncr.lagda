@@ -561,7 +561,7 @@ module IntdMmVeritas where
            → n Data.Nat.≥ Data.List.length L
            → drop n L ≡ []ₗ
     drolen 0 List.[] Data.Nat.z≤n = refl
-    drolen (suc n) List.[] Data.Nat.z≤n = {!!}
+    drolen (suc n) List.[] Data.Nat.z≤n = refl
     drolen (suc n) (x List.∷ xs) (Data.Nat.s≤s s) = drolen n xs s
 
   pamois : (x z : ℕ)
