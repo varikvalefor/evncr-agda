@@ -867,7 +867,7 @@ module LersteVeritas where
     where
     ¬d : ¬_ $ lerste s ≡ just []ₗ
     ¬d with 𝕊.toList s
-    ... | []ₗ = {!!} -- .i narcu'i
+    ... | []ₗ = ((𝕊.toList s ≡ []ₗ) ∋ {!!}) ⇒⇐ {!!}
     ... | (x ∷ₗ xs) with f x
     ... | nothing = {!!}
     ... | just x' = {!!}
