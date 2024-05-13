@@ -730,9 +730,13 @@ module LersteVeritas where
       _<?'_≡nothing : c' <?' _ ≡ nothing
       _<?'_≡nothing = begin
         c' <?' _ ≡⟨ refl ⟩
-        decToMaybe (c' Data.Nat.<? _) ≡⟨ {!!} ⟩
+        decToMaybe (c' Data.Nat.<? _) ≡⟨ proj₂ DN ▹ cong decToMaybe ⟩
         decToMaybe (no {!!}) ≡⟨ {!!} ⟩
         nothing ∎
+        where
+        DN = dec-no (c' Data.Nat.<? _) {!!}
+          where
+          dec-no = Relation.Nullary.Decidable.dec-no
 
   naljmina : (x : Char)
            → (xs : String)
