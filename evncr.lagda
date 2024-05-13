@@ -713,6 +713,7 @@ module LersteVeritas where
       f c ≡⟨ refl ⟩
       toLerfu (Data.Char.toℕ c) ≡⟨ refl ⟩
       Data.Maybe.map f2l< (Data.Char.toℕ c <?' _) ≡⟨ {!!} ⟩
+      Data.Maybe.map f2l< (nothing {A = Data.Char.toℕ c Data.Nat.< 128}) ≡⟨ refl ⟩
       nothing ∎
       where
       _<?'_ = ToLerfu._<?'_
