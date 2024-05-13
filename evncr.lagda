@@ -728,7 +728,9 @@ module LersteVeritas where
       x≡nothing→Is-nothing[x] nothing refl = DMA.All.nothing
       open ≡-Reasoning
       _<?'_≡nothing : c' <?' _ ≡ nothing
-      _<?'_≡nothing = {!!}
+      _<?'_≡nothing = begin
+        c' <?' _ ≡⟨ {!!} ⟩
+        nothing ∎
 
   naljmina : (x : Char)
            → (xs : String)
