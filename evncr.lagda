@@ -730,6 +730,7 @@ module LersteVeritas where
       _<?'_≡nothing : c' <?' _ ≡ nothing
       _<?'_≡nothing = begin
         c' <?' _ ≡⟨ {!!} ⟩
+        decToMaybe (no {!!}) ≡⟨ {!!} ⟩
         nothing ∎
 
   naljmina : (x : Char)
