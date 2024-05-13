@@ -712,7 +712,8 @@ module LersteVeritas where
     nada c djz = x≡nothing→Is-nothing[x] _ $ begin
       f c ≡⟨ refl ⟩
       toLerfu (Data.Char.toℕ c) ≡⟨ refl ⟩
-      Data.Maybe.map f2l< (Data.Char.toℕ c <?' _) ≡⟨ _<?'_≡nothing ▹ cong (Data.Maybe.map f2l<) ⟩
+      Data.Maybe.map f2l< (Data.Char.toℕ c <?' _) ≡⟨ refl ⟩
+      _ ≡⟨ _<?'_≡nothing ▹ cong (Data.Maybe.map f2l<) ⟩
       Data.Maybe.map f2l< (nothing {A = Data.Char.toℕ c Data.Nat.< 128}) ≡⟨ refl ⟩
       nothing ∎
       where
