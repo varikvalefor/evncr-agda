@@ -866,7 +866,11 @@ module LersteVeritas where
   ... | no n = d ⇒⇐ ¬d
     where
     ¬d : ¬_ $ lerste s ≡ just []ₗ
-    ¬d = {!!}
+    ¬d with 𝕊.toList s
+    ... | []ₗ = {!!} -- .i narcu'i
+    ... | (x ∷ₗ xs) with f x
+    ... | nothing = {!!}
+    ... | just x' = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
