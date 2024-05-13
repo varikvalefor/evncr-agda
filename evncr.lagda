@@ -731,7 +731,7 @@ module LersteVeritas where
       _<?'_≡nothing = begin
         c' <?' _ ≡⟨ refl ⟩
         decToMaybe (c' Data.Nat.<? _) ≡⟨ proj₂ DN ▹ cong decToMaybe ⟩
-        decToMaybe (no {!!}) ≡⟨ {!!} ⟩
+        decToMaybe (no $ proj₁ DN) ≡⟨ {!!} ⟩
         nothing ∎
         where
         DN = dec-no (c' Data.Nat.<? _) {!!}
