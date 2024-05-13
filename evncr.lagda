@@ -726,7 +726,7 @@ module LersteVeritas where
                               → (x : Maybe A)
                               → x ≡ nothing
                               → Is-nothing x
-      x≡nothing→Is-nothing[x] = {!!}
+      x≡nothing→Is-nothing[x] nothing refl = DMA.All.nothing
       open ≡-Reasoning
 
   naljmina : (x : Char)
