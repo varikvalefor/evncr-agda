@@ -232,6 +232,10 @@ open import Truthbrary.Record.LLC
     _∈_;
     map
   )
+open import Relation.Nullary.Negation
+  renaming (
+    contradiction to _⇒⇐_
+  )
 open import Relation.Nullary.Decidable
   using (
     isYes≗does;
@@ -858,7 +862,7 @@ module LersteVeritas where
          → s ≡ ""
   kunti₂ s d with s ≟ ""
   ... | yes k = k
-  ... | no n = {!!}
+  ... | no n = d ⇒⇐ {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
