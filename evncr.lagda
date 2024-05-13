@@ -104,6 +104,7 @@ open import Data.Fin
     Fin
   )
 open import Data.Nat
+  as ℕ
   using (
     _∸_;
     _*_;
@@ -429,7 +430,7 @@ module IntersperseVeritas where
   pav _ (_ ∷ᵥ []ᵥ) = refl
 
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
-             → 2 Data.Nat.≤ n
+             → 2 ℕ.≤ n
              → (t : A)
              → (q : Vec A n)
              → (x : Fin n)
@@ -441,7 +442,7 @@ module IntersperseVeritas where
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
-       → 2 Data.Nat.≤ n
+       → 2 ℕ.≤ n
        → (t : A)
        → (q : Vec A n)
        → (x : Fin $ n * 2 ∸ 1)
@@ -548,26 +549,26 @@ module IntdMmVeritas where
   open ≡-Reasoning
 
   zmadu : (x z : ℕ)
-        → x Data.Nat.> z
+        → x ℕ.> z
         → intdMm x z ≡ []ₗ
   zmadu x z zm = begin
     intdMm x z ≡⟨ refl ⟩
     drop x (upTo $ suc z) ≡⟨ drolen x _ zm₂ ⟩
     []ₗ ∎
     where
-    zm₂ : x Data.Nat.≥_ $ Data.List.length $ upTo $ suc z
-    zm₂ = zm ▹ subst (x Data.Nat.≥_) (DLP.length-upTo _ ▹ sym)
+    zm₂ : x ℕ.≥_ $ Data.List.length $ upTo $ suc z
+    zm₂ = zm ▹ subst (x ℕ.≥_) (DLP.length-upTo _ ▹ sym)
     drolen : ∀ {a} → {A : Set a}
            → (n : ℕ)
            → (L : List A)
-           → n Data.Nat.≥ Data.List.length L
+           → n ℕ.≥ Data.List.length L
            → drop n L ≡ []ₗ
     drolen 0 List.[] _ = refl
     drolen (suc n) List.[] _ = refl
-    drolen (suc n) (x List.∷ xs) (Data.Nat.s≤s s) = drolen n xs s
+    drolen (suc n) (x List.∷ xs) (ℕ.s≤s s) = drolen n xs s
 
   pamois : (x z : ℕ)
-         → x Data.Nat.≤ z
+         → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
   pamois = {!!}
 \end{code}
@@ -641,8 +642,8 @@ ni'o ga jonai ga je la'oi .\B n.\ mleca li parebi gi ko'a goi la'o zoi.\ \F{toLe
 
 \begin{code}
 module ToLerfu where
-  _<?'_ : (m n : ℕ) → Maybe $ m Data.Nat.< n
-  _<?'_ = decToMaybe ∘₂ Data.Nat._<?_
+  _<?'_ : (m n : ℕ) → Maybe $ m ℕ.< n
+  _<?'_ = decToMaybe ∘₂ ℕ._<?_
 
   finToLerfu : Fin 128 → Lerfu
   finToLerfu a = record {ctyp = toLtyp a; case = toCase a; bnam = a}
@@ -709,19 +710,19 @@ module LersteVeritas where
 
   module F where
     nada : (c : Char)
-         → Data.Char.toℕ c Data.Nat.≥ 128
+         → Data.Char.toℕ c ℕ.≥ 128
          → Is-nothing $ f c
     nada c djz = x≡nothing→Is-nothing[x] _ $ begin
       f c ≡⟨ refl ⟩
       toLerfu c' ≡⟨ refl ⟩
       Data.Maybe.map f2l< (c' <?' _) ≡⟨ refl ⟩
       _ ≡⟨ _<?'_≡nothing ▹ cong (Data.Maybe.map f2l<) ⟩
-      Data.Maybe.map f2l< (nothing {A = c' Data.Nat.< 128}) ≡⟨ refl ⟩
+      Data.Maybe.map f2l< (nothing {A = c' ℕ.< 128}) ≡⟨ refl ⟩
       nothing ∎
       where
       c' = Data.Char.toℕ c
       _<?'_ = ToLerfu._<?'_
-      f2l< : {n : ℕ} → n Data.Nat.< 128 → Lerfu
+      f2l< : {n : ℕ} → n ℕ.< 128 → Lerfu
       f2l< = ToLerfu.finToLerfu ∘ fromℕ<
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
                               → (x : Maybe A)
@@ -732,18 +733,18 @@ module LersteVeritas where
       _<?'_≡nothing : c' <?' _ ≡ nothing
       _<?'_≡nothing = begin
         c' <?' _ ≡⟨ refl ⟩
-        decToMaybe (c' Data.Nat.<? _) ≡⟨ proj₂ DN ▹ cong decToMaybe ⟩
+        decToMaybe (c' ℕ.<? _) ≡⟨ proj₂ DN ▹ cong decToMaybe ⟩
         decToMaybe (no $ proj₁ DN) ≡⟨ refl ⟩
         nothing ∎
         where
-        DN = dec-no (c' Data.Nat.<? _) $ DNP.≤⇒≯ djz
+        DN = dec-no (c' ℕ.<? _) $ DNP.≤⇒≯ djz
           where
           dec-no = Relation.Nullary.Decidable.dec-no
 
     nada₂ : (c : Char)
           → Is-nothing $ f c
-          → Data.Char.toℕ c Data.Nat.≥ 128
-    nada₂ c n with Data.Char.toℕ c Data.Nat.≥? 128
+          → Data.Char.toℕ c ℕ.≥ 128
+    nada₂ c n with Data.Char.toℕ c ℕ.≥? 128
     ... | yes z = z
     ... | no m = {!!}
 
@@ -934,7 +935,7 @@ ni'o tu'a la'o zoi.\ \F{doit} \B s\ .zoi.\ rinka lo nu .uniks.\ co'e la'oi .\B s
 doit : String → IO $ Maybe ℕ
 doit = _<$>ᵢₒ_ bixygau ∘ liftᵢₒ ∘ doit'
   where
-  bixygau = λ n → if (n Data.Nat.<ᵇ 127) nothing $ just n
+  bixygau = λ n → if (n ℕ.<ᵇ 127) nothing $ just n
   postulate doit' : String → PIO ℕ
   {-# FOREIGN GHC import System.IO #-}
   {-# FOREIGN GHC import Data.Text #-}
