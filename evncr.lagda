@@ -721,14 +721,14 @@ module LersteVeritas where
       _<?'_ = ToLerfu._<?'_
       f2l< : {n : ℕ} → n Data.Nat.< 128 → Lerfu
       f2l< = ToLerfu.finToLerfu ∘ fromℕ<
-      _<?'_≡nothing : c' <?' _ ≡ nothing
-      _<?'_≡nothing = {!!}
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
                               → (x : Maybe A)
                               → x ≡ nothing
                               → Is-nothing x
       x≡nothing→Is-nothing[x] nothing refl = DMA.All.nothing
       open ≡-Reasoning
+      _<?'_≡nothing : c' <?' _ ≡ nothing
+      _<?'_≡nothing = {!!}
 
   naljmina : (x : Char)
            → (xs : String)
