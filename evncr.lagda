@@ -829,6 +829,7 @@ module LersteVeritas where
       LT (cevec xs) ≡⟨ DVP.toList∘fromList xs ▹ cong LT ⟩
       LT xs ≡⟨ refl ⟩
       length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ {!!} ⟩
+      length (take 1 $ x ∷ filter (_≟_ x) xs) ≡⟨ {!!} ⟩
       length (x ∷ []ₗ) ≡⟨ refl ⟩
       1 ∎
       where
