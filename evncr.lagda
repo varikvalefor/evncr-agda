@@ -856,8 +856,9 @@ module LersteVeritas where
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
          → s ≡ ""
-  kunti₂ "" refl = refl
-  kunti₂ s x = {!!}
+  kunti₂ s d with s ≟ ""
+  ... | yes k = k
+  ... | no n = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
