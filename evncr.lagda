@@ -862,7 +862,10 @@ module LersteVeritas where
          → s ≡ ""
   kunti₂ s d with s ≟ ""
   ... | yes k = k
-  ... | no n = d ⇒⇐ {!!}
+  ... | no n = d ⇒⇐ ¬d
+    where
+    ¬d : ¬_ $ lerste s ≡ just []ₗ
+    ¬d = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
