@@ -729,7 +729,8 @@ module LersteVeritas where
       open ≡-Reasoning
       _<?'_≡nothing : c' <?' _ ≡ nothing
       _<?'_≡nothing = begin
-        c' <?' _ ≡⟨ {!!} ⟩
+        c' <?' _ ≡⟨ refl ⟩
+        decToMaybe (c' Data.Nat.<? _) ≡⟨ {!!} ⟩
         decToMaybe (no {!!}) ≡⟨ {!!} ⟩
         nothing ∎
 
