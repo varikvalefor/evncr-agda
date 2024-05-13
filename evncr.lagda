@@ -712,13 +712,15 @@ module LersteVeritas where
     nada c djz = x≡nothing→Is-nothing[x] _ $ begin
       f c ≡⟨ refl ⟩
       toLerfu (Data.Char.toℕ c) ≡⟨ refl ⟩
-      Data.Maybe.map f2l< (Data.Char.toℕ c <?' _) ≡⟨ {!!} ⟩
+      Data.Maybe.map f2l< (Data.Char.toℕ c <?' _) ≡⟨ _<?'_≡nothing ▹ cong (Data.Maybe.map f2l<) ⟩
       Data.Maybe.map f2l< (nothing {A = Data.Char.toℕ c Data.Nat.< 128}) ≡⟨ refl ⟩
       nothing ∎
       where
       _<?'_ = ToLerfu._<?'_
       f2l< : {n : ℕ} → n Data.Nat.< 128 → Lerfu
       f2l< = ToLerfu.finToLerfu ∘ fromℕ<
+      _<?'_≡nothing : Data.Char.toℕ c <?' _ ≡ nothing
+      _<?'_≡nothing = {!!}
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
                               → (x : Maybe A)
                               → x ≡ nothing
