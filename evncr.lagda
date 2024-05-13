@@ -740,6 +740,11 @@ module LersteVeritas where
           where
           dec-no = Relation.Nullary.Decidable.dec-no
 
+    nada₂ : (c : Char)
+          → Is-nothing $ f c
+          → Data.Char.toℕ c Data.Nat.≥ 128
+    nada₂ = {!!}
+
   naljmina : (x : Char)
            → (xs : String)
            → Is-nothing $ f x
