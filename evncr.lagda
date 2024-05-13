@@ -867,7 +867,7 @@ module LersteVeritas where
     where
     ¬d : ¬_ $ lerste s ≡ just []ₗ
     ¬d with 𝕊.toList s
-    ... | []ₗ = ((𝕊.toList s ≡ []ₗ) ∋ {!!}) ⇒⇐ strikun s n
+    ... | []ₗ = {!!} ⇒⇐ strikun s n
       where
       strikun : (s : String)
               → ¬_ $ s ≡ ""
