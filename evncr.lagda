@@ -248,6 +248,8 @@ open import Relation.Binary.PropositionalEquality
 
 import Agda.Builtin.Unit
   as ABU
+import Data.Nat.Properties
+  as DNP
 import Data.Vec.Properties
   as DVP
 import Data.List.Properties
@@ -734,7 +736,7 @@ module LersteVeritas where
         decToMaybe (no $ proj₁ DN) ≡⟨ refl ⟩
         nothing ∎
         where
-        DN = dec-no (c' Data.Nat.<? _) {!!}
+        DN = dec-no (c' Data.Nat.<? _) $ DNP.≤⇒≯ djz
           where
           dec-no = Relation.Nullary.Decidable.dec-no
 
