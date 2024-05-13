@@ -743,7 +743,9 @@ module LersteVeritas where
     nada₂ : (c : Char)
           → Is-nothing $ f c
           → Data.Char.toℕ c Data.Nat.≥ 128
-    nada₂ = {!!}
+    nada₂ c n with Data.Char.toℕ c Data.Nat.≥? 128
+    ... | yes z = {!!}
+    ... | no m = {!!}
 
   naljmina : (x : Char)
            → (xs : String)
