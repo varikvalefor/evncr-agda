@@ -970,7 +970,7 @@ module SequinVeritas where
                → sequin (x ∷ xs) ≡ nothing
                → Is-nothing x
     pamoi-nada {x = nothing} d = DMA.All.nothing
-    pamoi-nada {x = just x} d = {!!}
+    pamoi-nada {x = just x} = λ ()
 
   anis : ∀ {a} → {A : Set a}
        → (x : List $ Maybe A)
