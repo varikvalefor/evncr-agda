@@ -879,9 +879,7 @@ module LersteVeritas where
     ¬d with 𝕊.toList s
     ... | []ₗ = {!!} ⇒⇐ (n ∘ strikun s)
       where
-      strikun : (s : String)
-              → 𝕊.toList s ≡ []ₗ
-              → s ≡ ""
+      strikun : (s : String) → 𝕊.toList s ≡ []ₗ → s ≡ ""
       strikun = {!!}
     ... | (x ∷ₗ xs) with f x
     ... | nothing = λ ()
