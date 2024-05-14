@@ -877,11 +877,11 @@ module LersteVeritas where
     where
     ¬d : ¬_ $ lerste s ≡ just []ₗ
     ¬d with 𝕊.toList s
-    ... | []ₗ = {!!} ⇒⇐ strikun s n
+    ... | []ₗ = {!!} ⇒⇐ (n ∘ strikun s)
       where
       strikun : (s : String)
-              → ¬_ $ s ≡ ""
-              → ¬_ $ 𝕊.toList s ≡ []ₗ
+              → 𝕊.toList s ≡ []ₗ
+              → s ≡ ""
       strikun = {!!}
     ... | (x ∷ₗ xs) with f x
     ... | nothing = {!!}
