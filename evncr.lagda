@@ -745,6 +745,11 @@ module LersteVeritas where
           where
           dec-no = Relation.Nullary.Decidable.dec-no
 
+    mleca-just : (c : Char)
+               → Data.Char.toℕ c ℕ.< 128
+               → Data.Maybe.Is-just $ f c
+    mleca-just = {!!}
+
     nada₂ : (c : Char)
           → Is-nothing $ f c
           → Data.Char.toℕ c ℕ.≥ 128
