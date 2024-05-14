@@ -962,7 +962,7 @@ module SequinVeritas where
         → sequin x ≡ nothing
         → DLA.All Is-nothing x
   nada₂ []ₗ d = DLA.All.[]
-  nada₂ (x ∷ₗ xs) d = pamoi-nada d DLA.All.∷ nada₂ xs {!!}
+  nada₂ (x ∷ₗ xs) d = pamoi-nada d DLA.All.∷ nada₂ xs (romoi-nada x xs d)
     where
     pamoi-nada : ∀ {a} → {A : Set a}
                → {x : Maybe A}
@@ -971,6 +971,12 @@ module SequinVeritas where
                → Is-nothing x
     pamoi-nada {x = nothing} d = DMA.All.nothing
     pamoi-nada {x = just x} = λ ()
+    romoi-nada : ∀ {a} → {A : Set a}
+               → (x : Maybe A)
+               → (xs : List $ Maybe A)
+               → sequin (x ∷ xs) ≡ nothing
+               → sequin xs ≡ nothing
+    romoi-nada = {!!}
 
   anis : ∀ {a} → {A : Set a}
        → (x : List $ Maybe A)
