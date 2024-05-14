@@ -261,6 +261,8 @@ import Data.List.Properties
   as DLP
 import Data.List.Relation.Unary.All
   as DLA
+import Data.List.Relation.Unary.Any
+  as DLAny
 import Data.Maybe.Relation.Unary.All
   as DMA
 \end{code}
@@ -962,6 +964,12 @@ module SequinVeritas where
         → sequin x ≡ nothing
         → DLA.All Is-nothing x
   nada₂ = {!!}
+
+  anis : ∀ {a} → {A : Set a}
+       → (x : List $ Maybe A)
+       → Data.Maybe.Is-just $ sequin x
+       → DLAny.Any Data.Maybe.Is-just x
+  anis = {!!}
 \end{code}
 
 \section{la'oi .\F{doit}.}
