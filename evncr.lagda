@@ -885,7 +885,7 @@ module LersteVeritas where
       strikun = {!!}
     ... | (x ∷ₗ xs) with f x
     ... | nothing = λ ()
-    ... | just x' = λ ()
+    ... | just x' = {!!}
 \end{code}
 
 \chapter{le fancu poi ke'a srana lo .uniks.\ midnoi}
