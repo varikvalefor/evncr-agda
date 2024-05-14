@@ -884,7 +884,7 @@ module LersteVeritas where
               → s ≡ ""
       strikun = {!!}
     ... | (x ∷ₗ xs) with f x
-    ... | nothing = {!!}
+    ... | nothing = λ ()
     ... | just x' = {!!}
 \end{code}
 
