@@ -259,6 +259,8 @@ import Data.Vec.Properties
   as DVP
 import Data.List.Properties
   as DLP
+import Data.List.Relation.Unary.All
+  as DLA
 import Data.Maybe.Relation.Unary.All
   as DMA
 \end{code}
@@ -954,6 +956,12 @@ module SequinVeritas where
   nada : ∀ {a} → {A : Set a}
        → sequin []ₗ ≡ nothing {A = A}
   nada = refl
+
+  nada₂ : ∀ {a} → {A : Set a}
+        → (x : List $ Maybe A)
+        → sequin x ≡ nothing
+        → DLA.All Is-nothing x
+  nada₂ = {!!}
 \end{code}
 
 \section{la'oi .\F{doit}.}
