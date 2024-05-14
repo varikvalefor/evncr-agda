@@ -851,7 +851,7 @@ module LersteVeritas where
   ... | no j = {!!} ▹ nada₂
     where
     F : List Char → Set
-    F = λ xs → ∃ $ λ x → x ∈ xs × Is-nothing (f x)
+    F xs = ∃ $ λ x → x ∈ xs × Is-nothing (f x)
     nada₂ : {x : Char} → {xs : List Char} → F xs → F $ x ∷ xs
     nada₂ {x} {xs} (x₁ , c , N) = x₁ , jminin x xs c , N
       where
