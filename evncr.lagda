@@ -950,6 +950,10 @@ module SequinVeritas where
              (sequin $ Data.List.replicate m nothing ++ just z ∷ₗ x))
   nymois 0 _ _ = refl
   nymois (suc n) = nymois n
+
+  nada : ∀ {a} → {A : Set a}
+       → sequin []ₗ ≡ nothing {A = A}
+  nada = refl
 \end{code}
 
 \section{la'oi .\F{doit}.}
