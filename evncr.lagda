@@ -1000,7 +1000,7 @@ module SequinVeritas where
        → DLAny.Any Data.Maybe.Is-just x
   anis []ₗ ()
   anis (just x ∷ₗ xs) j = DLAny.here $ DMAny.just _
-  anis (nothing ∷ₗ xs) j = {!!}
+  anis (nothing ∷ₗ xs) j = DLAny.there $ anis xs j
 \end{code}
 
 \section{la'oi .\F{doit}.}
