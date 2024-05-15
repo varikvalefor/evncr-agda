@@ -991,7 +991,7 @@ module SequinVeritas where
                → sequin (x ∷ xs) ≡ nothing
                → sequin xs ≡ nothing
     romoi-nada x []ₗ d = nada
-    romoi-nada x (just z ∷ₗ zs) d = J ⇒⇐ N→¬J x (just z ∷ₗ zs) {!!}
+    romoi-nada x xs@(just z ∷ₗ zs) d = J ⇒⇐ N→¬J x xs {!!}
       where
       J : Data.Maybe.Is-just $ sequin $ just z ∷ₗ zs
       J = DMAny.just _
