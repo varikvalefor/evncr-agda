@@ -999,7 +999,7 @@ module SequinVeritas where
                → {x : Maybe A}
                → x ≡ nothing
                → Is-nothing x
-      x≡N→N[x] = {!!}
+      x≡N→N[x] refl = DMA.nothing
       N→¬J : ∀ {a} → {A : Set a}
            → (x : Maybe A)
            → (xs : List $ Maybe A)
