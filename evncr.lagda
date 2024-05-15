@@ -996,7 +996,8 @@ module SequinVeritas where
        → (x : List $ Maybe A)
        → Data.Maybe.Is-just $ sequin x
        → DLAny.Any Data.Maybe.Is-just x
-  anis = {!!}
+  anis []ₗ j = {!!}
+  anis (x ∷ₗ xs) j = {!!}
 \end{code}
 
 \section{la'oi .\F{doit}.}
