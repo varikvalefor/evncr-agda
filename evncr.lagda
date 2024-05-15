@@ -253,6 +253,8 @@ open import Relation.Binary.PropositionalEquality
 
 import Agda.Builtin.Unit
   as ABU
+import Data.Fin.Properties
+  as DFP
 import Data.Nat.Properties
   as DNP
 import Data.Vec.Properties
@@ -437,6 +439,12 @@ module IntersperseVeritas where
       → intersperse t x ≡ x
   pav _ (_ ∷ᵥ []ᵥ) = refl
 
+  private
+    mlecavu'u : (m n : ℕ)
+              → m ℕ.< n
+              → m * 2 ℕ.< n * 2 ∸ 1
+    mlecavu'u = {!!}
+
   snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
              → 2 ℕ.≤ n
              → (t : A)
@@ -446,7 +454,9 @@ module IntersperseVeritas where
                  (Data.Vec.lookup q x)
                  (Data.Vec.lookup
                    (intersperse t q)
-                   (fromℕ< {toℕ x * 2} {!!})))
+                   (fromℕ<
+                     {toℕ x * 2}
+                     (mlecavu'u _ _ $ DFP.toℕ<n x))))
   snaredunli = {!!}
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
