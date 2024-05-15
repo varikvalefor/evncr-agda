@@ -267,6 +267,8 @@ import Data.List.Relation.Unary.Any
   as DLAny
 import Data.Maybe.Relation.Unary.All
   as DMA
+import Data.Maybe.Relation.Unary.Any
+  as DMAny
 \end{code}
 
 \chapter{le srana be lo nu tcimi'e}
@@ -997,7 +999,7 @@ module SequinVeritas where
        → Data.Maybe.Is-just $ sequin x
        → DLAny.Any Data.Maybe.Is-just x
   anis []ₗ ()
-  anis (just x ∷ₗ xs) j = {!!}
+  anis (just x ∷ₗ xs) j = DLAny.here $ DMAny.just _
   anis (nothing ∷ₗ xs) j = {!!}
 \end{code}
 
