@@ -987,7 +987,8 @@ module SequinVeritas where
                → sequin (x ∷ xs) ≡ nothing
                → sequin xs ≡ nothing
     romoi-nada x []ₗ d = {!!}
-    romoi-nada x (z ∷ₗ zs) d = {!!}
+    romoi-nada x (just z ∷ₗ zs) d = {!!}
+    romoi-nada x (nothing ∷ₗ zs) d = {!!}
 
   anis : ∀ {a} → {A : Set a}
        → (x : List $ Maybe A)
