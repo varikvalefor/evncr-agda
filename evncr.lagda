@@ -991,10 +991,16 @@ module SequinVeritas where
                → sequin (x ∷ xs) ≡ nothing
                → sequin xs ≡ nothing
     romoi-nada x []ₗ d = nada
-    romoi-nada x (just z ∷ₗ zs) d = J ⇒⇐ {!!}
+    romoi-nada x (just z ∷ₗ zs) d = J ⇒⇐ N→¬J x (just z ∷ₗ zs) {!!}
       where
       J : Data.Maybe.Is-just $ sequin $ just z ∷ₗ zs
       J = DMAny.just _
+      N→¬J : ∀ {a} → {A : Set a}
+           → (x : Maybe A)
+           → (xs : List $ Maybe A)
+           → Is-nothing $ sequin $ x ∷ xs
+           → ¬_ $ Data.Maybe.Is-just $ sequin xs
+      N→¬J = {!!}
     romoi-nada x (nothing ∷ₗ zs) d = {!!}
 
   anis : ∀ {a} → {A : Set a}
