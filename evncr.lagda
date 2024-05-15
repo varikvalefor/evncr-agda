@@ -990,7 +990,7 @@ module SequinVeritas where
                → (xs : List $ Maybe A)
                → sequin (x ∷ xs) ≡ nothing
                → sequin xs ≡ nothing
-    romoi-nada x []ₗ d = {!!}
+    romoi-nada x []ₗ d = nada
     romoi-nada x (just z ∷ₗ zs) d = {!!}
     romoi-nada x (nothing ∷ₗ zs) d = {!!}
 
