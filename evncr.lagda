@@ -439,25 +439,27 @@ module IntersperseVeritas where
       → intersperse t x ≡ x
   pav _ (_ ∷ᵥ []ᵥ) = refl
 
-  private
+  module Snaredunli where
     mlecavu'u : (m n : ℕ)
               → m ℕ.< n
               → m * 2 ℕ.< n * 2 ∸ 1
     mlecavu'u = {!!}
 
-  snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
-             → 2 ℕ.≤ n
-             → (t : A)
-             → (q : Vec A n)
-             → (x : Fin n)
-             → (_≡_
-                 (Data.Vec.lookup q x)
-                 (Data.Vec.lookup
-                   (intersperse t q)
-                   (fromℕ<
-                     {toℕ x * 2}
-                     (mlecavu'u _ _ $ DFP.toℕ<n x))))
-  snaredunli = {!!}
+    snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
+               → 2 ℕ.≤ n
+               → (t : A)
+               → (q : Vec A n)
+               → (x : Fin n)
+               → (_≡_
+                   (Data.Vec.lookup q x)
+                   (Data.Vec.lookup
+                     (intersperse t q)
+                     (fromℕ<
+                       {toℕ x * 2}
+                       (mlecavu'u _ _ $ DFP.toℕ<n x))))
+    snaredunli = {!!}
+
+  snaredunli = Snaredunli.snaredunli
 
   even : ∀ {a} → {n : ℕ} → {A : Set a}
        → 2 ℕ.≤ n
