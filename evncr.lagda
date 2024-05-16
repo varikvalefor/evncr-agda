@@ -226,6 +226,7 @@ open import Data.Unit.Polymorphic
 open import Truthbrary.Record.LLC
   using (
     liliString;
+    length;
     _++_;
     _∷_;
     _∉_;
