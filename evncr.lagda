@@ -578,12 +578,12 @@ module IntdMmVeritas where
     drop x (upTo $ suc z) ≡⟨ drolen x _ zm₂ ⟩
     []ₗ ∎
     where
-    zm₂ : x ℕ.≥_ $ Data.List.length $ upTo $ suc z
+    zm₂ : x ℕ.≥_ $ length $ upTo $ suc z
     zm₂ = zm ▹ subst (x ℕ.≥_) (DLP.length-upTo _ ▹ sym)
     drolen : ∀ {a} → {A : Set a}
            → (n : ℕ)
            → (L : List A)
-           → n ℕ.≥ Data.List.length L
+           → n ℕ.≥ length L
            → drop n L ≡ []ₗ
     drolen 0 List.[] _ = refl
     drolen (suc n) List.[] _ = refl
@@ -874,7 +874,6 @@ module LersteVeritas where
       open Data.List
         using (
           filter;
-          length;
           take
         )
       LT = length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)
