@@ -766,7 +766,13 @@ module LersteVeritas where
     mleca-just : (c : Char)
                → Data.Char.toℕ c ℕ.< 128
                → Data.Maybe.Is-just $ f c
-    mleca-just = {!!}
+    mleca-just c s = x≡j→J[x] {!!}
+      where
+      x≡j→J[x] : ∀ {a} → {A : Set a}
+               → {x : Maybe A}
+               → ∃ $ _≡_ x ∘ just
+               → Data.Maybe.Is-just x
+      x≡j→J[x] = {!!}
 
     nada₂ : (c : Char)
           → Is-nothing $ f c
