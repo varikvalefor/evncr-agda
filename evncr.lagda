@@ -587,7 +587,7 @@ module IntdMmVeritas where
            → drop n L ≡ []ₗ
     drolen 0 List.[] _ = refl
     drolen (suc n) List.[] _ = refl
-    drolen (suc n) (x List.∷ xs) (ℕ.s≤s s) = drolen n xs s
+    drolen (suc n) (_ List.∷ xs) (ℕ.s≤s s) = drolen n xs s
 
   pamois : (x z : ℕ)
          → x ℕ.≤ z
