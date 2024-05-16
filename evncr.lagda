@@ -772,7 +772,7 @@ module LersteVeritas where
                → {x : Maybe A}
                → ∃ $ _≡_ x ∘ just
                → Data.Maybe.Is-just x
-      x≡j→J[x] = {!!}
+      x≡j→J[x] (_ , refl) = DMAny.just _
       dunlyctaipe = begin
         f c ≡⟨ refl ⟩
         toLerfu (Data.Char.toℕ c) ≡⟨ {!!} ⟩
