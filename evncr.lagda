@@ -774,7 +774,8 @@ module LersteVeritas where
                → Data.Maybe.Is-just x
       x≡j→J[x] = {!!}
       dunlyctaipe = begin
-        f c ≡⟨ {!!} ⟩
+        f c ≡⟨ refl ⟩
+        toLerfu (Data.Char.toℕ c) ≡⟨ {!!} ⟩
         just {!!} ∎
         where
         open ≡-Reasoning
