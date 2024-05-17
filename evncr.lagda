@@ -98,6 +98,7 @@ open import IO
     lift to liftᵢₒ
   )
 open import Data.Fin
+  as 𝔽
   using (
     fromℕ<;
     toℕ;
@@ -614,7 +615,7 @@ module IntdMmVeritas where
          → Data.List.head (intdMm x z) ≡ just x
   pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ {!!} {!!}
     where
-    0' = mink Data.Fin.zero $ sym $ proj₂ $ mlesuk _ _ djm
+    0' = mink 𝔽.zero $ sym $ proj₂ $ mlesuk _ _ djm
     nymoij = cong just ∘ nymois x z djm
 
   romois : (x z : ℕ)
@@ -622,7 +623,7 @@ module IntdMmVeritas where
          → Data.List.last (intdMm x z) ≡ just z
   romois x z djm = nymoij oz ▹ subst₂ _≡_ {!!} {!!}
     where
-    oz = Data.Fin.opposite $ mink Data.Fin.zero $ sym $ proj₂ $ mlesuk _ _ djm
+    oz = 𝔽.opposite $ mink 𝔽.zero $ sym $ proj₂ $ mlesuk _ _ djm
     nymoij = cong just ∘ nymois x z djm
 \end{code}
 
