@@ -620,7 +620,10 @@ module IntdMmVeritas where
   romois : (x z : ℕ)
          → x ℕ.≤ z
          → Data.List.last (intdMm x z) ≡ just z
-  romois = {!!}
+  romois x z djm = nymoij oz ▹ subst₂ _≡_ {!!} {!!}
+    where
+    oz = Data.Fin.opposite $ mink Data.Fin.zero $ sym $ proj₂ $ mlesuk _ _ djm
+    nymoij = cong just ∘ nymois x z djm
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
