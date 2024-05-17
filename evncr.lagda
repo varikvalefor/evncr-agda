@@ -599,6 +599,14 @@ module IntdMmVeritas where
          → x ℕ.≤ z
          → Data.List.last (intdMm x z) ≡ just z
   romois = {!!}
+
+  nymois : (x z : ℕ)
+         → x ℕ.≤ z
+         → (f : Fin $ length $ intdMm x z)
+         → (_≡_
+             (Data.List.lookup (intdMm x z) f)
+             (toℕ f ℕ.+ x))
+  nymois = {!!}
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
