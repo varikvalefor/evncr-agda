@@ -594,6 +594,11 @@ module IntdMmVeritas where
          → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
   pamois = {!!}
+
+  romois : (x z : ℕ)
+         → x ℕ.≤ z
+         → Data.List.last (intdMm x z) ≡ just z
+  romois = {!!}
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
