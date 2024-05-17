@@ -207,6 +207,10 @@ open import Relation.Nullary
     ¬_;
     no
   )
+open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Truthbrary.Record.Eq
   using (
     _≟_;
@@ -608,8 +612,9 @@ module IntdMmVeritas where
   pamois : (x z : ℕ)
          → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
-  pamois x z djm =  nymoij {!!} ▹ subst₂ _≡_ {!!} {!!}
+  pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ {!!} {!!}
     where
+    0' = mink Data.Fin.zero $ sym $ proj₂ $ mlesuk _ _ djm
     nymoij = cong just ∘ nymois x z djm
 
   romois : (x z : ℕ)
