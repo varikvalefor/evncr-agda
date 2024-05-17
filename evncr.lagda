@@ -245,6 +245,7 @@ open import Relation.Nullary.Decidable
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    subst₂;
     subst;
     cong;
     refl;
@@ -601,7 +602,9 @@ module IntdMmVeritas where
   pamois : (x z : ℕ)
          → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
-  pamois = {!!}
+  pamois x z djm =  nymoij {!!} ▹ subst₂ _≡_ {!!} {!!}
+    where
+    nymoij = cong just ∘ nymois x z djm
 
   romois : (x z : ℕ)
          → x ℕ.≤ z
