@@ -1034,7 +1034,7 @@ module SequinVeritas where
            → ¬_ $ Data.Maybe.Is-just $ sequin xs
       N→¬J x []ₗ N ()
       N→¬J x (just z ∷ₗ zs) N = N ⇒⇐ {!!}
-      N→¬J x (nothing ∷ₗ zs) N = {!!}
+      N→¬J x (nothing ∷ₗ zs) N = N→¬J nothing zs {!!}
     romoi-nada x (nothing ∷ₗ zs) d = romoi-nada x zs {!!}
 
   anis : ∀ {a} → {A : Set a}
