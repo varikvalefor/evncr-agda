@@ -591,6 +591,12 @@ module IntdMmVeritas where
     drolen (suc n) List.[] _ = refl
     drolen (suc n) (_ List.∷ xs) (ℕ.s≤s s) = drolen n xs s
 
+
+  mlesuk : (x z : ℕ)
+         → x ℕ.≤ z
+         → ∃ $ _≡_ (length $ intdMm x z) ∘ ℕ.suc
+  mlesuk = {!!}
+
   nymois : (x z : ℕ)
          → x ℕ.≤ z
          → (f : Fin $ length $ intdMm x z)
