@@ -597,7 +597,7 @@ module IntdMmVeritas where
     drolen (suc n) (_ List.∷ xs) (ℕ.s≤s s) = drolen n xs s
 
 
-  mlesuk : (x z : ℕ)
+  mlesuk : {x z : ℕ}
          → x ℕ.≤ z
          → ∃ $ _≡_ (length $ intdMm x z) ∘ ℕ.suc
   mlesuk = {!!}
@@ -615,7 +615,7 @@ module IntdMmVeritas where
          → Data.List.head (intdMm x z) ≡ just x
   pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ {!!} {!!}
     where
-    0' = mink 𝔽.zero $ mlesuk _ _ djm ▹ proj₂ ▹ sym
+    0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
     nymoij = cong just ∘ nymois x z djm
 
   romois : (x z : ℕ)
@@ -624,7 +624,7 @@ module IntdMmVeritas where
   romois x z djm = nymoij oz ▹ subst₂ _≡_ {!!} {!!}
     where
     nymoij = cong just ∘ nymois x z djm
-    oz = 𝔽.opposite $ mink 𝔽.zero $ mlesuk _ _ djm ▹ sp₂
+    oz = 𝔽.opposite $ mink 𝔽.zero $ mlesuk djm ▹ sp₂
       where
       sp₂ = sym ∘ proj₂
 \end{code}
