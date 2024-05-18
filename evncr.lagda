@@ -623,10 +623,10 @@ module IntdMmVeritas where
          → Data.List.last (intdMm x z) ≡ just z
   romois x z djm = nymoij oz ▹ subst₂ _≡_ {!!} {!!}
     where
+    nymoij = cong just ∘ nymois x z djm
     oz = 𝔽.opposite $ mink 𝔽.zero $ mlesuk _ _ djm ▹ sp₂
       where
       sp₂ = sym ∘ proj₂
-    nymoij = cong just ∘ nymois x z djm
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
