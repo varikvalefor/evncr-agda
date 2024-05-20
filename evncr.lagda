@@ -608,7 +608,9 @@ module IntdMmVeritas where
          → (_≡_
              (Data.List.lookup (intdMm x z) f)
              (toℕ f ℕ.+ x))
-  nymois = {!!}
+  nymois x z s f with mink f $ mlesuk s ▹ proj₂
+  ... | 𝔽.zero = {!!}
+  ... | 𝔽.suc f = {!!}
 
   pamois : (x z : ℕ)
          → x ℕ.≤ z
