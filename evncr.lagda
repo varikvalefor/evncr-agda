@@ -514,7 +514,7 @@ module Plicu'aVeritas where
       → (x : B)
       → (d : A)
       → (L : List $ List B × A)
-      → ¬_ $ x ∈_ $ Data.List.concat $ mapₗ proj₁ L
+      → x ∉_ $ Data.List.concat $ mapₗ proj₁ L
       → d ≡ plicu'a x d L
   nin = {!!}
 
