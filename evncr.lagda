@@ -467,7 +467,8 @@ module IntersperseVeritas where
                      (fromℕ<
                        {toℕ x * 2}
                        (mlecavu'u _ _ $ DFP.toℕ<n x))))
-    snaredunli = {!!}
+    snaredunli _ t (q₁ ∷ᵥ q₂ ∷ᵥ []ᵥ) x = {!!}
+    snaredunli M t (q₁ ∷ᵥ xs) x = {!!}
 
   snaredunli = Snaredunli.snaredunli
 
