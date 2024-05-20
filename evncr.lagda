@@ -615,10 +615,12 @@ module IntdMmVeritas where
   pamois : (x z : ℕ)
          → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
-  pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ {!!} ({!!} ▹ cong just)
+  pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ {!!} (TP ▹ cong just)
     where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
     nymoij = cong just ∘ nymois x z djm
+    TP : toℕ 0' ℕ.+ x ≡ x
+    TP = {!!}
 
   romois : (x z : ℕ)
          → x ℕ.≤ z
