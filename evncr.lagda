@@ -439,8 +439,9 @@ intersperse t (x ∷ᵥ y ∷ᵥ z) = x ∷ t ∷ intersperse t (y ∷ᵥ z)
 module IntersperseVeritas where
   nada : ∀ {a} → {A : Set a}
        → (t : A)
-       → intersperse t []ᵥ ≡ []ᵥ
-  nada _ = refl
+       → (x : Vec A 0)
+       → intersperse t x ≡ x
+  nada _ []ᵥ = refl
 
   pav : ∀ {a} → {A : Set a}
       → (t : A)
