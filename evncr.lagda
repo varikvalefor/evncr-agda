@@ -1049,7 +1049,7 @@ module SequinVeritas where
                   → Data.Maybe.Is-nothing x
                   → Data.Maybe.Is-just $ sequin xs
   pamoi-nada-just {xs = just x ∷ₗ xs} j DMA.nothing = DMAny.just _
-  pamoi-nada-just {xs = nothing ∷ₗ xs} j DMA.nothing = {!!}
+  pamoi-nada-just {xs = nothing ∷ₗ xs} j DMA.nothing = pamoi-nada-just {x = nothing} {xs} {!!} {!!}
 
   nada₂ : ∀ {a} → {A : Set a}
         → (x : List $ Maybe A)
