@@ -1082,7 +1082,7 @@ module SequinVeritas where
               → (x : Maybe A)
               → Data.Maybe.Is-just x
               → ∃ $ (x ≡_) ∘ just
-          J→∃ = {!!}
+          J→∃ (just _) (DMAny.just _) = _ , refl
         J→¬N {x = nothing} = λ ()
       N→¬J x (nothing ∷ₗ zs) N = N→¬J nothing zs {!!}
     romoi-nada x (nothing ∷ₗ zs) d = romoi-nada x zs {!!}
