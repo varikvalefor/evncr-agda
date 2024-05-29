@@ -1051,7 +1051,7 @@ module SequinVeritas where
   pamoi-nada-just {xs = just x ∷ₗ xs} j DMA.nothing = DMAny.just _
   pamoi-nada-just {xs = nothing ∷ₗ xs} j DMA.nothing = P
     where
-    P = pamoi-nada-just {x = nothing} {xs} {!!} DMA.nothing
+    P = pamoi-nada-just {x = nothing} {xs} j DMA.nothing
 
   nada₂ : ∀ {a} → {A : Set a}
         → (x : List $ Maybe A)
