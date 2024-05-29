@@ -890,7 +890,7 @@ module LersteVeritas where
          → {x : Maybe A}
          → (j : Data.Maybe.Is-just x)
          → x ≡ just (Data.Maybe.to-witness j)
-    tuig = {!!}
+    tuig (DMAny.just x) = refl
 
   nada : (xs : String)
        → lerste xs ≡ nothing
