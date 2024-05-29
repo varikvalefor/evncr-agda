@@ -632,6 +632,12 @@ module IntdMmVeritas where
     oz = 𝔽.opposite $ mink 𝔽.zero $ mlesuk djm ▹ sp₂
       where
       sp₂ = sym ∘ proj₂
+
+  drodun : (m n : ℕ)
+         → (_≡_
+             (intdMm m n)
+             (drop m $ upTo $ suc n))
+  drodun _ _ = refl
 \end{code}
 
 \section{la'oi .\F{toBnam}.}
