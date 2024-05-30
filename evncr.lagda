@@ -800,7 +800,7 @@ module LersteVeritas where
   private
     toList-∷ : {x : Char}
              → (z : String)
-              → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
+             → 𝕊.toList (x ∷ z) ≡ x ∷ 𝕊.toList z
     toList-∷ = {!!}
 
   kunti : lerste "" ≡ just []ₗ
