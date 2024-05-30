@@ -747,7 +747,8 @@ module ToLerfuVeritas where
     d = begin
       toLerfu n ≡⟨ {!!} ⟩
       mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ {!!} ⟩
-      mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just {!!}) ≡⟨ {!!} ⟩
+      mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just {!!}) ≡⟨ refl ⟩
+      just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ {!!} ⟩
       just {!!} ∎
 
   dubjavmau : {n : ℕ}
