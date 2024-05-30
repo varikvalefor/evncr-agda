@@ -740,6 +740,11 @@ module ToLerfuVeritas where
         → n ℕ.< 128
         → ∃ $ (toLerfu n ≡_) ∘ just
   mleca = {!!}
+
+  dubjavmau : {n : ℕ}
+            → n ℕ.≥ 128
+            → toLerfu n ≡ nothing
+  dunbjavmau = {!!}
 \end{code}
 
 \section{la'oi .\F{lerste}.}
