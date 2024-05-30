@@ -746,7 +746,8 @@ module ToLerfuVeritas where
     open ≡-Reasoning
     d = begin
       toLerfu n ≡⟨ {!!} ⟩
-      mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ (finToLerfu ∘ fromℕ<) ∘ decToMaybe) ⟩
+      mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ refl ⟩
+      _ ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ (finToLerfu ∘ fromℕ<) ∘ decToMaybe) ⟩
       mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just {!!}) ≡⟨ refl ⟩
       just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ refl ⟩
       just _ ∎
