@@ -748,7 +748,7 @@ module ToLerfuVeritas where
       toLerfu n ≡⟨ {!!} ⟩
       mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ refl ⟩
       _ ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ (finToLerfu ∘ fromℕ<) ∘ decToMaybe) ⟩
-      mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just {!!}) ≡⟨ refl ⟩
+      mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just _) ≡⟨ refl ⟩
       just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ refl ⟩
       just _ ∎
       where
