@@ -749,7 +749,11 @@ module ToLerfuVeritas where
   dubjavmau : {n : ℕ}
             → n ℕ.≥ 128
             → toLerfu n ≡ nothing
-  dubjavmau = {!!}
+  dubjavmau {n} djz = begin
+    toLerfu n ≡⟨ {!!} ⟩
+    nothing ∎
+    where
+    open ≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{lerste}.}
