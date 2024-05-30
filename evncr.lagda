@@ -736,6 +736,8 @@ open ToLerfu
 
 \begin{code}
 module ToLerfuVeritas where
+  open ToLerfu
+
   mleca : {n : ℕ}
         → n ℕ.< 128
         → ∃ $ (toLerfu n ≡_) ∘ just
@@ -744,7 +746,7 @@ module ToLerfuVeritas where
     open ≡-Reasoning
     d = begin
       toLerfu n ≡⟨ {!!} ⟩
-      mapₘ (ToLerfu.finToLerfu ∘ fromℕ<) (n ToLerfu.<?' _) ≡⟨ {!!} ⟩
+      mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ {!!} ⟩
       just {!!} ∎
 
   dubjavmau : {n : ℕ}
