@@ -810,7 +810,7 @@ module LersteVeritas where
     nada : (c : Char)
          → Data.Char.toℕ c ℕ.≥ 128
          → Is-nothing $ f c
-    nada c djz = x≡nothing→Is-nothing[x] _ $ begin
+    nada c djz = x≡nothing→Is-nothing[x] $ begin
       f c ≡⟨ refl ⟩
       toLerfu c' ≡⟨ refl ⟩
       Data.Maybe.map f2l< (c' <?' _) ≡⟨ refl ⟩
@@ -823,10 +823,10 @@ module LersteVeritas where
       f2l< : {n : ℕ} → n ℕ.< 128 → Lerfu
       f2l< = ToLerfu.finToLerfu ∘ fromℕ<
       x≡nothing→Is-nothing[x] : ∀ {a} → {A : Set a}
-                              → (x : Maybe A)
+                              → {x : Maybe A}
                               → x ≡ nothing
                               → Is-nothing x
-      x≡nothing→Is-nothing[x] nothing refl = DMA.All.nothing
+      x≡nothing→Is-nothing[x] refl = DMA.All.nothing
       open ≡-Reasoning
       _<?'_≡nothing : c' <?' _ ≡ nothing
       _<?'_≡nothing = begin
