@@ -747,11 +747,12 @@ module ToLerfuVeritas where
     d = begin
       toLerfu n ≡⟨ refl ⟩
       mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ refl ⟩
-      _ ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ (finToLerfu ∘ fromℕ<) ∘ decToMaybe) ⟩
+      _ ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ fℕ< ∘ decToMaybe) ⟩
       mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just _) ≡⟨ refl ⟩
       just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ refl ⟩
       just _ ∎
       where
+      fℕ< = finToLerfu ∘ fromℕ<
       DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.<? _) m
 
   dubjavmau : {n : ℕ}
