@@ -732,6 +732,16 @@ open ToLerfu
   )
 \end{code}
 
+\subsection{le ctaipe be le su'u la'oi .\F{toLerfu}.\ mapti}
+
+\begin{code}
+module ToLerfuVeritas where
+  mleca : {n : ℕ}
+        → n ℕ.< 128
+        → ∃ $ (toLerfu n ≡_) ∘ just
+  mleca = {!!}
+\end{code}
+
 \section{la'oi .\F{lerste}.}
 ni'o ga jonai la'oi .\IC{nothing}.\ du ko'a goi la'o zoi.\ \F{lerste} \B x.\ .zoi.\ gi ga je la'oi .\B x.\ .aski gi ga je nilzilcmi ko'a fa lo nilzilcmi be la'oi .\B x.\ gi ro da poi ke'a kacna'u je cu mleca lo nilzilcmi be ko'a zo'u lo meirmoi be da bei fo ko'a cu sinxa lo meirmoi be da bei la'oi .\B x.
 
