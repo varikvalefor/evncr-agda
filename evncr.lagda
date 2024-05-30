@@ -789,6 +789,13 @@ module LersteVeritas where
     faivuyn (nothing ∷ₗ _) _ = refl
     faivuyn (just x ∷ₗ xs) t = faivuyn xs t ▹ cong (mapₘ $ x ∷_)
 
+    em : ∀ {a} → {A : Set a}
+       → (x : Maybe A)
+       → (xs : List $ Maybe A)
+       → let _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_ in
+         sikh (x ∷ xs) ≡ x ∷ₘ sikh xs
+    em = {!!}
+
   private
     toList-∷ : {x : Char}
              → (z : String)
