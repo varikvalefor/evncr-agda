@@ -794,7 +794,8 @@ module LersteVeritas where
        → (xs : List $ Maybe A)
        → let _∷ₘ_ = Data.Maybe.ap ∘ mapₘ _∷_ in
          sikh (x ∷ xs) ≡ x ∷ₘ sikh xs
-    em = {!!}
+    em (just x) xs = {!!}
+    em nothing xs = {!!}
 
   private
     toList-∷ : {x : Char}
