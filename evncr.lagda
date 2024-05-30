@@ -744,6 +744,7 @@ module ToLerfuVeritas where
     open ≡-Reasoning
     d = begin
       toLerfu n ≡⟨ {!!} ⟩
+      Data.Maybe.map (ToLerfu.finToLerfu ∘ fromℕ<) (n ToLerfu.<?' _) ≡⟨ {!!} ⟩
       just {!!} ∎
 
   dubjavmau : {n : ℕ}
