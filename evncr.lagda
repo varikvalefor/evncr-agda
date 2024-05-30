@@ -746,10 +746,12 @@ module ToLerfuVeritas where
     open ≡-Reasoning
     d = begin
       toLerfu n ≡⟨ {!!} ⟩
-      mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ {!!} ⟩
+      mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ DY ▹ proj₂ ▹ cong (mapₘ (finToLerfu ∘ fromℕ<) ∘ decToMaybe) ⟩
       mapₘ (finToLerfu ∘ fromℕ< {m = n}) (just {!!}) ≡⟨ refl ⟩
       just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ refl ⟩
       just _ ∎
+      where
+      DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.<? _) {!!}
 
   dubjavmau : {n : ℕ}
             → n ℕ.≥ 128
