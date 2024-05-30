@@ -901,7 +901,7 @@ module LersteVeritas where
     _ ≡⟨ toList-∷ xs ▹ cong (sikh ∘ mapₗ f) ⟩
     sikh (mapₗ f $  x ∷ 𝕊.toList xs) ≡⟨ refl ⟩
     sikh (f x ∷_ $ mapₗ f $ 𝕊.toList xs) ≡⟨ Sikh.em (f x) _ ⟩
-    f x ∷ₘ sikh (mapₗ f $ 𝕊.toList xs) ≡⟨ {!!} ▹ cong (f x ∷ₘ_) ⟩
+    f x ∷ₘ sikh (mapₗ f $ 𝕊.toList xs) ≡⟨ refl ▹ cong (f x ∷ₘ_) ⟩
     f x ∷ₘ lerste xs ≡⟨ tuig j ▹ cong (_∷ₘ lerste xs) ⟩
     just j' ∷ₘ lerste xs ≡⟨ refl ⟩
     mapₘ (j' ∷ₗ_) (lerste xs) ∎
