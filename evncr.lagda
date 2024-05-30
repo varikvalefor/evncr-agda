@@ -739,7 +739,12 @@ module ToLerfuVeritas where
   mleca : {n : ℕ}
         → n ℕ.< 128
         → ∃ $ (toLerfu n ≡_) ∘ just
-  mleca = {!!}
+  mleca {n} m = _ , d
+    where
+    open ≡-Reasoning
+    d = begin
+      toLerfu n ≡⟨ {!!} ⟩
+      just {!!} ∎
 
   dubjavmau : {n : ℕ}
             → n ℕ.≥ 128
