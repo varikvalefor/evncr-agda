@@ -752,7 +752,7 @@ module ToLerfuVeritas where
       just (finToLerfu $ fromℕ< {m = n} _) ≡⟨ refl ⟩
       just _ ∎
       where
-      DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.<? _) {!!}
+      DY = Relation.Nullary.Decidable.dec-yes (_ ℕ.<? _) m
 
   dubjavmau : {n : ℕ}
             → n ℕ.≥ 128
