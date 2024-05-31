@@ -741,7 +741,8 @@ module ToLerfuVeritas where
   module _<?'_ where
     nada : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?' n ≡ nothing
     nada {m} {n} N = begin
-      m <?' n ≡⟨ {!!} ⟩
+      m <?' n ≡⟨ refl ⟩
+      decToMaybe (m ℕ.<? n) ≡⟨ {!!} ⟩
       nothing ∎
       where
       open ≡-Reasoning
