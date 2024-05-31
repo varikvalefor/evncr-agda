@@ -877,7 +877,7 @@ module LersteVeritas where
       x≡j→J[x] (_ , refl) = DMAny.just _
       dunlyctaipe = begin
         f c ≡⟨ refl ⟩
-        toLerfu (Data.Char.toℕ c) ≡⟨ {!!} ⟩
+        toLerfu (Data.Char.toℕ c) ≡⟨ ToLerfuVeritas.mleca s ▹ proj₂ ⟩
         just {!!} ∎
         where
         open ≡-Reasoning
