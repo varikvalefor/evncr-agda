@@ -894,7 +894,13 @@ module LersteVeritas where
           → Data.Char.toℕ c ℕ.≥ 128
     nada₂ c n with Data.Char.toℕ c ℕ.≥? 128
     ... | yes z = z
-    ... | no m = n ⇒⇐ {!!}
+    ... | no m = n ⇒⇐ J→¬N {!!}
+      where
+      J→¬N : ∀ {a} → {A : Set a}
+           → {x : Maybe A}
+           → ∃ $ _≡_ x ∘ just
+           → ¬_ $ Is-nothing x
+      J→¬N = {!!}
 
   naljmina : (x : Char)
            → (xs : String)
