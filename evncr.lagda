@@ -742,9 +742,10 @@ module ToLerfuVeritas where
     nada : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?' n ≡ nothing
     nada {m} {n} N = begin
       m <?' n ≡⟨ refl ⟩
-      decToMaybe (m ℕ.<? n) ≡⟨ {!!} ⟩
+      decToMaybe (m ℕ.<? n) ≡⟨ DN ▹ proj₂ ▹ cong decToMaybe ⟩
       nothing ∎
       where
+      DN = Relation.Nullary.Decidable.dec-no (m ℕ.<? n) N
       open ≡-Reasoning
 
     jus : {m n : ℕ} → (ml : m ℕ.< n) → m <?' n ≡ just ml
