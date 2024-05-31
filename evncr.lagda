@@ -766,7 +766,8 @@ module ToLerfuVeritas where
             → n ℕ.≥ 128
             → toLerfu n ≡ nothing
   dubjavmau {n} djz = begin
-    toLerfu n ≡⟨ {!!} ⟩
+    toLerfu n ≡⟨ refl ⟩
+    mapₘ (finToLerfu ∘ fromℕ<) (n <?' _) ≡⟨ {!!} ⟩
     nothing ∎
     where
     open ≡-Reasoning
