@@ -743,6 +743,7 @@ module ToLerfuVeritas where
     nada {m} {n} N = begin
       m <?' n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ DN ▹ proj₂ ▹ cong decToMaybe ⟩
+      decToMaybe (no $ proj₁ DN) ≡⟨ refl ⟩
       nothing ∎
       where
       DN = Relation.Nullary.Decidable.dec-no (m ℕ.<? n) N
