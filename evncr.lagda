@@ -740,7 +740,11 @@ module ToLerfuVeritas where
 
   module _<?'_ where
     nada : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?' n ≡ nothing
-    nada = {!!}
+    nada {m} {n} N = begin
+      m <?' n ≡⟨ {!!} ⟩
+      nothing ∎
+      where
+      open ≡-Reasoning
 
     jus : {m n : ℕ} → (ml : m ℕ.< n) → m <?' n ≡ just ml
     jus = {!!}
