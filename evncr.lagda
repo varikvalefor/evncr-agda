@@ -738,6 +738,10 @@ open ToLerfu
 module ToLerfuVeritas where
   open ToLerfu
 
+  module _<?'_ where
+    nada : {m n : ℕ} → ¬_ $ m ℕ.< n → m <?' n ≡ nothing
+    nada = {!!}
+
   mleca : {n : ℕ}
         → n ℕ.< 128
         → ∃ $ (toLerfu n ≡_) ∘ just
