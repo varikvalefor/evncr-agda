@@ -875,7 +875,7 @@ module LersteVeritas where
     mleca-just : (c : Char)
                → Data.Char.toℕ c ℕ.< 128
                → Data.Maybe.Is-just $ f c
-    mleca-just c s = x≡j→J[x] $ _ , proj₂ (ToLerfuVeritas.mleca s)
+    mleca-just c s = x≡j→J[x] $ ToLerfuVeritas.mleca s
       where
       x≡j→J[x] : ∀ {a} → {A : Set a}
                → {x : Maybe A}
