@@ -887,7 +887,7 @@ module LersteVeritas where
           → Data.Char.toℕ c ℕ.≥ 128
     nada₂ c n with Data.Char.toℕ c ℕ.≥? 128
     ... | yes z = z
-    ... | no m = {!!} ⇒⇐ m
+    ... | no m = n ⇒⇐ {!!}
 
   naljmina : (x : Char)
            → (xs : String)
