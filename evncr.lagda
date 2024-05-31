@@ -875,19 +875,13 @@ module LersteVeritas where
     mleca-just : (c : Char)
                → Data.Char.toℕ c ℕ.< 128
                → Data.Maybe.Is-just $ f c
-    mleca-just c s = x≡j→J[x] $ _ , dunlyctaipe
+    mleca-just c s = x≡j→J[x] $ _ , proj₂ (ToLerfuVeritas.mleca s)
       where
       x≡j→J[x] : ∀ {a} → {A : Set a}
                → {x : Maybe A}
                → ∃ $ _≡_ x ∘ just
                → Data.Maybe.Is-just x
       x≡j→J[x] (_ , refl) = DMAny.just _
-      dunlyctaipe = begin
-        f c ≡⟨ refl ⟩
-        toLerfu (Data.Char.toℕ c) ≡⟨ ToLerfuVeritas.mleca s ▹ proj₂ ⟩
-        just _ ∎
-        where
-        open ≡-Reasoning
 
     nada₂ : (c : Char)
           → Is-nothing $ f c
