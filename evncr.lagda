@@ -885,7 +885,7 @@ module LersteVeritas where
       dunlyctaipe = begin
         f c ≡⟨ refl ⟩
         toLerfu (Data.Char.toℕ c) ≡⟨ ToLerfuVeritas.mleca s ▹ proj₂ ⟩
-        just {!!} ∎
+        just _ ∎
         where
         open ≡-Reasoning
 
