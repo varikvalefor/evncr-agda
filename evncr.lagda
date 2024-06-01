@@ -753,12 +753,14 @@ module ToLerfuVeritas where
     jus {m} {n} ml = begin
       m <?' n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
-      decToMaybe (yes $ proj₁ DY) ≡⟨ {!!} ⟩
+      decToMaybe (yes $ proj₁ DY) ≡⟨ <≡< _ _ ▹ cong (decToMaybe ∘ yes) ⟩
       decToMaybe (yes ml) ≡⟨ refl ⟩
       just ml ∎
       where
       open ≡-Reasoning
       DY = Relation.Nullary.Decidable.dec-yes _ ml
+      <≡< : {m n : ℕ} → (x z : m ℕ.< n) → x ≡ z
+      <≡< = {!!}
 
   mleca : {n : ℕ}
         → n ℕ.< 128
