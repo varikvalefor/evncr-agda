@@ -751,7 +751,8 @@ module ToLerfuVeritas where
 
     jus : {m n : ℕ} → (ml : m ℕ.< n) → m <?' n ≡ just ml
     jus {m} {n} ml = begin
-      m <?' n ≡⟨ {!!} ⟩
+      m <?' n ≡⟨ refl ⟩
+      decToMaybe (m ℕ.<? n) ≡⟨ {!!} ⟩
       just ml ∎
       where
       open ≡-Reasoning
