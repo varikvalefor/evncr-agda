@@ -761,7 +761,7 @@ module ToLerfuVeritas where
       DY = Relation.Nullary.Decidable.dec-yes _ ml
       <≡< : {m n : ℕ} → (x z : m ℕ.< n) → x ≡ z
       <≡< (ℕ.s≤s ℕ.z≤n) (ℕ.s≤s ℕ.z≤n) = refl
-      <≡< {ℕ.suc m} {ℕ.suc n} (ℕ.s≤s x) (ℕ.s≤s z) = {!!}
+      <≡< {ℕ.suc m} {ℕ.suc n} (ℕ.s≤s x) (ℕ.s≤s z) = <≡< x z ▹ cong ℕ.s≤s
 
   mleca : {n : ℕ}
         → n ℕ.< 128
