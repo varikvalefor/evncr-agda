@@ -760,7 +760,8 @@ module ToLerfuVeritas where
       open ≡-Reasoning
       DY = Relation.Nullary.Decidable.dec-yes _ ml
       <≡< : {m n : ℕ} → (x z : m ℕ.< n) → x ≡ z
-      <≡< = {!!}
+      <≡< (ℕ.s≤s ℕ.z≤n) (ℕ.s≤s ℕ.z≤n) = {!!}
+      <≡< (ℕ.s≤s x) (ℕ.s≤s z) = {!!}
 
   mleca : {n : ℕ}
         → n ℕ.< 128
