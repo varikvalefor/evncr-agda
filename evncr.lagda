@@ -753,7 +753,8 @@ module ToLerfuVeritas where
     jus {m} {n} ml = begin
       m <?' n ≡⟨ refl ⟩
       decToMaybe (m ℕ.<? n) ≡⟨ DY ▹ proj₂ ▹ cong decToMaybe ⟩
-      decToMaybe (yes $ proj₁ DY) ≡⟨ <≡< _ _ ▹ cong (decToMaybe ∘ yes) ⟩
+      decToMaybe (yes $ proj₁ DY) ≡⟨ refl ⟩
+      _ ≡⟨ <≡< _ _ ▹ cong (decToMaybe ∘ yes) ⟩
       decToMaybe (yes ml) ≡⟨ refl ⟩
       just ml ∎
       where
