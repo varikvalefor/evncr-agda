@@ -896,7 +896,7 @@ module LersteVeritas where
            → ¬_ $ Is-nothing x
       J→¬N = {!!}
       ≱⇒< : {m n : ℕ} → ¬_ $ m ℕ.≥ n → m ℕ.< n
-      ≱⇒< = {!!}
+      ≱⇒< = DNP.≰⇒>
 
   naljmina : (x : Char)
            → (xs : String)
