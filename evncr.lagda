@@ -750,7 +750,11 @@ module ToLerfuVeritas where
       open ≡-Reasoning
 
     jus : {m n : ℕ} → (ml : m ℕ.< n) → m <?' n ≡ just ml
-    jus = {!!}
+    jus {m} {n} ml = begin
+      m <?' n ≡⟨ {!!} ⟩
+      just ml ∎
+      where
+      open ≡-Reasoning
 
   mleca : {n : ℕ}
         → n ℕ.< 128
