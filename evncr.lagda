@@ -1024,7 +1024,7 @@ module LersteVeritas where
                → (x : A)
                → (xs : List A)
                → x ∈_ $ x ∷ xs
-        x∈x∷xs = {!!}
+        x∈x∷xs = pamoin
       ... | no j = {!!}
 
   kunti₂ : (s : String)
