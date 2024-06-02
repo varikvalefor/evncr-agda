@@ -1017,7 +1017,7 @@ module LersteVeritas where
              → z ∈ xs
              → z ∈_ $ x ∷ xs
       jminin x xs {z} d with x ≟ z
-      ... | yes d₂ = pamoin z xs ▹ subst (λ j → z ∈ (j ∷ xs)) (sym d₂)
+      ... | yes d₂ = pamoin z xs ▹ subst _ (sym d₂)
       ... | no j = {!!}
 
   kunti₂ : (s : String)
