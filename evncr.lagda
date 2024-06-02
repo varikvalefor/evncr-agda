@@ -412,6 +412,34 @@ record Lerfu : Set
 \end{code}
 
 \chapter{le vrici je fancu}
+\section{la .\F{pamoin}.}
+ni'o la .varik. na jinvi le du'u sarcu fa lo nu ciksi bau la .lojban.
+
+\begin{code}
+pamoin : ∀ {a} → {A : Set a}
+       → ⦃ _ : Eq A ⦄
+       → (x : A)
+       → (xs : List A)
+       → x ∈_ $ x ∷ₗ xs
+pamoin x xs = sym $ begin
+  length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ refl ⟩
+  LT (cevec xs) ≡⟨ DVP.toList∘fromList xs ▹ cong LT ⟩
+  LT xs ≡⟨ refl ⟩
+  length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ refl ⟩
+  _ ≡⟨ DLP.filter-accept (x ≟_) refl ▹ cong (length ∘ take 1) ⟩
+  length (take 1 $ x ∷ filter (_≟_ x) xs) ≡⟨ refl ⟩
+  length (x ∷ []ₗ) ≡⟨ refl ⟩
+  1 ∎
+  where
+  cevec = toList ∘ fromList
+  open Data.List
+    using (
+      filter;
+      take
+    )
+  LT = length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)
+  open ≡-Reasoning
+\end{code}
 
 \section{la'oi .\F{liftx}.}
 ni'o lo jalge be tu'a la'oi .\B x.\ cu jalge tu'a la'o zoi.\ \F{liftx} \B x\ .zoi.
@@ -974,30 +1002,6 @@ module LersteVeritas where
     D nothing = yes DMA.All.nothing
     D (just j) = no {!!}
   ... | yes n = x , pamoin x xs , n
-    where
-    pamoin : ∀ {a} → {A : Set a}
-           → ⦃ _ : Eq A ⦄
-           → (x : A)
-           → (xs : List A)
-           → x ∈_ $ x ∷ₗ xs
-    pamoin x xs = sym $ begin
-      length (take 1 $ filter (_≟_ x) $ x ∷ cevec xs) ≡⟨ refl ⟩
-      LT (cevec xs) ≡⟨ DVP.toList∘fromList xs ▹ cong LT ⟩
-      LT xs ≡⟨ refl ⟩
-      length (take 1 $ filter (_≟_ x) $ x ∷ xs) ≡⟨ refl ⟩
-      _ ≡⟨ DLP.filter-accept (x ≟_) refl ▹ cong (length ∘ take 1) ⟩
-      length (take 1 $ x ∷ filter (_≟_ x) xs) ≡⟨ refl ⟩
-      length (x ∷ []ₗ) ≡⟨ refl ⟩
-      1 ∎
-      where
-      cevec = toList ∘ fromList
-      open Data.List
-        using (
-          filter;
-          take
-        )
-      LT = length ∘ take 1 ∘ filter (_≟_ x) ∘ (x ∷_)
-      open ≡-Reasoning
   ... | no j = {!!} ▹ nada₂
     where
     F : List Char → Set
