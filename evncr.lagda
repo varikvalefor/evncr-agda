@@ -1012,7 +1012,9 @@ module LersteVeritas where
              → {z : A}
              → z ∈ xs
              → z ∈_ $ x ∷ xs
-      jminin = {!!}
+      jminin x xs {z} d with z ≟ x
+      ... | yes d₂ = {!!}
+      ... | no j = {!!}
 
   kunti₂ : (s : String)
          → lerste s ≡ just []ₗ
