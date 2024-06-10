@@ -480,7 +480,8 @@ module IntersperseVeritas where
     mlecavu'u : (m n : ℕ)
               → m ℕ.< n
               → m * 2 ℕ.< n * 2 ∸ 1
-    mlecavu'u = {!!}
+    mlecavu'u m n (ℕ.s≤s ℕ.z≤n) = {!!}
+    mlecavu'u m n (ℕ.s≤s s) = {!!}
 
     snaredunli : ∀ {a} → {n : ℕ} → {A : Set a}
                → 2 ℕ.≤ n
