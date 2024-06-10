@@ -546,7 +546,8 @@ module Plicu'aVeritas where
       → (L : List $ List B × A)
       → x ∉_ $ Data.List.concat $ mapₗ proj₁ L
       → d ≡ plicu'a x d L
-  nin = {!!}
+  nin x d []ₗ n = {!!}
+  nin x d (L₀ ∷ₗ Lₓ) n = {!!}
 
   pamois : ∀ {a b} → {A : Set a} → {B : Set b}
          → ⦃ _ : Eq B ⦄
