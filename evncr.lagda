@@ -149,6 +149,7 @@ open import Data.Char
     Char
   )
 open import Data.List
+  as 𝕃
   using (
     List;
     upTo;
@@ -431,7 +432,7 @@ pamoin x xs = sym $ begin
   1 ∎
   where
   cevec = toList ∘ fromList
-  open Data.List
+  open 𝕃
     using (
       filter;
       take
@@ -544,7 +545,7 @@ module Plicu'aVeritas where
       → (x : B)
       → (d : A)
       → (L : List $ List B × A)
-      → x ∉_ $ Data.List.concat $ mapₗ proj₁ L
+      → x ∉_ $ 𝕃.concat $ mapₗ proj₁ L
       → d ≡ plicu'a x d L
   nin x d []ₗ n = {!!}
   nin x d (L₀ ∷ₗ Lₓ) n = {!!}
@@ -636,7 +637,7 @@ module IntdMmVeritas where
          → x ℕ.≤ z
          → (f : Fin $ length $ intdMm x z)
          → (_≡_
-             (Data.List.lookup (intdMm x z) f)
+             (𝕃.lookup (intdMm x z) f)
              (toℕ f ℕ.+ x))
   nymois x z s f with mink f $ mlesuk s ▹ proj₂
   ... | 𝔽.zero = {!!}
@@ -644,7 +645,7 @@ module IntdMmVeritas where
 
   pamois : (x z : ℕ)
          → x ℕ.≤ z
-         → Data.List.head (intdMm x z) ≡ just x
+         → 𝕃.head (intdMm x z) ≡ just x
   pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ (x!0'≡⊃x _ _ 0''≡0 ▹ sym) (0'+x≡x ▹ cong just)
     where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
@@ -663,13 +664,13 @@ module IntdMmVeritas where
             → (f : Fin $ length x)
             → toℕ f ≡ 0
             → (_≡_
-                (Data.List.head x)
-                (just $ Data.List.lookup x f))
+                (𝕃.head x)
+                (just $ 𝕃.lookup x f))
     x!0'≡⊃x = {!!}
 
   romois : (x z : ℕ)
          → x ℕ.≤ z
-         → Data.List.last (intdMm x z) ≡ just z
+         → 𝕃.last (intdMm x z) ≡ just z
   romois x z djm = nymoij oz ▹ subst₂ _≡_ {!!} {!!}
     where
     nymoij = cong just ∘ nymois x z djm
@@ -1094,7 +1095,7 @@ ni'o ga jonai la'oi .\IC{nothing}.\ du ko'e goi la'o zoi.\ \F{sequin} \B n .zoi.
 
 \begin{code}
 sequin : ∀ {a} → {A : Set a} → List $ Maybe A → Maybe A
-sequin = Data.List.head ∘ Data.List.mapMaybe id
+sequin = 𝕃.head ∘ 𝕃.mapMaybe id
 
 module SequinVeritas where
   pamoi : ∀ {a} → {A : Set a}
@@ -1109,7 +1110,7 @@ module SequinVeritas where
          → (z : A)
          → (_≡_
              (just z)
-             (sequin $ Data.List.replicate m nothing ++ just z ∷ₗ x))
+             (sequin $ 𝕃.replicate m nothing ++ just z ∷ₗ x))
   nymois 0 _ _ = refl
   nymois (suc n) = nymois n
 
@@ -1239,7 +1240,7 @@ bacru = _<$>ᵢₒ_ sequin ∘ IO.List.mapM spkJaDnp ∘ dej
   denpaXiRe = doit $ "sleep " ++ show selsniduXiRe
   -- | ni'o zo .dej. cmavlaka'i lu denpa jmina li'u
   dej : List Lerfu → List $ Maybe Lerfu
-  dej = Data.List.intersperse nothing ∘ mapₗ just
+  dej = 𝕃.intersperse nothing ∘ mapₗ just
   spkJaDnp : Maybe Lerfu → IO $ Maybe ℕ
   spkJaDnp = maybe spk $ doit $ denpa selsniduXiRe
 \end{code}
