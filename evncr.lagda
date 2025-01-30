@@ -651,9 +651,12 @@ module IntdMmVeritas where
     nymoij = cong just ∘ nymois x z djm
     0'+x≡x : toℕ 0' ℕ.+ x ≡ x
     0'+x≡x = begin
-      toℕ 0' ℕ.+ x ≡⟨ cong (ℕ._+ x) (toℕ 0' ≡ 0 ∋ {!!}) ⟩
+      toℕ 0' ℕ.+ x ≡⟨ cong (ℕ._+ x) (toℕ 0' ≡ 0 ∋ 0''≡0) ⟩
       0 ℕ.+ x ≡⟨ refl ⟩
       x ∎
+      where
+      0''≡0 : toℕ 0' ≡ 0
+      0''≡0 = {!!}
     x!0'≡⊃x : ∀ {a} → {A : Set a}
             → (x : List A)
             → (f : Fin $ length x)
