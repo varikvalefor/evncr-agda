@@ -650,7 +650,7 @@ module IntdMmVeritas where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
     nymoij = cong just ∘ nymois x z djm
     0''≡0 : toℕ 0' ≡ 0
-    0''≡0 = sym $ Truthbrary.Data.Fin.tomindus 𝔽.zero $ d
+    0''≡0 = sym $ Truthbrary.Data.Fin.tomindus 𝔽.zero d
       where
       d = mlesuk djm ▹ proj₂ ▹ sym
     0'+x≡x : toℕ 0' ℕ.+ x ≡ x
