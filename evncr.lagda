@@ -687,11 +687,11 @@ module IntdMmVeritas where
 
 \begin{code}
 toBnam : Fin 128 → ℕ
-toBnam l = plicu'a q' q' ns
+toBnam l = plicu'a l' l' ns
   where
-  q' = toℕ l
+  l' = toℕ l
   ns : List $ List ℕ × ℕ
-  ns = (du40 , 40) ∷ (cmalu , q' ∸ 32) ∷ []ₗ
+  ns = (du40 , 40) ∷ (cmalu , l' ∸ 32) ∷ []ₗ
     where
     du40 = 40 ∷ 41 ∷ 60 ∷ 62 ∷ 91 ∷ 93 ∷ 123 ∷ 125 ∷ []ₗ
     cmalu = intdMm 97 122
