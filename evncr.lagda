@@ -643,9 +643,7 @@ module IntdMmVeritas where
   ... | 𝔽.zero = {!!}
   ... | 𝔽.suc f = {!!}
 
-  pamois : (x z : ℕ)
-         → x ℕ.≤ z
-         → 𝕃.head (intdMm x z) ≡ just x
+  pamois : (x z : ℕ) → x ℕ.≤ z → 𝕃.head (intdMm x z) ≡ just x
   pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ (x!0'≡⊃x _ _ 0''≡0 ▹ sym) (0'+x≡x ▹ cong just)
     where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
