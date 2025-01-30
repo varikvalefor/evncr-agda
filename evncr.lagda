@@ -856,8 +856,7 @@ module LersteVeritas where
 
   module Sikh where
     faivos : ∀ {a} → {A : Set a}
-           → (j : List A)
-           → just j ≡ (sikh ∘ mapₗ just) j
+           → just {A = List A} Relation.Binary.PropositionalEquality.≗ (sikh ∘ mapₗ just)
     faivos []ₗ = refl
     faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
 
