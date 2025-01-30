@@ -645,7 +645,7 @@ module IntdMmVeritas where
   pamois : (x z : ℕ)
          → x ℕ.≤ z
          → Data.List.head (intdMm x z) ≡ just x
-  pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ (x!0'≡⊃x _ _ {!!} ▹ sym) (0'+x≡x ▹ cong just)
+  pamois x z djm =  nymoij 0' ▹ subst₂ _≡_ (x!0'≡⊃x _ _ 0''≡0 ▹ sym) (0'+x≡x ▹ cong just)
     where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
     nymoij = cong just ∘ nymois x z djm
