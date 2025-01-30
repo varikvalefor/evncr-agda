@@ -857,7 +857,7 @@ module LersteVeritas where
 
   module Sikh where
     faivos : ∀ {a} → {A : Set a}
-           → just {A = List A} ≗ (sikh ∘ mapₗ just)
+           → just ≗ (sikh ∘ mapₗ {A = A} just)
     faivos []ₗ = refl
     faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
 
