@@ -652,6 +652,7 @@ module IntdMmVeritas where
     0'+x≡x : toℕ 0' ℕ.+ x ≡ x
     0'+x≡x = begin
       toℕ 0' ℕ.+ x ≡⟨ {!!} ⟩
+      0 ℕ.+ x ≡⟨ {!!} ⟩
       x ∎
     x!0'≡⊃x : ∀ {a} → {A : Set a}
             → (x : List A)
