@@ -650,7 +650,9 @@ module IntdMmVeritas where
     0' = mink 𝔽.zero $ mlesuk djm ▹ proj₂ ▹ sym
     nymoij = cong just ∘ nymois x z djm
     0'+x≡x : toℕ 0' ℕ.+ x ≡ x
-    0'+x≡x = {!!}
+    0'+x≡x = begin
+      toℕ 0' ℕ.+ x ≡⟨ {!!} ⟩
+      x ∎
     x!0'≡⊃x : ∀ {a} → {A : Set a}
             → (x : List A)
             → (f : Fin $ length x)
