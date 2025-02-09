@@ -859,7 +859,7 @@ module LersteVeritas where
     faivos : ∀ {a} → {A : Set a}
            → just ≗ (sikh ∘ mapₗ {A = A} just)
     faivos []ₗ = refl
-    faivos (x ∷ₗ y) = faivos y ▹ cong (Data.Maybe.map $ x ∷_)
+    faivos (x ∷ₗ xs) = faivos xs ▹ cong (mapₘ $ x ∷_)
 
     faivuyn : ∀ {a} → {A : Set a}
             → (x z : List $ Maybe A)
